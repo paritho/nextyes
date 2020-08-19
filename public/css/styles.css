@@ -1,0 +1,5 @@
+#app {
+    background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
+    height: 100%;
+    box-shadow: inset 0 0 30px 10px #ff9300;
+}

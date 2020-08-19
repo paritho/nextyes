@@ -1,0 +1,29 @@
+{
+  "name": "nextyes",
+  "version": "1.0.0",
+  "description": "Conference App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.config.js && nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paritho/nextyes.git"
+  },
+  "author": "Paul Thompson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paritho/nextyes/issues"
+  },
+  "homepage": "https://github.com/paritho/nextyes#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hyperhtml": "^2.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
