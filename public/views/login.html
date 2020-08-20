@@ -13,39 +13,32 @@
     <link rel="apple-touch-icon" href="./path/to/icon">
     <meta name="description" content="GIA Conference Companion App">
     <meta name="theme-color" content="#004b86" />
-    <title>Welcome!</title>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/worker.js')
-                    .then((reg) => {
-                        console.log('Service worker registered.', reg);
-                    });
-            });
-        }
-    </script>
+    <title>Login/Register</title>
+
 </head>
 
 <body>
     <div id="app">
-        <img class="logo home-logo" src="img/blur-logo.png" />
-        <div class="nav d-none">
-            <div class="item">
-                <p>schedule</p>
-            </div>
-            <div class="item">
-                <p>speakers</p>
-            </div>
-            <div class="item">
-                <p>partners</p>
-            </div>
-            <div class="item">
-                <p>make my day</p>
-            </div>
-            <div class="item">
-                <p>resources</p>
-            </div>
+        <div class="login-form-wrap">
+            <form>
+                <div class="form-group">
+                    <label for="firstName">first name</label>
+                    <input class="form-control" id="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">last name</label>
+                    <input class="form-control" id="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">login/register</button>
+            </form>
         </div>
+
         <div class="btn install">Install to Home Screen</div>
     </div>
     <script src="./js/bundle.js" type="module"></script>

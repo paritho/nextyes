@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon server.js",
     "dev": "webpack --config webpack.config.js && nodemon server.js"
   },
   "repository": {
@@ -24,6 +25,7 @@
   "devDependencies": {
     "nodemon": "^2.0.4",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }

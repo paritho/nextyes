@@ -5,5 +5,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'public/js'),
         filename: 'bundle.js'
+      },
+      devServer:{
+        contentBase: path.join(__dirname, 'public/'),
+        port: 8000
       }
 }

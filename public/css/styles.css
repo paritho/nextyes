@@ -1,5 +1,140 @@
 #app {
     background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
     height: 100%;
-    box-shadow: inset 0 0 30px 10px #ff9300;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to bottom right, #fa9300, #f7c37b);
+}
+
+#app * {
+    font-family: 'Poiret One', cursive;
+}
+
+.install {
+    background-color: #fa9300;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    position: absolute;
+    bottom: 35;
+    margin: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    width: 50%;
+    color: white;
+    font-size: 1.5em;
+    border-radius:10em;
+}
+
+.home-logo {
+    position: absolute;
+    top: 25%;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+
+.fade-out {
+    animation: 1s fade linear 1;
+}
+
+.fade-in {
+    animation: 1s fade linear reverse 1;
+}
+  
+@keyframes fade {
+    0%  {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.nav {
+    position: absolute;
+    bottom: 100;
+    left:5;
+    right:5;
+}
+.nav .item {
+    width: 50%;
+    display:inline-block;
+    color: white;
+    height: 100px;
+    text-align: center;
+    border-top: 1px solid white;
+}
+
+.nav .item p {
+    margin-top: 1em;
+    font-size: 2em;
+    font-family: 'Poiret One', cursive;
+}
+
+.nav .item:nth-child(1), .nav .item:nth-child(5) {
+    background-image: linear-gradient(to bottom, #29abe2 40%, #2676b4);
+}
+.nav .item:nth-child(2), .nav .item:nth-child(4) {
+    background-image: linear-gradient(to bottom, #004b86 40%, #046ebe);
+}
+.nav .item:nth-child(3) {
+    background-image: linear-gradient(to bottom, #fa9300 40%, #f5c47f);
+}
+
+.nav .item:nth-child(5) {
+    border-bottom:1px solid white;
+}
+
+.table-wrap td, .table-wrap th {
+    font-size: 2em !important;
+
+}
+
+.login-form-wrap, .table-wrap {
+    width: 75%;
+    margin: auto;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+}
+
+.login-form-wrap {
+    background-color: #004b86;
+    color: white;
+    padding: .75em;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.login-form-wrap input {
+    background-color: transparent !important;
+    outline:none;
+    border:none !important;
+    border-bottom: 1px solid #fa9300 !important;
+    caret-color: #fa9300;
+    font-size: 2.5em !important;
+    color:white !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height:auto !important;
+}
+
+.login-form-wrap label {
+    font-size: 1.5em;
+    margin-bottom: 0 !important;
+}
+
+.login-form-wrap input:focus {
+    outline: #fa9300 !important;
+    box-shadow: 0 0 0 0.1rem #fa9300 !important;
+    border:none;
+}
+
+.login-form-wrap button {
+    background-color: #fa9300 !important;
+    font-size: 2em;
+    width:100%;
 }
