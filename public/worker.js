@@ -1,18 +1,19 @@
-const CACHE_NAME = 'static-cache-v2';
+const CACHE_NAME = 'static-cache-v3';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
     "/index.html",
-    "css/styles.css",
-    "views/schedule.html",
-    "views/login.html",
-    "views/partners.html",
-    "views/resources.html",
-    "views/speakers.html",
-    "views/makemyday.html",
-    "img/home-logo.png",
-    "img/icon-256.png",
-    "img/icon-512.png"
+    "/schedule.html",
+    "/login.html",
+    "/partners.html",
+    "/resources.html",
+    "/speakers.html",
+    "/makemyday.html",
+    "./css/styles.css",
+    "./js/bundle.js",
+    "./img/home-logo.png",
+    "./img/icon-256.png",
+    "./img/icon-512.png"
 ];
 
 self.addEventListener('install', (evt) => {
@@ -50,7 +51,7 @@ self.addEventListener('fetch', (evt) => {
               .catch(() => {
                 return caches.open(CACHE_NAME)
                     .then((cache) => {
-                      return cache.match('index.html');
+                      return cache.match('/index.html');
                     });
               })
       );

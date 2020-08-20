@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon server.js",
+    "start": "nodemon server.js",
     "dev": "webpack --config webpack.config.js && nodemon server.js"
   },
   "repository": {
@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/paritho/nextyes#readme",
   "dependencies": {
+    "compression": "^1.7.4",
+    "evil-icons": "^1.10.1",
     "express": "^4.17.1",
-    "hyperhtml": "^2.33.0"
+    "helmet": "^4.1.0",
+    "hyperhtml": "^2.33.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",

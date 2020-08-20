@@ -1,4 +1,5 @@
-// import { bind, wire } from "hyperhtml";
+import { bind, wire } from "hyperhtml";
+const icons = require('evil-icons');
 
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
