@@ -21,7 +21,6 @@
   "homepage": "https://github.com/paritho/nextyes#readme",
   "dependencies": {
     "compression": "^1.7.4",
-    "evil-icons": "^1.10.1",
     "express": "^4.17.1",
     "helmet": "^4.1.0",
     "hyperhtml": "^2.33.0",
