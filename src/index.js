@@ -8,6 +8,20 @@ const app = q('#app');
 
 const logo = q('.logo');
 const installBtn = q('.install');
+let install = "";
+window.addEventListener('beforeinstallprompt', e => {
+    install = e;
+    installBtn.classList.remove('d-none');
+});
+
+window.addEventListener('appinstalled', e =>{
+    // logging?
+})
+
+installBtn.addEventListener('click', e =>{
+    install.prompt();
+    installBtn.classList.add('d-none');
+})
 
 const menu = q('.menu');
 const renderMenu = bind(menu);
@@ -29,6 +43,7 @@ logo.addEventListener('animationend', e => {
 setTimeout(() => {
     logo.classList.add('fade-out');
     menu.classList.remove('d-none');
+    menu.classList.add('fade-in');
 }, 2000);
 
 
