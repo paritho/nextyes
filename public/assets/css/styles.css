@@ -52,13 +52,13 @@
         opacity: 0;
     }
 }
-.nav {
+.menu {
     position: absolute;
     bottom: 100;
     left:5;
     right:5;
 }
-.nav .item {
+.menu .item {
     width: 50%;
     display:inline-block;
     color: white;
@@ -67,23 +67,23 @@
     border-top: 1px solid white;
 }
 
-.nav .item p {
+.menu .item p {
     margin-top: 1em;
     font-size: 2em;
     font-family: 'Poiret One', cursive;
 }
 
-.nav .item:nth-child(1), .nav .item:nth-child(5) {
+.menu .item:nth-child(1), .menu .item:nth-child(5) {
     background-image: linear-gradient(to bottom, #29abe2 40%, #2676b4);
 }
-.nav .item:nth-child(2), .nav .item:nth-child(4) {
+.menu .item:nth-child(2), .menu .item:nth-child(4) {
     background-image: linear-gradient(to bottom, #004b86 40%, #046ebe);
 }
-.nav .item:nth-child(3) {
+.menu .item:nth-child(3) {
     background-image: linear-gradient(to bottom, #fa9300 40%, #f5c47f);
 }
 
-.nav .item:nth-child(5) {
+.menu .item:nth-child(5) {
     border-bottom:1px solid white;
 }
 
