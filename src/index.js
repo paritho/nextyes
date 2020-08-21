@@ -28,6 +28,7 @@ logo.addEventListener('animationend', e => {
 
 setTimeout(() => {
     logo.classList.add('fade-out');
+    menu.classList.remove('d-none');
 }, 2000);
 
 

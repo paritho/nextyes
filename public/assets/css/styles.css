@@ -23,7 +23,6 @@
     right: 0;
     width: 50%;
     color: white;
-    font-size: 1.5em;
     border-radius:10em;
 }
 
@@ -33,6 +32,7 @@
     margin: auto;
     left: 0;
     right: 0;
+    width:60%;
 }
 
 
@@ -54,12 +54,12 @@
 }
 .menu {
     position: absolute;
-    bottom: 100;
+    bottom: 64;
     left:5;
     right:5;
 }
 .menu .item {
-    width: 50%;
+    width: 100%;
     display:inline-block;
     color: white;
     height: 100px;
