@@ -5,10 +5,10 @@ const server = express();
 const winston = require('winston');
 const fs = require('fs');
 const path = require('path');
-
+const PORT = process.env.NODE_ENV === 'production' ? 80 : 8000;
 const pathJoiner = (p) => path.join(__dirname, p);
 
-const HOST = process.env.NODE_ENV == 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
+const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
 const WHITE_LIST = {
     src: [
         "'self'",
@@ -82,6 +82,6 @@ server.get(["/resources", "/resources.html"], (req, res) => {
     res.sendFile(pathJoiner('public/views/resources.html'))
 })
 
-server.listen(8000, () => {
-    console.log('listening on 8000')
+server.listen(PORT, () => {
+    console.log(`listening on ${PORT}`)
 })
