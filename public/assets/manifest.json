@@ -11,6 +11,11 @@
       "src": "./img/icon-splash.jpg",
       "sizes": "2048x1024",
       "type": "image/jpg"
+    },
+    {
+      "src": "./img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "/index.html",
