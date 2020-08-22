@@ -2,13 +2,13 @@ import { bind, wire } from "hyperhtml";
 
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
-
 const app = q('#app');
-// const render = bind(app);
-
 const logo = q('.logo');
 const installBtn = q('.install');
+const login = q('.login-form-wrap form');
+const content = q('.content');
 let install = "";
+
 window.addEventListener('beforeinstallprompt', e => {
     install = e;
     installBtn.classList.remove('d-none');
@@ -26,14 +26,14 @@ installBtn.addEventListener('click', e =>{
 const menu = q('.menu');
 const renderMenu = bind(menu);
 
-const pages = ["schedule", "speakers", "partners", "make my day", "resources"];
-const menuItems = pages.map(item => {
-    return wire()`<div class="item">
-        <p>${item}</p>
-    </div>
-    `;
-});
-renderMenu`${menuItems.map(item => item)}`;
+// const icons = [];
+// const menuItems = icons.map(item => {
+//     return wire()`<div class="item">
+//         ${item}
+//     </div>
+//     `;
+// });
+// renderMenu`${menuItems.map(item => item)}`;
 
 
 logo.addEventListener('animationend', e => {
@@ -42,11 +42,6 @@ logo.addEventListener('animationend', e => {
 
 setTimeout(() => {
     logo.classList.add('fade-out');
-    menu.classList.remove('d-none');
-    menu.classList.add('fade-in');
+    content.classList.remove('d-none');
+    content.classList.add('fade-in');
 }, 2000);
-
-
-installBtn.addEventListener('click', e => {
-
-})

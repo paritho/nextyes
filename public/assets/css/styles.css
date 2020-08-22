@@ -82,11 +82,22 @@
 }
 .menu {
     position: absolute;
-    bottom: 64;
     left:5;
     right:5;
 }
-.menu .item {
+
+.menu svg {
+    position: absolute;
+    top:0;
+    width: 100px;
+    height: 100px;
+}
+.menu-logo {
+    position: absolute;
+    right:0;
+    top:0;
+}
+/* .menu .item {
     width: 100%;
     display:inline-block;
     color: white;
@@ -113,7 +124,7 @@
 
 .menu .item:nth-child(5) {
     border-bottom:1px solid white;
-}
+} */
 
 .table-wrap td, .table-wrap th {
     font-size: 2em !important;
