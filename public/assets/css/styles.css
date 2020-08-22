@@ -133,22 +133,22 @@
 
 }
 
-.login-form-wrap, .table-wrap {
+.login-form, .table-wrap {
     position: absolute;
     top: 75;
     left: 5;
     right: 5;
-    bottom: 75;
+    bottom: 55;
 }
 
-.login-form-wrap {
+.login-form {
     background-color: #004b86;
     color: white;
     padding: .75em;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
-.login-form-wrap input {
+.login-form input {
     background-color: transparent !important;
     outline:none;
     border:none !important;
@@ -161,23 +161,23 @@
     height:auto !important;
 }
 
-.login-form-wrap label {
+.login-form label {
     font-size: 1.5em;
     margin-bottom: 0 !important;
 }
 
-.login-form-wrap input:focus {
+.login-form input:focus {
     outline: #fa9300 !important;
     box-shadow: 0 0 0 0.1rem #fa9300 !important;
     border:none;
 }
 
-.login-form-wrap button {
+.login-form button {
     background-color: #fa9300 !important;
     font-size: 1.75em;
     width:100%;
 }
 
-.login-form-wrap.installed {
+.login-form.installed {
     bottom: 5;
 }
