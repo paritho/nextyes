@@ -50,12 +50,12 @@ if(!loggedIn){
 }
 
 
-// logo.addEventListener('animationend', e => {
-//     logo.classList.add('d-none');
-// })
+logo.addEventListener('animationend', e => {
+    logo.classList.add('d-none');
+})
 
 setTimeout(() => {
-    // logo.classList.add('fade-out');
+    logo.classList.add('fade-out');
     content.classList.remove('d-none');
     content.classList.add('fade-in');
 }, 1000);
