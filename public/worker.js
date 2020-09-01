@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v3';
+const CACHE_NAME = 'static-cache-v4';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
@@ -8,6 +8,7 @@ const FILES_TO_CACHE = [
     "/resources.html",
     "/speakers.html",
     "/makemyday.html",
+    "/home.html",
     "./css/styles.css",
     "./css/bootstrap.min.css",
     "./css/bootstrap.min.css.map",

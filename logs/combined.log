@@ -1,0 +1,326 @@
+{"logger":"server log","level":"error","message":"Rrror reading from db dbconnect is not defined","stack":"ReferenceError: dbconnect is not defined\n    at openDb (C:\\Development\\NextYes\\loginService.js:10:28)\n    at module.exports.register (C:\\Development\\NextYes\\loginService.js:36:19)\n    at C:\\Development\\NextYes\\server.js:132:20\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:275:10)"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"logger":"server log","level":"error","message":"Rrror reading from db dbconnect is not defined","stack":"ReferenceError: dbconnect is not defined\n    at openDb (C:\\Development\\NextYes\\loginService.js:10:28)\n    at module.exports.register (C:\\Development\\NextYes\\loginService.js:36:19)\n    at C:\\Development\\NextYes\\server.js:132:20\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:275:10)"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"logger":"server log","level":"error","message":"Rrror reading from db dbconnect is not defined","stack":"ReferenceError: dbconnect is not defined\n    at openDb (C:\\Development\\NextYes\\loginService.js:10:28)\n    at module.exports.register (C:\\Development\\NextYes\\loginService.js:36:19)\n    at C:\\Development\\NextYes\\server.js:132:20\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:275:10)"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"logger":"server log","level":"error","message":"Rrror reading from db dbconnect is not defined","stack":"ReferenceError: dbconnect is not defined\n    at openDb (C:\\Development\\NextYes\\loginService.js:10:28)\n    at module.exports.register (C:\\Development\\NextYes\\loginService.js:36:19)\n    at C:\\Development\\NextYes\\server.js:132:20\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:275:10)"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"logger":"server log","salt":"#!mWnF4%U7XU^^g^","hash":"0602f142cea1b7ea88c9a4e5c1959440b200d98c","level":"info","message":"Login failed, no user for hash"}
+{"message":"cookieSignon failed","level":"error","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b","level":"info","logger":"server log"}
+{"logger":"server log","level":"info","message":"3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b"}
+{"message":"3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b","level":"info","logger":"server log"}
+{"message":"3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b","level":"info","logger":"server log"}
+{"message":"04f921b024618948a24a810c23b28cde1ac0d68a","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"55e45be6997d031699f3e6257ddef3cf553d48eb","level":"info","logger":"server log"}
+{"logger":"server log","level":"error","message":"Error reading from db Unexpected end of JSON input","stack":"SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at openDb (C:\\Development\\NextYes\\loginService.js:10:22)\n    at module.exports.register (C:\\Development\\NextYes\\loginService.js:36:19)\n    at C:\\Development\\NextYes\\server.js:137:20\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Development\\NextYes\\node_modules\\express\\lib\\router\\index.js:335:12)"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"logger":"server log","level":"info","message":"in /signup"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"logger":"server log","level":"info","message":"in /signon"}
+{"message":"in /signon, 3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"in /signon, da5f13ae7c67f92d023cdc26c38b4fe9017d46a4","level":"info","logger":"server log"}
+{"message":"in /signon, e2bd4a0c280c2399a7d27f2960380c4a89004542","level":"info","logger":"server log"}
+{"message":"in /signon, 9619bd5f8962767a30eff58b7ffa424e590bbe79","level":"info","logger":"server log"}
+{"message":"in /signon, 3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"in /signon, da5f13ae7c67f92d023cdc26c38b4fe9017d46a4, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"in /signon, e2bd4a0c280c2399a7d27f2960380c4a89004542, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"in /signon, 9619bd5f8962767a30eff58b7ffa424e590bbe79, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"in /signon, 4a2732780d0bd1b6d9b1ca25f6a0be3b389746dc, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"in /signup, 3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"in /signon, 3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"in /signon, 3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b, mailto.prt@gmail.com","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}

@@ -71,6 +71,18 @@
 .fade-in {
     animation: 2s fade linear reverse 1;
 }
+
+.wiggle {
+    animation: 1s wiggle linear 1;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   80% { transform: rotate(0deg); }
+   85% { transform: rotate(5deg); }
+   95% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
   
 @keyframes fade {
     0%  {
@@ -128,12 +140,13 @@
     border-bottom:1px solid white;
 } */
 
+
 .table-wrap td, .table-wrap th {
     font-size: 2em !important;
 
 }
 
-.login-form, .table-wrap {
+.forms, .table-wrap {
     position: absolute;
     top: 75;
     left: 5;
@@ -141,14 +154,28 @@
     bottom: -10;
 }
 
-.login-form {
-    background-color: #004b86;
-    color: white;
+.forms, .actions {
     padding: .75em;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
-.login-form input {
+.forms {
+    background-color: #004b86;
+    color: white;
+}
+
+.actions {
+    position: absolute;
+    top:31%;
+    left:5;
+    right:5;
+}
+
+.actions button {
+    margin: .5em 0;
+}
+
+.forms input {
     background-color: transparent !important;
     outline:none;
     border:none !important;
@@ -161,23 +188,29 @@
     height:auto !important;
 }
 
-.login-form label {
+.forms label {
     font-size: 1.5em;
     margin-bottom: 0 !important;
 }
 
-.login-form input:focus {
+.forms input:focus {
     outline: #fa9300 !important;
     box-shadow: 0 0 0 0.1rem #fa9300 !important;
     border:none;
 }
 
-.login-form button {
+.forms button, .actions button {
     background-color: #fa9300 !important;
     font-size: 1.75em;
     width:100%;
 }
 
-.login-form.installed {
+.forms.installed {
     bottom: 5;
+}
+
+.actions .card {
+    background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
+    width: 50%;
+    color:white;
 }
