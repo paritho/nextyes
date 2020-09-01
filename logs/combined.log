@@ -324,3 +324,9 @@
 {"message":"in /signon, 3fd65c73a4d5f7de04fe1c2d2f0c7d998f81fa2b, mailto.prt@gmail.com","level":"info","logger":"server log"}
 {"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
 {"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}
+{"message":"mailto.prt@gmail.com successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set salt for new user.","level":"info","logger":"server log"}

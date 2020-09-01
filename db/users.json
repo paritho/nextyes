@@ -1,8 +1,1 @@
-{
-    "hash": {
-        "firstName": "Paul",
-        "lastName": "Thompson",
-        "email": "prt@gmail.com",
-        "lastLogon": ""
-    }
-}
+{"hash":{"firstName":"Paul","lastName":"Thompson","email":"prt@gmail.com","lastLogon":""},"d9659a223645134bde32c25a8738343d5af626cd2129c80ffcf83da6b121c1b7":{"firstName":"Paul","lastName":"Thompson","email":"mailto.prt@gmail.com","lastLogon":"2020-09-01T21:18:55.153Z"}}

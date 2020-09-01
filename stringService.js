@@ -12,14 +12,14 @@ module.exports.salt = () => {
     return generated;
 }
 
-module.exports.hash = (string) => {
+module.exports.hash = (str) => {
     const digest = forge.md.sha1.create();
-    digest.update(string);
+    digest.update(str);
     return digest.digest().toHex();
 }
 
-module.exports.shaHash = (string) => {
+module.exports.shaHash = (str) => {
     const digest = forge.md.sha256.create();
-    digest.update(string);
+    digest.update(str);
     return digest.digest().toHex();
 }
