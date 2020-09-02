@@ -31,14 +31,14 @@ const WHITE_LIST = {
 
 
 server.use(compression());
-// server.use(helmet.contentSecurityPolicy({
-//     directives: {
-//         defaultSrc: ["'self'"],
-//         scriptSrc: [...WHITE_LIST.src],
-//         fontSrc: [...WHITE_LIST.font],
-//         styleSrc: [...WHITE_LIST.style]
-//     },
-// }));
+server.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [...WHITE_LIST.src],
+        fontSrc: [...WHITE_LIST.font],
+        styleSrc: [...WHITE_LIST.style]
+    },
+}));
 
 
 server.use(express.static(pathJoiner('/public/assets/')));
