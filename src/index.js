@@ -170,7 +170,10 @@ formWrap.addEventListener('submit', e => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
-    }).then(res => res.json()).then(result => {
+    }).then(res => {
+        debugger
+        res.json()
+    }).then(result => {
         if (result.success) {
             location.href = "/home";
         }

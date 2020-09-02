@@ -7,7 +7,7 @@ const path = require('path');
 const pathJoiner = (p) => path.join(__dirname, p);
 const { salt, hash, shaHash } = require('./stringService.js');
 const { makeNote, getNotes } = require("./noteService.js");
-const { login, register } = require('./loginService.js');
+const { login } = require('./loginService.js');
 const { logger } = require('./logger.js');
 
 const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
@@ -31,14 +31,14 @@ const WHITE_LIST = {
 
 
 server.use(compression());
-server.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [...WHITE_LIST.src],
-        fontSrc: [...WHITE_LIST.font],
-        styleSrc: [...WHITE_LIST.style]
-    },
-}));
+// server.use(helmet.contentSecurityPolicy({
+//     directives: {
+//         defaultSrc: ["'self'"],
+//         scriptSrc: [...WHITE_LIST.src],
+//         fontSrc: [...WHITE_LIST.font],
+//         styleSrc: [...WHITE_LIST.style]
+//     },
+// }));
 
 
 server.use(express.static(pathJoiner('/public/assets/')));
