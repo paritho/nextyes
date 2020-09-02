@@ -171,7 +171,6 @@ formWrap.addEventListener('submit', e => {
         },
         body: JSON.stringify(formData)
     }).then(res => {
-        debugger
         res.json()
     }).then(result => {
         if (result.success) {
@@ -183,7 +182,9 @@ formWrap.addEventListener('submit', e => {
         console.log(result);
         wiggle(formWrap)
 
-    })
+    }).catch(e => {
+        console.log(e);
+    }
 })
 
 
