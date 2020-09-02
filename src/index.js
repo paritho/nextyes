@@ -161,7 +161,7 @@ formWrap.addEventListener('submit', e => {
         if (input.id == "confirm") {
             return;
         }
-        formData[input.getAttribute('name')] = input.value;
+        formData[input.getAttribute('name').trim()] = input.value;
     });
     fetch(goWhere, {
         method: 'POST',

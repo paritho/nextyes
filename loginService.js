@@ -3,20 +3,24 @@ const path = require('path');
 const { logger } = require("./logger.js");
 const pathJoiner = (p) => path.join(__dirname, p);
 
-const openDb = () => {
-    let users, db;
+const saveUser = (hash, user) => {
     try {
-        db = fs.readFileSync(pathJoiner('db/users.json'));
-        users = JSON.parse(db);
-    } catch(err){
-        logger.error('Error reading from db', err);
-        return;
-    }
-    return users;
-}
+        const users = require('./db/users.json') || null;
+        let userToWrite;
+        if(user){
+            userToWrite = user;
+        } else if(users[hash]){
+            userToWrite = users[hash];
+        }
 
-const saveUsers = (users) => {
-    try {
+        if(!userToWrite) {
+            logger.error('no user provided or no user exists for hash given');
+            return false;
+        }
+
+        userToWrite.lastLogon = new Date();
+        users[hash] = userToWrite;
+
         fs.writeFile(pathJoiner("db/users.json"), JSON.stringify(users), error => {
             if (error) {
                 logger.error('Problem writing to users for ', user)
@@ -27,33 +31,17 @@ const saveUsers = (users) => {
         });
     } catch (err){
         logger.error('Error writing to db', err)
-        return;
+        return false;
     }
     return true;
 }
 
-module.exports.register = (hash, user) => {
-    const users = openDb();
-    user.lastLogon = new Date();
-    users[hash] = user;
-    saveUsers(users);
-    return {success: 'new user registered'}
-}
-
-module.exports.login = (hash) => {
-    const users = openDb();
-    let user, msg = "login";
-
-    if(users){
-        user = users[hash] ? users[hash] : null;
-    }
-    if(user){
-        user && (user.lastLogon = new Date());
-        users[hash] = user;
-        saveUsers(users);
-        logger.info(`${user.email} successful login`);
+module.exports.login = (hash, user = false) => {
+    const successful = saveUser(hash, user);
+    if(successful){
+        logger.info(`successful login`);
         return {success: 'login'}
     }
-    logger.info('Login failed, no user for hash', hash)
-    return {failed: 'user not found'}
+    logger.info('Login failed')
+    return {failed: 'login failed'}
 }

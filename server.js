@@ -62,6 +62,10 @@ server.get("/cookieSignon/:hash", (req, res) => {
     const publicHash = req.params.hash;
     const auths = require("./db/authHash.json");
     const privateHash = auths[publicHash];
+    if(!privateHash){
+        res.status(403).send({failed:'no hash match'});
+        return;
+    }
     const result = login(privateHash.hash);
     if (result.success) {
         //set cookie, expires in 3 days
@@ -75,17 +79,17 @@ server.get("/cookieSignon/:hash", (req, res) => {
 })
 
 server.post("/signon", (req, res) =>{
-    const publicHash = hash(`${req.body.email.trim().toLowerCase()}`);
+    const publicHash = hash(`${req.body.email}`);
     const auths = require("./db/authHash.json");
     const privateHash = auths[publicHash];
     if(!privateHash){
-        res.status(403).send({failed:'no hash'});
+        res.status(403).send({failed:'no matching user'});
         return;
     }
 
     const givenHash = shaHash(`${privateHash.salt}${req.body.password}`);
     if(givenHash !== privateHash.hash){
-        res.status(403).send({failed:'hash missmatch'});
+        res.status(403).send({failed:'private hash missmatch'});
         return;
     }
     const result = login(privateHash.hash);
@@ -97,8 +101,6 @@ server.post("/signon", (req, res) =>{
     if(result.failed){
         res.status(403).send({failed:'signon failed'});
     }
-
-
 })
 
 server.post('/signup', (req, res) => {
@@ -108,36 +110,40 @@ server.post('/signup', (req, res) => {
         email: req.body.email
     };
     const auths = require("./db/authHash.json");
-    const publicHash = hash(`${req.body.email.trim().toLowerCase()}`);
+    const publicHash = hash(`${req.body.email}`);
+
+    if(auths[publicHash]){
+        return res.send({dupemail:'user already exists'});
+    }
+
     const salts = salt();
     const privateHash = {
         salt:salts,
         hash: shaHash(`${salts}${req.body.password}`)
     };
 
-    if(auths[publicHash]){
-        return res.send({dupemail:'email already exists'});
-    } else {
-        auths[publicHash] = privateHash;
-        try {
-            fs.writeFile(pathJoiner("db/authHash.json"), JSON.stringify(auths), error => {
-                if (error) {
-                    logger.error('Problem writing salt')
-                    logger.error(error);
-                } else {
-                    logger.info('Set salt for new user.')
-                }
-            });
-        } catch (err){
-            logger.error('Error writing to db', err)
-        }
+    auths[publicHash] = privateHash;
+    try {
+        fs.writeFile(pathJoiner("db/authHash.json"), JSON.stringify(auths), error => {
+            if (error) {
+                logger.error('Problem writing private hashes')
+                logger.error(error);
+            } else {
+                logger.info('Set private hashes for new user.')
+            }
+        });
+    } catch (err){
+        logger.error('Error writing to db', err)
     }
-    const result = register(privateHash.hash, userdata);
+
+    const result = login(privateHash.hash, userdata);
     if (result.success) {
         res.cookie('user', publicHash, { maxAge: 3 * 24 * 60 * 60 * 1000 })
-        res.send(result);
-    } else {
-        res.status(403).send({ error: 'Error loging in' })
+        return res.send(result);
+    } 
+    if(result.failed){
+        logger.error(`failed to register user ${userdata.email}`)
+        res.status(403).send({ failed: 'Error registering new user' });
     }
 })
 
