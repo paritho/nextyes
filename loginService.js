@@ -36,7 +36,7 @@ const saveUser = (hash, user) => {
     return true;
 }
 
-module.exports.login = (hash, user = false) => {
+module.exports.login = (hash, user) => {
     const successful = saveUser(hash, user);
     if(successful){
         logger.info(`successful login`);

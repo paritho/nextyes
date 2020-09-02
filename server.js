@@ -109,21 +109,21 @@ server.post('/signup', (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email
     };
+    const auths = require("./db/authHash.json");
+    const publicHash = hash(`${req.body.email}`);
+
+    if (auths[publicHash]) {
+        return res.send({ dupemail: 'user already exists' });
+    }
+
+    const salts = salt();
+    const privateHash = {
+        salt: salts,
+        hash: shaHash(`${salts}${req.body.password}`)
+    };
+
+    auths[publicHash] = privateHash;
     try {
-        const auths = require("./db/authHash.json");
-        const publicHash = hash(`${req.body.email}`);
-
-        if (auths[publicHash]) {
-            return res.send({ dupemail: 'user already exists' });
-        }
-
-        const salts = salt();
-        const privateHash = {
-            salt: salts,
-            hash: shaHash(`${salts}${req.body.password}`)
-        };
-
-        auths[publicHash] = privateHash;
         fs.writeFile(pathJoiner("db/authHash.json"), JSON.stringify(auths), error => {
             if (error) {
                 logger.error('Problem writing private hashes')
@@ -139,7 +139,7 @@ server.post('/signup', (req, res) => {
     const result = login(privateHash.hash, userdata);
     if (result.success) {
         res.cookie('user', publicHash, { maxAge: 3 * 24 * 60 * 60 * 1000 })
-        return res.send(result);
+        return res.send({success:'signup successful'});
     }
     if (result.failed) {
         logger.error(`failed to register user ${userdata.email}`)

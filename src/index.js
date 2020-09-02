@@ -171,7 +171,7 @@ formWrap.addEventListener('submit', e => {
         },
         body: JSON.stringify(formData)
     }).then(res => {
-        res.json()
+        return res.json();
     }).then(result => {
         if (result.success) {
             location.href = "/home";
@@ -184,7 +184,7 @@ formWrap.addEventListener('submit', e => {
 
     }).catch(e => {
         console.log(e);
-    }
+    });
 })
 
 
