@@ -3,9 +3,9 @@ module.exports = {
         {
             name:"server",
             script:"./server.js",
-            error_file:"./logs/error.log",
-            out_file:"./logs/info.log",
-            log_file:"./logs/combined.log",
+            error_file:"./logs/pm2/error.log",
+            out_file:"./logs/pm2/info.log",
+            log_file:"./logs/pm2/combined.log",
             env: {
                 "NODE_ENV": "production"
             }
