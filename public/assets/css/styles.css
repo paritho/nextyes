@@ -93,9 +93,10 @@
     }
 }
 .menu {
-    position: absolute;
+    top: 5;
     left:5;
     right:5;
+    position: absolute;
 }
 
 .menu svg {
@@ -104,6 +105,19 @@
     width: 75px;
     height: 75px;
 }
+.menu .back-btns {
+    position: absolute;
+    left: 05;
+    width:75px;
+    height:70px;
+}
+.menu .back-btns svg:nth-child(2) {
+    left:15;
+}
+.menu .contact {
+    left: 90;
+}
+
 .menu-logo {
     position: absolute;
     right:8;
@@ -111,34 +125,7 @@
     width: 58px;
     height: 58px;
 }
-/* .menu .item {
-    width: 100%;
-    display:inline-block;
-    color: white;
-    height: 100px;
-    text-align: center;
-    border-top: 1px solid white;
-}
 
-.menu .item p {
-    margin-top: 1em;
-    font-size: 2em;
-    font-family: 'Poiret One', cursive;
-}
-
-.menu .item:nth-child(1), .menu .item:nth-child(5) {
-    background-image: linear-gradient(to bottom, #29abe2 40%, #2676b4);
-}
-.menu .item:nth-child(2), .menu .item:nth-child(4) {
-    background-image: linear-gradient(to bottom, #004b86 40%, #046ebe);
-}
-.menu .item:nth-child(3) {
-    background-image: linear-gradient(to bottom, #fa9300 40%, #f5c47f);
-}
-
-.menu .item:nth-child(5) {
-    border-bottom:1px solid white;
-} */
 
 
 .table-wrap td, .table-wrap th {
@@ -151,7 +138,7 @@
     top: 75;
     left: 5;
     right: 5;
-    bottom: -10;
+    bottom: -5;
 }
 
 .forms, .actions {

@@ -12,3 +12,12 @@ listening on 8000
 {"message":"successful login","level":"info","logger":"server log"}
 {"message":"Set private hashes for new user.","level":"info","logger":"server log"}
 {"message":"Saved user","level":"info","logger":"server log"}
+{"message":"successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"Set private hashes for new user.","level":"info","logger":"server log"}
+{"message":"successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
+{"message":"successful login","level":"info","logger":"server log"}
+{"message":"Saved user","level":"info","logger":"server log"}
