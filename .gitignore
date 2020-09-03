@@ -1,4 +1,4 @@
 node_modules
 public/assets/js/bundle.js
-db
+db/*.json
 logs

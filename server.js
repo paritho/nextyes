@@ -7,7 +7,7 @@ const path = require('path');
 const pathJoiner = (p) => path.join(__dirname, p);
 const { salt, hash, shaHash } = require('./stringService.js');
 const { makeNote, getNotes } = require("./noteService.js");
-const { login } = require('./loginService.js');
+const { dbWriter, saveUser } = require('./db/dbService.js');
 const { logger } = require('./logger.js');
 
 const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
@@ -40,6 +40,16 @@ server.use(compression());
 //     },
 // }));
 
+const login = (hash, user) => {
+    const successful = saveUser(hash, user);
+    if (successful) {
+        logger.info(`successful login`);
+        return { success: 'login' }
+    }
+    logger.info('Login failed')
+    return { failed: 'login failed' }
+}
+
 
 server.use(express.static(pathJoiner('/public/assets/')));
 server.use(express.json())
@@ -52,7 +62,7 @@ server.get(["/", '/index', '/index.html'], (req, res) => {
     res.sendFile(pathJoiner('public/index.html'));
 })
 server.get(["/schedule", "/schedule.html"], (req, res) => {
-    res.sendFile(pathJoiner('public/views/schedule.html'));
+    res.sendFile(pathJoiner('src/views/schedule.html'));
 })
 server.get("/cookieSignon/:hash", (req, res) => {
     if (!req.params.hash) {
@@ -139,7 +149,7 @@ server.post('/signup', (req, res) => {
     const result = login(privateHash.hash, userdata);
     if (result.success) {
         res.cookie('user', publicHash, { maxAge: 3 * 24 * 60 * 60 * 1000 })
-        return res.send({success:'signup successful'});
+        return res.send({ success: 'signup successful' });
     }
     if (result.failed) {
         logger.error(`failed to register user ${userdata.email}`)
@@ -148,20 +158,35 @@ server.post('/signup', (req, res) => {
 })
 
 server.get(["/home", "/home.html"], (req, res) => {
-    res.sendFile(pathJoiner('public/views/home.html'))
+    res.sendFile(pathJoiner('src/views/home.html'))
 })
 server.get(["/makemyday", "/makemyday.html"], (req, res) => {
-    res.sendFile(pathJoiner('public/views/makemyday.html'))
+    res.sendFile(pathJoiner('src/views/makemyday.html'))
 })
 server.get(["/partners", "/partners.html"], (req, res) => {
-    res.sendFile(pathJoiner('public/views/partners.html'))
+    res.sendFile(pathJoiner('src/views/partners.html'))
 })
 server.get(["/speakers", "/speakers.html"], (req, res) => {
-    res.sendFile(pathJoiner('public/views/speakers.html'))
+    res.sendFile(pathJoiner('src/views/speakers.html'))
 })
 server.get(["/resources", "/resources.html"], (req, res) => {
-    res.sendFile(pathJoiner('public/views/resources.html'))
+    res.sendFile(pathJoiner('src/views/resources.html'))
 })
 server.listen(8000, () => {
     console.log(`listening on 8000`)
 })
+
+// DEV ONLY!
+server.get("/clearDb/:auth", (req, res) => {
+    const authHash = require('./db/authHash.json');
+    if (req.params.auth === authHash['admin']) {
+        dbWriter({users:[]}, "./db/users.json");
+    }
+    for(const auth of authHash){
+        if(auth !== "hashes" && auth !== "admin"){
+            delete authHash[auth];
+        }
+    }
+    dbWriter(authHash, "./db/authHash.json");
+});
+

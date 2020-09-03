@@ -97,6 +97,7 @@
     left:5;
     right:5;
     position: absolute;
+    cursor: pointer;
 }
 
 .menu svg {

@@ -7,6 +7,9 @@ const app = q('#app');
 const logo = q('.logo');
 const installBtn = q('.install');
 const formWrap = q('.forms');
+const menuBtns = q('.menu-btns');
+const backBtns = q('.back-btns');
+const contact = q('.contact');
 const actions = q('.actions');
 const content = q('.content');
 
@@ -139,6 +142,22 @@ checkRegistration()
         bringIn(actions);
     });
 
+backBtns.addEventListener('click', e => {
+    const lookup = {
+        "/": 1,
+        "":1,
+        "/index": 1,
+        "index.html": 1
+    }
+    if (lookup[location.pathname]) {
+        seeOut(formWrap);
+        renderForm``;
+        bringIn(actions);
+    } else {
+        history.go(-1)
+    }
+})
+
 actions.addEventListener('click', e => {
     e.preventDefault();
     const btn = e.target.dataset ? e.target.dataset.type : null;
@@ -148,7 +167,9 @@ actions.addEventListener('click', e => {
     }
     form = forms[btn];
     renderForm`${form}`;
+
     seeOut(actions);
+    bringIn(menuBtns);
     bringIn(formWrap);
 })
 
