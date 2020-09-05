@@ -132,18 +132,7 @@ server.post('/signup', (req, res) => {
     };
 
     auths[publicHash] = privateHash;
-    try {
-        fs.writeFile(pathJoiner("db/authHash.json"), JSON.stringify(auths), error => {
-            if (error) {
-                logger.error('Problem writing private hashes')
-                logger.error(error);
-            } else {
-                logger.info('Set private hashes for new user.')
-            }
-        });
-    } catch (err) {
-        logger.error('Error writing to db', err)
-    }
+    dbWriter("db/authHash.json", auths, 'authhash');
 
     const result = login(privateHash.hash, userdata);
     if (result.success) {

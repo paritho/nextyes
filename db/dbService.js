@@ -1,15 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const { logger } = require("../serverutils/logger.js");
-const pathJoiner = (p) => path.join(__dirname, p);
 
-module.exports.dbWriter = (data, path) => {
-    fs.writeFile(pathJoiner(path), JSON.stringify(data), error => {
+module.exports.dbWriter = (filepath, data, type) => {
+    fs.writeFile(path.join(__dirname,filepath), JSON.stringify(data), error => {
         if (error) {
-            logger.error(`Problem writing to db ${error}`)
+            logger.error(`Problem writing ${type} to db ${error}`)
             logger.error(error);
         } else {
-            logger.info(`Db write to ${path} complete`)
+            logger.info(`${type} db write to ${filepath} complete`)
         }
     });
 
@@ -33,7 +32,7 @@ module.exports.saveUser = (hash, user) => {
         userToWrite.lastLogon = new Date();
         users[hash] = userToWrite;
 
-        this.dbWriter("./db/users.json", users);
+        this.dbWriter("./users.json", users, "save user");
     } catch (err) {
         logger.error('Error saving user to db', err)
         return false;
