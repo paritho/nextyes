@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { logger } = require("../logger.js");
+const { logger } = require("../serverutils/logger.js");
 const pathJoiner = (p) => path.join(__dirname, p);
 
 module.exports.dbWriter = (data, path) => {

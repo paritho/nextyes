@@ -5,10 +5,9 @@ const server = express();
 const fs = require('fs');
 const path = require('path');
 const pathJoiner = (p) => path.join(__dirname, p);
-const { salt, hash, shaHash } = require('./stringService.js');
-const { makeNote, getNotes } = require("./noteService.js");
+const { salt, hash, shaHash } = require('./serverutils/hashService.js');
 const { dbWriter, saveUser } = require('./db/dbService.js');
-const { logger } = require('./logger.js');
+const { logger } = require('./serverutils/logger.js');
 
 const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
 const WHITE_LIST = {

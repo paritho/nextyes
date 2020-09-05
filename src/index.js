@@ -1,7 +1,7 @@
 
 import { bind, wire } from "hyperhtml";
 import { transition, bringIn, seeOut, wiggle } from "./animations.js";
-import { checkRegistration, getCookieValue } from "./loginUtils.js";
+import { checkRegistration } from "./loginUtils.js";
 import menuListeners from "./menu.js";
 
 const q = (selector) => document.querySelector(selector);
