@@ -1,5 +1,8 @@
 
 import { bind, wire } from "hyperhtml";
+import { transition, bringIn, seeOut, wiggle } from "./animations.js";
+import { checkRegistration, getCookieValue } from "./loginUtils.js";
+import menuListeners from "./menu.js";
 
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
@@ -29,85 +32,28 @@ installBtn.addEventListener('click', e => {
     installBtn.classList.add('d-none');
 });
 
-const transition = (from, to) => {
-    seeOut(from);
-    bringIn(to);
-}
-
-const bringIn = (el) => {
-    el.classList.remove('d-none');
-    el.classList.add('fade-in');
-}
-
-const seeOut = (el) => {
-    el.classList.add('fade-out');
-    setTimeout(() => {
-        el.classList.add('d-none');
-    });
-}
-
-const wiggle = (el) => {
-    if (el.classList.contains('fade-in')) {
-        el.classList.remove('fade-in');
-    }
-    if (el.classList.contains('fade-out')) {
-        el.classList.remove('fade-out');
-    }
-    el.classList.add('wiggle');
-    setTimeout(() => {
-        el.classList.remove('wiggle');
-    }, 2000)
-}
-
-const getCookieValue = (name) => {
-    if (!document.cookie) {
-        return;
-    }
-    const cookies = document.cookie.split(';');
-    const keyvalpairs = cookies.map(cookie => {
-        const [cookieName, value] = cookie.split('=');
-        return { name: cookieName.trim(), value };
-    });
-    const cookie = keyvalpairs.find(pair => pair.name === name);
-    if (cookie) {
-        return cookie.value;
-    }
-};
-
-const checkRegistration = () => {
-    const hash = getCookieValue('user');
-    // user cookie exists
-    if (hash) {
-        return fetch(`/cookieSignon/${hash}`)
-            .catch(err => {
-                rej({ error: 'fetch failed', err });
-            });
-    }
-    // no cookie, signin/signup
-    return new Promise((res, rej) => {
-        rej({ noop: 1 })
-    });
-}
 const renderForm = bind(formWrap);
+menuListeners.back(backBtns);
+
 const forms = {
     signup: wire()` <form action="/signup">
         <div class="form-group">
             <label for="firstName">first name</label>
-            <input type="text" name="firstName" class="form-control" id="firstName">
+            <input type="text" name="firstName" required class="form-control" id="firstName">
         </div>
         <div class="form-group">
             <label for="lastName">last name</label>
-            <input type="text" name="lastName" class="form-control" id="lastName">
+            <input type="text" name="lastName" required class="form-control" id="lastName">
         </div>
         <div class="form-group">
             <label for="email">email</label>
-            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" name="email" required class="form-control" id="email" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text">We'll never share your email with anyone
                 else.</small>
         </div>
         <div class="form-group">
             <label for="password">password</label>
-            <input type="password" name="password" class="form-control" id="password">
+            <input type="password" name="password" required class="form-control" id="password">
         </div>
         <div class="form-group">
             <label for="password">confirm password</label>
@@ -142,22 +88,6 @@ checkRegistration()
         bringIn(actions);
     });
 
-backBtns.addEventListener('click', e => {
-    const lookup = {
-        "/": 1,
-        "":1,
-        "/index": 1,
-        "index.html": 1
-    }
-    if (lookup[location.pathname]) {
-        seeOut(formWrap);
-        renderForm``;
-        bringIn(actions);
-    } else {
-        history.go(-1)
-    }
-})
-
 actions.addEventListener('click', e => {
     e.preventDefault();
     const btn = e.target.dataset ? e.target.dataset.type : null;
@@ -165,18 +95,40 @@ actions.addEventListener('click', e => {
     if (!btn) {
         return;
     }
+    renderForm``;
     form = forms[btn];
     renderForm`${form}`;
 
     seeOut(actions);
-    bringIn(menuBtns);
+    bringIn(backBtns);
     bringIn(formWrap);
 })
+
+
 
 formWrap.addEventListener('submit', e => {
     e.preventDefault();
     const goWhere = formWrap.querySelector(['form']).getAttribute('action');
     const inputs = formWrap.querySelectorAll('input');
+    let invalid = false;
+    if(goWhere === '/signup'){
+        debugger
+        const password = [...inputs].find(input => input.id === "password");
+        const confirm = [...inputs].find(input => input.id === "confirm");
+        if(password.value !== confirm.value){
+            wiggle(formWrap);
+            confirm.setCustomValidity("Passwords must match");
+            confirm.classList.add('error');
+            confirm.reportValidity();
+            setTimeout(()=>{
+                confirm.setCustomValidity("");
+            },2000)
+            return;
+        } else {
+            confirm.classList.remove('error');
+        }
+    }
+
     const formData = {};
     inputs.forEach(input => {
         if (input.id == "confirm") {

@@ -39,6 +39,11 @@
     font-family: 'Poiret One', cursive;
 }
 
+.content {
+    overflow-y: scroll;
+    height:100%;
+}
+
 .install {
     background-color: #fa9300;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
@@ -98,6 +103,9 @@
     right:5;
     position: absolute;
     cursor: pointer;
+    background-color: #29abe2;
+    z-index: 1;
+    height: 75px;
 }
 
 .menu svg {
@@ -135,26 +143,24 @@
 }
 
 .forms, .table-wrap {
-    position: absolute;
-    top: 75;
-    left: 5;
-    right: 5;
-    bottom: -5;
+    margin-top:75px;
 }
 
 .forms, .actions {
     padding: .75em;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
 .forms {
     background-color: #004b86;
     color: white;
+    height:100%;
+    max-height: 725px;
+    z-index: 0;
 }
 
 .actions {
     position: absolute;
-    top:31%;
+    top:38%;
     left:5;
     right:5;
 }
@@ -182,8 +188,8 @@
 }
 
 .forms input:focus {
-    outline: #fa9300 !important;
-    box-shadow: 0 0 0 0.1rem #fa9300 !important;
+    outline: #fa9300;
+    box-shadow: 0 0 0 0.1rem #fa9300;
     border:none;
 }
 
@@ -197,8 +203,15 @@
     bottom: 5;
 }
 
+
 .actions .card {
     background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
     width: 50%;
     color:white;
+}
+
+.error {
+    outline: red !important;
+    box-shadow: 0 0 0 0.1rem red !important;
+    border:none !important;
 }

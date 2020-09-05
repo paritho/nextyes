@@ -31,14 +31,14 @@ const WHITE_LIST = {
 
 
 server.use(compression());
-// server.use(helmet.contentSecurityPolicy({
-//     directives: {
-//         defaultSrc: ["'self'"],
-//         scriptSrc: [...WHITE_LIST.src],
-//         fontSrc: [...WHITE_LIST.font],
-//         styleSrc: [...WHITE_LIST.style]
-//     },
-// }));
+server.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [...WHITE_LIST.src],
+        fontSrc: [...WHITE_LIST.font],
+        styleSrc: [...WHITE_LIST.style]
+    },
+}));
 
 const login = (hash, user) => {
     const successful = saveUser(hash, user);
@@ -175,18 +175,4 @@ server.get(["/resources", "/resources.html"], (req, res) => {
 server.listen(8000, () => {
     console.log(`listening on 8000`)
 })
-
-// DEV ONLY!
-server.get("/clearDb/:auth", (req, res) => {
-    const authHash = require('./db/authHash.json');
-    if (req.params.auth === authHash['admin']) {
-        dbWriter({users:[]}, "./db/users.json");
-    }
-    for(const auth of authHash){
-        if(auth !== "hashes" && auth !== "admin"){
-            delete authHash[auth];
-        }
-    }
-    dbWriter(authHash, "./db/authHash.json");
-});
 
