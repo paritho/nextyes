@@ -3,6 +3,7 @@ import { bind, wire } from "hyperhtml";
 import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 import { checkRegistration } from "./loginUtils.js";
 import menuListeners from "./menu.js";
+import * as Alerts from "./alerts.js";
 
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
@@ -111,18 +112,18 @@ formWrap.addEventListener('submit', e => {
     const goWhere = formWrap.querySelector(['form']).getAttribute('action');
     const inputs = formWrap.querySelectorAll('input');
     let invalid = false;
-    if(goWhere === '/signup'){
+    if (goWhere === '/signup') {
         debugger
         const password = [...inputs].find(input => input.id === "password");
         const confirm = [...inputs].find(input => input.id === "confirm");
-        if(password.value !== confirm.value){
+        if (password.value !== confirm.value) {
             wiggle(formWrap);
             confirm.setCustomValidity("Passwords must match");
             confirm.classList.add('error');
             confirm.reportValidity();
-            setTimeout(()=>{
+            setTimeout(() => {
                 confirm.setCustomValidity("");
-            },2000)
+            }, 2000)
             return;
         } else {
             confirm.classList.remove('error');
@@ -150,9 +151,16 @@ formWrap.addEventListener('submit', e => {
             location.href = "/home";
         }
         if (result.dupemail) {
-            //message about email
+            Alerts.showAlert('User already exists, please login');
+            setTimeout(() => {
+                Alerts.hideAlert();
+            }, 1500);
         }
-        console.log(result);
+
+        Alerts.showAlert('Problem right here.');
+        setTimeout(() => {
+            Alerts.hideAlert();
+        }, 1500);
         wiggle(formWrap)
 
     }).catch(e => {

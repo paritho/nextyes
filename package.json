@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
     "build-dev": "webpack --config webpack.config.js --mode development",
-    "dev": "nodemon server.js --ignore db/* logs/*"
+    "dev": "cross-env NODE_ENV=dev nodemon server.js --ignore db/* logs/*",
+    "prod": "npm run build && pm2 start ecosystem.config.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "nodemon": "^2.0.4",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

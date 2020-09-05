@@ -29,15 +29,18 @@ const WHITE_LIST = {
 };
 
 
-server.use(compression());
-server.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [...WHITE_LIST.src],
-        fontSrc: [...WHITE_LIST.font],
-        styleSrc: [...WHITE_LIST.style]
-    },
-}));
+if (process.env.NODE_ENV === "production") {
+    logger.info('NODE_ENV set to production')
+    server.use(compression());
+    server.use(helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: [...WHITE_LIST.src],
+            fontSrc: [...WHITE_LIST.font],
+            styleSrc: [...WHITE_LIST.style]
+        },
+    }));
+}
 
 const login = (hash, user) => {
     const successful = saveUser(hash, user);
