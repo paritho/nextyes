@@ -2,7 +2,7 @@
 import { bind, wire } from "hyperhtml";
 import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 import { checkRegistration } from "./loginUtils.js";
-import menuListeners from "./menu.js";
+import { renderMenu } from "./menu.js";
 import * as Alerts from "./alerts.js";
 
 const q = (selector) => document.querySelector(selector);
@@ -12,10 +12,18 @@ const logo = q('.logo');
 const installBtn = q('.install');
 const formWrap = q('.forms');
 const menuBtns = q('.menu-btns');
-const backBtns = q('.back-btns');
 const contact = q('.contact');
 const actions = q('.actions');
 const content = q('.content');
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/worker')
+            .then((reg) => {
+                console.log('Service worker registered.', reg);
+            });
+    });
+}
 
 let install = "";
 
@@ -34,7 +42,10 @@ installBtn.addEventListener('click', e => {
 });
 
 const renderForm = bind(formWrap);
-menuListeners.back(backBtns);
+let backBtns;
+renderMenu().then(()=>{
+    backBtns = q('.back-btns');
+});
 
 const forms = {
     signup: wire()` <form action="/signup">
@@ -160,7 +171,7 @@ formWrap.addEventListener('submit', e => {
         }
 
     }).catch(e => {
-        console.log(e);
+        console.error('There was an internal error')
     });
 })
 

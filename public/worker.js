@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v7';
+const CACHE_NAME = 'static-cache-v8';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
@@ -12,7 +12,8 @@ const FILES_TO_CACHE = [
     "./css/styles.css",
     "./css/bootstrap.min.css",
     "./css/bootstrap.min.css.map",
-    "./js/bundle.js",
+    "./js/index-bundle.js",
+    "./js/content-bundle.js",
     "./img/logo-small.png",
     "./img/blur-logo.png",
     "./img/icon-512.png",
