@@ -34,6 +34,7 @@ window.addEventListener('beforeinstallprompt', e => {
 
 window.addEventListener('appinstalled', e => {
     // logging?
+    installBtn.classList.add('d-none');
 })
 
 installBtn.addEventListener('click', e => {
