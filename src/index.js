@@ -65,13 +65,13 @@ const forms = {
     login: wire()`<form action="/signon"> 
         <div class="form-group">
             <label for="email">email</label>
-            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" name="email" required class="form-control" id="email" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text">We'll never share your email with anyone
                 else.</small>
             </div>
             <div class="form-group">
             <label for="password">password</label>
-            <input type="password" name="password" class="form-control" id="password">
+            <input type="password" required name="password" class="form-control" id="password">
         </div>
         <button type="submit" class="btn btn-primary loginBtn">sign in</button>
     </form>`
@@ -150,18 +150,14 @@ formWrap.addEventListener('submit', e => {
         if (result.success) {
             location.href = "/home";
         }
-        if (result.dupemail) {
-            Alerts.showAlert('User already exists, please login');
+        const failure = result.dupemail || result.failed;
+        if (failure) {
+            Alerts.showAlert(failure);
             setTimeout(() => {
                 Alerts.hideAlert();
             }, 1500);
+            wiggle(formWrap)
         }
-
-        Alerts.showAlert('Problem right here.');
-        setTimeout(() => {
-            Alerts.hideAlert();
-        }, 1500);
-        wiggle(formWrap)
 
     }).catch(e => {
         console.log(e);

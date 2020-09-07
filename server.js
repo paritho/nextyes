@@ -95,23 +95,26 @@ server.post("/signon", (req, res) => {
     const auths = require("./db/authHash.json");
     const privateHash = auths[publicHash];
     if (!privateHash) {
-        res.status(403).send({ failed: 'no matching user' });
+        logger.info(`No private has for email ${req.body.email}`)
+        res.status(403).send({ failed: 'Email/Password Incorrect' });
         return;
     }
 
     const givenHash = shaHash(`${privateHash.salt}${req.body.password}`);
     if (givenHash !== privateHash.hash) {
-        res.status(403).send({ failed: 'private hash missmatch' });
+        logger.info(`password hashes don't match for user ${req.body.email}`)
+        res.status(403).send({ failed: 'Email/Password Incorrect' });
         return;
     }
     const result = login(privateHash.hash);
     if (result.success) {
-        //set cookie, expires in 3 days
+        logger.info(`user ${req.body.email} successful logon`)
         res.cookie('user', publicHash, { maxAge: 3 * 24 * 60 * 60 * 1000 })
         res.send({ success: 'login' });
     }
     if (result.failed) {
-        res.status(403).send({ failed: 'signon failed' });
+        logger.info(`Login failed for ${req.body.email}: ${result.failed}`)
+        res.status(403).send({ failed: 'Problem Logging In' });
     }
 })
 
@@ -125,7 +128,8 @@ server.post('/signup', (req, res) => {
     const publicHash = hash(`${req.body.email}`);
 
     if (auths[publicHash]) {
-        return res.send({ dupemail: 'user already exists' });
+        logger.info(`${req.body.email} already exits`)
+        return res.send({ dupemail: 'Email already registered' });
     }
 
     const salts = salt();
@@ -135,16 +139,17 @@ server.post('/signup', (req, res) => {
     };
 
     auths[publicHash] = privateHash;
-    dbWriter("db/authHash.json", auths, 'authhash');
+    dbWriter("authHash.json", auths, 'authhash');
 
     const result = login(privateHash.hash, userdata);
     if (result.success) {
+        logger.info(`${req.body.email} successful logon`)
         res.cookie('user', publicHash, { maxAge: 3 * 24 * 60 * 60 * 1000 })
         return res.send({ success: 'signup successful' });
     }
     if (result.failed) {
         logger.error(`failed to register user ${userdata.email}`)
-        res.status(403).send({ failed: 'Error registering new user' });
+        res.status(403).send({ failed: 'Error Registering New User' });
     }
 })
 
