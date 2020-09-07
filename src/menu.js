@@ -3,28 +3,12 @@ import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 
 const q = (selector) => document.querySelector(selector);
 
-const backListener = (e) => {
-    const lookup = {
-        "/": 1,
-        "": 1,
-        "/index": 1,
-        "index.html": 1
-    }
-    if (lookup[window.location.pathname]) {
-        seeOut(q('.forms'));
-        bringIn(q('.actions'));
-        seeOut(q('.back-btns'));
-    } else {
-        window.history.go(-1)
-    }
-}
-
 export const renderMenu = () => {
     const menu = q('.menu');
     let menuContent;
     if(menu){
         menuContent = wire()`<div>
-            <div class="menu-btns" onclick=${backListener}>
+            <div class="menu-btns">
                 <div class="back-btns d-none">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white">
                         <path d="M27.3 34.7L17.6 25l9.7-9.7 1.4 1.4-8.3 8.3 8.3 8.3z" />
@@ -41,33 +25,12 @@ export const renderMenu = () => {
                     <path
                         d="M39 38H11c-1.7 0-3-1.3-3-3V15c0-1.7 1.3-3 3-3h28c1.7 0 3 1.3 3 3v20c0 1.7-1.3 3-3 3zM11 14c-.6 0-1 .4-1 1v20c0 .6.4 1 1 1h28c.6 0 1-.4 1-1V15c0-.6-.4-1-1-1H11z" />
                 </svg>
-                </div>
-                <img src="img/logo-small.png" class="menu-logo" />
-            </div>`;
+            </div>
+            <img src="img/logo-small.png" class="menu-logo" />
+        </div>`;
         return new Promise((res, rej) => {
             bind(menu)`${menuContent}`;
             res();
-        });
+        })
     }
 }
-
-
-// renderMenu().then(()=>{
-//     const btn = q('.back-btns');
-//     btn.addEventListener('click', e => {
-//         const lookup = {
-//             "/": 1,
-//             "": 1,
-//             "/index": 1,
-//             "index.html": 1
-//         }
-//         if (lookup[location.pathname]) {
-//             seeOut(q('.forms'));
-//             bringIn(q('.actions'));
-//             seeOut(q('.back-btns'));
-//         } else {
-//             history.go(-1)
-//         }
-//     })
-// })
-

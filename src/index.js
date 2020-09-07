@@ -44,8 +44,13 @@ installBtn.addEventListener('click', e => {
 
 const renderForm = bind(formWrap);
 let backBtns;
-renderMenu().then(()=>{
+renderMenu().then(() => {
     backBtns = q('.back-btns');
+    backBtns.addEventListener('click', e => {
+        seeOut(formWrap);
+        bringIn(actions);
+        seeOut(backBtns);
+    })
 });
 
 const forms = {
