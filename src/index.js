@@ -11,8 +11,6 @@ const app = q('#app');
 const logo = q('.logo');
 const installBtn = q('.install');
 const formWrap = q('.forms');
-const menuBtns = q('.menu-btns');
-const contact = q('.contact');
 const actions = q('.actions');
 const content = q('.content');
 

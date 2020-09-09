@@ -79,6 +79,14 @@
     font-family: 'Poiret One', cursive;
 }
 
+.row {
+    margin-right:0 !important;
+}
+
+.col-6, .col-12 {
+    padding-right:0 !important;
+}
+
 .content {
     overflow-y: scroll;
     height:100%;
@@ -258,16 +266,65 @@
     bottom: 5;
 }
 
-
-.actions .card {
-    background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
-    width: 50%;
-    color:white;
-}
-
 .error {
     outline: red !important;
     box-shadow: 0 0 0 0.1rem red !important;
     border:none !important;
 }
+
+.right-border {
+    border-right:1px solid white;
+}
+
+.btn-wrap {
+    position: absolute;
+    top: 75px;
+    bottom: 5;
+    left: 5;
+    right: 5;
+    border-top: 1px solid white;
+    z-index: 3;
+    overflow-y: scroll;
+}
+
+.card-btn, .mmd {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin: auto;
+}
+
+.card-btn-img {
+
+}
+
+.card-btn-body{
+    color:white;
+}
+
+.mmd {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 21px 0;
+}
+
+.scroll-down {
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+    left: 41%;
+    background-color: #fa9300;
+    z-index: 4;
+}
+
+@media (min-height: 740px) {
+    .scroll-down {
+        display: none;
+    }
+}
+
+
 
