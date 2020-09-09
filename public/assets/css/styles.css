@@ -133,7 +133,7 @@
     animation: .5s alert 1;
 }
 .alerts.hide {
-    animation: 1s alert ease reverse 1;
+    animation: .3s alert ease reverse 1;
 }
 .alerts .msg {
     animation: alertmsg .5s 1;
@@ -336,6 +336,12 @@
 
 @media (min-height: 740px) {
     .scroll-down {
+        display: none;
+    }
+}
+
+@media (display-mode: standalone) {
+    .install {
         display: none;
     }
 }

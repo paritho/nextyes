@@ -9,7 +9,6 @@ const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
 const app = q('#app');
 const logo = q('.logo');
-const installBtn = q('.install');
 const formWrap = q('.forms');
 const actions = q('.actions');
 const content = q('.content');
@@ -23,33 +22,42 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-let install = "";
-
-window.addEventListener('beforeinstallprompt', e => {
-    install = e;
-    installBtn.classList.remove('d-none');
+let displayMode = 'browser tab';
+window.addEventListener('DOMContentLoaded', () => {
+    if (navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) {
+        displayMode = 'standalone';
+    }
 });
 
-window.addEventListener('appinstalled', e => {
-    // logging?
-    installBtn.classList.add('d-none');
-})
-
-installBtn.addEventListener('click', e => {
-    install.prompt();
-    installBtn.classList.add('d-none');
-});
-
-const renderForm = bind(formWrap);
 let backBtns;
 renderMenu().then(() => {
+    const installBtn = q('.install');
     backBtns = q('.back-btns');
     backBtns.addEventListener('click', e => {
         seeOut(formWrap);
         bringIn(actions);
         seeOut(backBtns);
     })
+
+    if (displayMode !== "standalone") {
+        let install = "";
+        window.addEventListener('beforeinstallprompt', e => {
+            install = e;
+            installBtn.classList.remove('d-none');
+        });
+
+        window.addEventListener('appinstalled', e => {
+            // logging?
+        })
+
+        installBtn.addEventListener('click', e => {
+            install.prompt();
+            window.location.reload(false);
+        });
+    }
 });
+
+const renderForm = bind(formWrap);
 
 const forms = {
     signup: wire()` <form action="/signup">
@@ -97,7 +105,7 @@ checkRegistration()
     .then(result => {
         //user exists
         if (result.success) {
-            location.href = "/home";
+            window.location.href = "/home";
         }
     }).catch(err => {
         transition(logo, content);
@@ -167,10 +175,10 @@ formWrap.addEventListener('submit', e => {
         }
         const failure = result.dupemail || result.failed;
         if (failure) {
-            Alerts.showAlert(failure);
+            Alerts.showAlert("danger", failure);
             setTimeout(() => {
                 Alerts.hideAlert();
-            }, 1500);
+            }, 2500);
             wiggle(formWrap)
         }
 
