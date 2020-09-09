@@ -130,6 +130,7 @@
     left: 0;
     right: 0;
     height: 75px;
+    text-align: center;
 }
 
 .alerts.show {
@@ -143,14 +144,11 @@
 .alerts .msg {
     animation: alertmsg .5s 1;
     position: relative;
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: bolder;
-    padding: .4em .5em;
+    padding: .5em .5em;
+    margin: auto;
 }
-
-
-
-
 
 .menu {
     top: 5;
