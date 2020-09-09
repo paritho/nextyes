@@ -17,7 +17,7 @@ export const renderMenu = () => {
                         <path d="M27.3 34.7L17.6 25l9.7-9.7 1.4 1.4-8.3 8.3 8.3 8.3z" />
                     </svg>
                 </div>
-                <div class="contact">
+                <div class="contact d-none">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white">
                     <path opacity=".9" d="M31.796 24.244l9.97 9.97-1.415 1.414-9.97-9.97z"/>
                     <path opacity=".9" d="M18.278 24.287l1.414 1.414-9.9 9.9-1.414-1.41z"/>

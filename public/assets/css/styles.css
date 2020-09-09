@@ -114,7 +114,6 @@
     margin: .5em 0;
 }
 .alerts {
-    background-color: red;
     color: white;
     z-index: 2;
     position: absolute;
@@ -123,6 +122,12 @@
     right: 0;
     height: 75px;
     text-align: center;
+}
+.alerts.danger {
+    background-color: red;
+}
+.alerts.success {
+    background-color: green;
 }
 .alerts.show {
     animation: .5s alert 1;
