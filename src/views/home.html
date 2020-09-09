@@ -21,9 +21,9 @@
         <div class="content">
             <div class="menu"></div>
             <div class="btn-wrap">
-                <div class="row menu-spacer">
+                <div class="row">
                     <div class="col-6 right-border">
-                        <div class="card-btn">
+                        <div class="card-btn" data-goto="/schedule">
                             <div class="card-btn-img">
                                 <!-- calender icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#004b86">
@@ -63,7 +63,7 @@
 
                     </div>
                     <div class="col-6">
-                        <div class="card-btn">
+                        <div class="card-btn" data-goto="/speakers">
                             <div class="card-btn-img">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#004b86">
                                     <path
@@ -78,7 +78,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="mmd">
+                        <div class="mmd" data-goto="/makemyday">
 
                             <p>make my day</p>
 
@@ -87,7 +87,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6 right-border">
-                        <div class="card-btn">
+                        <div class="card-btn" data-goto="/partners">
                             <div class="card-btn-img">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#004b86">
                                     <path
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="card-btn">
+                        <div class="card-btn" data-goto="/resources">
                             <div class="card-btn-img">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#004b86">
                                     <path
@@ -121,10 +121,8 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="mmd">
-
+                        <div class="mmd" data-goto="/schedule">
                             <p>notes</p>
-
                         </div>
                     </div>
                 </div>
@@ -137,9 +135,9 @@
             </svg>
             <div class="pulse"></div>
         </div>
-        <div class="btn install d-none">Install to Home Screen</div>
-    </div>
+    </div> 
     <script src="./js/content-bundle.js"></script>
+    <script src="./js/home.js"></script>
 </body>
 
 </html>

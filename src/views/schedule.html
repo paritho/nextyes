@@ -3,57 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="The Next Yes">
-    <link rel="apple-touch-icon" href="./path/to/icon">
+    <link rel="apple-touch-icon" href="img/icon-512.png">
     <meta name="description" content="GIA Conference Companion App">
     <meta name="theme-color" content="#004b86" />
-    <title>Conference Schedule</title>
+    <title>Welcome!</title>
 </head>
 
 <body>
     <div id="app">
-        <div class="left">&lt;&lt;</div>
-        <div class="right">&gt;&gt;</div>
-        <div class="table-wrap">
-            <div class="friday">
-                <table class="table table-hover table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">Friday</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">6.00 pm</th>
-                            <td>registration / dinner</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6.45 pm</th>
-                            <td>main session</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">7.30 pm</th>
-                            <td>something else</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">9.00 pm</th>
-                            <td>wrap-up</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <div class="alerts d-none"></div>
+        <div class="content">
+            <div class="menu"></div>
 
-        <div class="btn install">Install to Home Screen</div>
+            <div class="schedule">
+                <h3>friday</h3>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">6:00p</div>
+                    <div class="col-9 row-text">registration</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">6:45p</div>
+                    <div class="col-9 row-text">kickoff session</div>
+                </div>
+                <div class="row sched-row">
+                    <div class="col-3 row-title">9:00p</div>
+                    <div class="col-9 row-text">after party</div>
+                </div>
+                <div class="row-spacer"></div>
+                <h3>saturday</h3>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">8:00a</div>
+                    <div class="col-9 row-text">breakfast</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">9:00a</div>
+                    <div class="col-9 row-text">main session 1</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">10:15a</div>
+                    <div class="col-9 row-text">break</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">10:30a</div>
+                    <div class="col-9 row-text">workshops</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">11:30</div>
+                    <div class="col-9 row-text">main session 2</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">12:30p</div>
+                    <div class="col-9 row-text">lunch</div>
+                </div>
+                <div class="row sched-row row-border">
+                    <div class="col-3 row-title">1:15p</div>
+                    <div class="col-9 row-text">workshops</div>
+                </div>
+                <div class="row sched-row">
+                    <div class="col-3 row-title">2:15p</div>
+                    <div class="col-9 row-text">closing session</div>
+                </div>
+            </div>
+
+            <!-- <div class="table-wrap">
+                <div class="friday">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Friday</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">6.00 pm</th>
+                                <td>registration / dinner</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6.45 pm</th>
+                                <td>main session</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7.30 pm</th>
+                                <td>something else</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9.00 pm</th>
+                                <td>wrap-up</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>-->
+        </div> 
     </div>
-    <script src="./js/bundle.js" type="module"></script>
+    <script src="./js/content-bundle.js"></script>
 </body>
 
 </html>

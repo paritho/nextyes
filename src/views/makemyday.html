@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="The Next Yes">
-    <link rel="apple-touch-icon" href="./path/to/icon">
+    <link rel="apple-touch-icon" href="img/icon-512.png">
     <meta name="description" content="GIA Conference Companion App">
     <meta name="theme-color" content="#004b86" />
-    <title>Make My Day</title>
+    <title>Welcome!</title>
 </head>
 
 <body>
     <div id="app">
-
-        <div class="btn install">Install to Home Screen</div>
+        <div class="alerts d-none"></div>
+        <div class="content d-none">
+            <div class="menu"></div>
+            
+        </div>
     </div>
-    <script src="./js/bundle.js" type="module"></script>
+    <script src="./js/content-bundle.js"></script>
 </body>
 
 </html>

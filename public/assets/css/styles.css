@@ -310,6 +310,37 @@
 .right-border {
     border-right:1px solid white !important;
 }
+.row-border {
+    border-bottom: 1px solid #fa9300;
+}
+.row-spacer {
+    margin:.5em 0;
+    height:5px;
+    background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
+}
+.row-text {
+    font-size: 1.75em;
+    padding-left: 60px;
+    padding-right: 0;
+}
+.row-title {
+    font-size: 1.75em;
+    padding-right:10px;
+}
+.sched-row {
+    padding-left: 15px;
+}
+.schedule {
+    background-color: #343a40;
+    margin-top:75px;
+    color:white;
+}
+.schedule h3 {
+    font-size: 2.75em;
+    padding-left:10px;
+    border-bottom:1px solid white;
+
+}
 .scroll-down, .pulse {
     position: fixed;
     bottom: 20px;
@@ -323,10 +354,6 @@
     background-color: #fa9300;
     opacity: .65;
     z-index: 4;
-}
-.table-wrap td, .table-wrap th {
-    font-size: 2em !important;
-
 }
 .wiggle {
     animation: 1s wiggle linear 1;
