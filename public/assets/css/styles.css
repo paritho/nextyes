@@ -26,12 +26,24 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* animations */
 @keyframes wiggle {
     0% { transform: rotate(0deg); }
    80% { transform: rotate(0deg); }
    85% { transform: rotate(5deg); }
    95% { transform: rotate(-5deg); }
   100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform:scale(1.5);
+        opacity: 0;
+    }
 }
   
 @keyframes fade {
@@ -66,6 +78,8 @@
     }
 }
 
+/* general all-app styles */
+
 #app {
     background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
     height: 100%;
@@ -87,48 +101,18 @@
     padding-right:0 !important;
 }
 
-.content {
-    overflow-y: scroll;
-    height:100%;
-}
 
-.install {
-    background-color: #fa9300;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-    cursor: pointer;
+/* specifics */
+
+.actions {
     position: absolute;
-    bottom: 21;
-    margin: auto;
-    text-align: center;
-    left: 0;
-    right: 0;
-    width: 50%;
-    color: white;
-    border-radius:10em;
+    top:38%;
+    left:5;
+    right:5;
 }
-
-.home-logo {
-    position: absolute;
-    top: 25%;
-    margin: auto;
-    left: 0;
-    right: 0;
-    width:60%;
+.actions button {
+    margin: .5em 0;
 }
-
-
-.fade-out {
-    animation: 2s fade linear 1;
-}
-
-.fade-in {
-    animation: 2s fade linear reverse 1;
-}
-
-.wiggle {
-    animation: 1s wiggle linear 1;
-}
-
 .alerts {
     background-color: red;
     color: white;
@@ -140,15 +124,12 @@
     height: 75px;
     text-align: center;
 }
-
 .alerts.show {
     animation: .5s alert 1;
 }
-
 .alerts.hide {
     animation: 1s alert ease reverse 1;
 }
-
 .alerts .msg {
     animation: alertmsg .5s 1;
     position: relative;
@@ -157,62 +138,49 @@
     padding: .5em .5em;
     margin: auto;
 }
-
-.menu {
-    top: 5;
-    left:5;
-    right:5;
+.btn-wrap {
     position: absolute;
-    height: 75px;
+    top: 80px;
+    bottom: 5;
+    left: 5;
+    right: 5;
+    border-top: 1px solid white;
+    z-index: 3;
+    overflow-y: scroll;
 }
-.menu {
-    cursor: pointer;
-    background-color: #29abe2;
-    z-index: 1;
+.card-btn, .mmd {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin: auto;
 }
-
-.menu svg {
-    position: absolute;
-    top:-5;
-    width: 75px;
-    height: 75px;
-}
-.menu .back-btns {
-    position: absolute;
-    left: 05;
-    width:75px;
-    height:70px;
-}
-.menu .back-btns svg:nth-child(2) {
-    left:15;
-}
-.menu .contact {
-    left: 90;
-}
-
-.menu-logo {
-    position: absolute;
-    right:8;
-    top:6;
-    width: 58px;
-    height: 58px;
-}
-
-
-
-.table-wrap td, .table-wrap th {
-    font-size: 2em !important;
+.card-btn-img {
 
 }
-
+.card-btn-body{
+    color:white;
+}
+.content {
+    overflow-y: scroll;
+    height:100%;
+}
+.error {
+    outline: red !important;
+    box-shadow: 0 0 0 0.1rem red !important;
+    border:none !important;
+}
+.fade-out {
+    animation: 2s fade linear 1;
+}
+.fade-in {
+    animation: 2s fade linear reverse 1;
+}
 .forms, .table-wrap {
     margin-top:75px;
 }
-
 .forms, .actions {
     padding: .75em;
 }
-
 .forms {
     background-color: #004b86;
     color: white;
@@ -220,18 +188,6 @@
     max-height: 725px;
     z-index: 0;
 }
-
-.actions {
-    position: absolute;
-    top:38%;
-    left:5;
-    right:5;
-}
-
-.actions button {
-    margin: .5em 0;
-}
-
 .forms input {
     background-color: transparent !important;
     outline:none;
@@ -244,81 +200,134 @@
     padding-bottom: 0 !important;
     height:auto !important;
 }
-
 .forms label {
     font-size: 1.5em;
     margin-bottom: 0 !important;
 }
-
 .forms input:focus {
     outline: #fa9300;
     box-shadow: 0 0 0 0.1rem #fa9300;
     border:none;
 }
-
 .forms button, .actions button {
     background-color: #fa9300 !important;
     font-size: 1.75em;
     width:100%;
 }
-
 .forms.installed {
     bottom: 5;
 }
-
-.error {
-    outline: red !important;
-    box-shadow: 0 0 0 0.1rem red !important;
-    border:none !important;
-}
-
-.right-border {
-    border-right:1px solid white;
-}
-
-.btn-wrap {
+.home-logo {
     position: absolute;
-    top: 75px;
-    bottom: 5;
-    left: 5;
-    right: 5;
-    border-top: 1px solid white;
-    z-index: 3;
-    overflow-y: scroll;
-}
-
-.card-btn, .mmd {
-    color: white;
-    font-size: 2em;
-    text-align: center;
+    top: 25%;
     margin: auto;
+    left: 0;
+    right: 0;
+    width:60%;
 }
-
-.card-btn-img {
-
+.install {
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    right: 75;
+    background-color: #fa9300;
+    width: 75px;
+    height: 75px;
 }
-
-.card-btn-body{
-    color:white;
+.install p {
+    position: absolute;
+    top: 49px;
+    left: 15px;
+    color: white;
+    font-size: 1.25em;
 }
-
+.install svg {
+    width: 65px !important;
+    height: 65px !important;
+    top: -3px !important;
+    right: 5px;
+}
+.menu {
+    top: 5;
+    left:5;
+    right:5;
+    position: absolute;
+    height: 75px;
+}
+.menu {
+    cursor: pointer;
+    background-color: #29abe2;
+    z-index: 1;
+}
+.menu svg {
+    position: absolute;
+    top:-5;
+    width: 75px;
+    height: 75px;
+}
+.menu .menu-btns {
+    height: 75px;
+}
+.menu .back-btns, .menu .contact {
+    width:75px;
+    height:70px;
+}
+.menu .back-btns {
+    position: absolute;
+    left: -7;
+}
+.menu .back-btns svg:nth-child(2) {
+    left:15;
+}
+.menu .contact {
+    position: absolute;
+    left: 75;
+}
+.menu-logo {
+    position: absolute;
+    right:8;
+    top:6;
+    width: 58px;
+    height: 58px;
+}
 .mmd {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-    padding: 21px 0;
+    padding: 15px 0;
 }
-
-.scroll-down {
+.mmd p {
+    padding-top:10px;
+}
+.pulse {
+    animation: pulse 1s linear infinite;  
+}
+.right-border {
+    border-right:1px solid white !important;
+}
+.scroll-down, .pulse {
     position: fixed;
     bottom: 20px;
     width: 50px;
     height: 50px;
     border: 1px solid white;
     border-radius: 50%;
-    left: 41%;
+    left: 41%;   
+}
+.scroll-down {
     background-color: #fa9300;
+    opacity: .65;
     z-index: 4;
 }
+.table-wrap td, .table-wrap th {
+    font-size: 2em !important;
+
+}
+.wiggle {
+    animation: 1s wiggle linear 1;
+}
+
+/* Media queries */
 
 @media (min-height: 740px) {
     .scroll-down {
