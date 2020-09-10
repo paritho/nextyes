@@ -171,7 +171,7 @@ server.get(["/resources", "/resources.html"], (req, res) => {
 })
 
 server.get(["/contact","/makemyday"], (req, res) => {
-    const page = req.route;
+    const page = req.path;
     res.sendFile(pathJoiner(`src/views${page}.html`))
 })
 server.post("/sendMessage", (req,res)=> {
