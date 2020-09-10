@@ -175,10 +175,10 @@
     border:none !important;
 }
 .fade-out {
-    animation: 2s fade linear 1;
+    animation: 1s fade linear 1;
 }
 .fade-in {
-    animation: 2s fade linear reverse 1;
+    animation: 1s fade linear reverse 1;
 }
 .forms, .table-wrap {
     margin-top:75px;
