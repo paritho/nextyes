@@ -1,6 +1,7 @@
 import { bind, wire } from "hyperhtml";
 import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 import { renderMenu } from "./menu.js";
+import { renderForm } from "./forms.js";
 import * as Alerts from "./alerts.js";
 
 const q = (selector) => document.querySelector(selector);
@@ -14,8 +15,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// get the page we're on, minus the /
+const path = window.location.pathname.slice(1);
+
 renderMenu().then(([backBtns, contact, installBtn]) => {
-        
     bringIn(backBtns);
     bringIn(contact);
     backBtns.addEventListener('click', e => {
@@ -23,7 +26,7 @@ renderMenu().then(([backBtns, contact, installBtn]) => {
     })
     contact.addEventListener('click', e => {
         const currentPage = window.location.pathname;
-        window.location.href = `/contact?returnto=${currentPage}&type=contact`;
+        window.location.href = `/contact`;
     })
 
     let install = "";
@@ -43,4 +46,10 @@ renderMenu().then(([backBtns, contact, installBtn]) => {
         });
     }
 })
+
+if(path === "contact" || path === "makemyday" ){
+    renderForm(path).then(formWrap =>{
+        bringIn(formWrap);
+    })
+}
 

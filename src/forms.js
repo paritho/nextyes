@@ -1,13 +1,13 @@
 import { bind, wire } from "hyperhtml";
 import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 import { getCookieValue } from "./loginUtils.js";
-import { renderMenu } from "./menu.js";
 import * as Alerts from "./alerts.js";
 
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
 const app = q('#app');
 const cookie = getCookieValue('user');
+
 const forms = {
     signup: wire()` <form action="/signup">
         <div class="form-group">
@@ -54,20 +54,20 @@ const forms = {
         </div>
         <div class="form-group">
             <label for="message">message</label>
-            <textarea required name="message" class="form-control" id="message">
+            <textarea required name="message" class="form-control msgbody" id="message"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary loginBtn">sign in</button>
+        <button type="submit" class="btn btn-primary loginBtn">send message</button>
     </form>`,
     makemyday: wire()`<form action="/sendMessage"> 
     <div class="form-group">
         <label for="subject">subject</label>
-        <input type="text" name="subject" required class="form-control" id="subject" readonly value="make my day">
+        <input type="text" tabindex="-1" name="subject" class="form-control" id="subject" readonly value="make my day">
     </div>
     <div class="form-group">
         <label for="message">message</label>
-        <textarea required name="message" class="form-control" id="message">
+        <textarea required name="message" class="form-control msgbody" id="message"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary loginBtn">sign in</button>
+    <button type="submit" class="btn btn-primary loginBtn">make my day!</button>
 </form>`
 };
 
@@ -76,7 +76,6 @@ const loginListener = e => {
     const form = e.target;
     const goWhere = form.getAttribute('action');
     const inputs = form.querySelectorAll('input');
-    let invalid = false;
     if (goWhere === '/signup') {
         const password = [...inputs].find(input => input.id === "password");
         const confirm = [...inputs].find(input => input.id === "confirm");
@@ -128,11 +127,15 @@ const loginListener = e => {
     });
 }
 
+const emailListener = e => {
+
+}
+
 const listenTypes = {
     signup: loginListener,
     login: loginListener,
-    contact:"",
-    makemyday:""
+    contact: emailListener,
+    makemyday: emailListener
 }
 
 export const renderForm = (type) => {

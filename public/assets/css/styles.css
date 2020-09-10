@@ -304,6 +304,9 @@
 .mmd p {
     padding-top:10px;
 }
+.msgbody {
+    min-height:311px;
+}
 .pulse {
     animation: pulse 1s linear infinite;  
 }
@@ -361,9 +364,18 @@
 
 /* Media queries */
 
-@media (min-height: 740px) {
+@media (min-height: 730px) {
     .scroll-down {
         display: none;
+    }
+    .msgbody {
+        min-height: 411px;
+    }
+}
+
+@media (min-height: 800px){
+    .msgbody {
+        min-height: 484px;
     }
 }
 
