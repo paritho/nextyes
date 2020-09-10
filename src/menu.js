@@ -4,10 +4,11 @@ import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 const q = (selector) => document.querySelector(selector);
 
 export const renderMenu = () => {
-    const menu = q('.menu');
-    let menuContent;
-    if(menu){
-        menuContent = wire()`<div>
+    return new Promise((res, rej) => {
+        const menu = q('.menu');
+        let menuContent;
+        if (menu) {
+            menuContent = wire()`<div>
             <div class="menu-btns">
                 <div class="back-btns d-none">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white">
@@ -35,9 +36,14 @@ export const renderMenu = () => {
             </div>
             <img src="img/logo-small.png" class="menu-logo" />
         </div>`;
-        return new Promise((res, rej) => {
+
             bind(menu)`${menuContent}`;
-            res();
-        })
-    }
+            const backBtns = menu.querySelector('.back-btns');
+            const contact = menu.querySelector('.contact');
+            const installBtn = menu.querySelector('.install')
+            res([backBtns, contact, installBtn]);
+        } else {
+            rej();
+        }
+    })
 }

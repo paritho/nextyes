@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
 const server = express();
+const cp = require('cookie-parser');
 const fs = require('fs');
 const path = require('path');
 const pathJoiner = (p) => path.join(__dirname, p);
@@ -56,16 +57,6 @@ const login = (hash, user) => {
 server.use(express.static(pathJoiner('/public/assets/')));
 server.use(express.json())
 
-server.get("/worker", (req, res) => {
-    res.sendFile(pathJoiner('public/worker.js'));
-});
-
-server.get(["/", '/index', '/index.html'], (req, res) => {
-    res.sendFile(pathJoiner('public/index.html'));
-})
-server.get(["/schedule", "/schedule.html"], (req, res) => {
-    res.sendFile(pathJoiner('src/views/schedule.html'));
-})
 server.get("/cookieSignon/:hash", (req, res) => {
     if (!req.params.hash) {
         logger.info(`get request with no hash`)
@@ -152,6 +143,16 @@ server.post('/signup', (req, res) => {
         res.status(403).send({ failed: 'Error Registering New User' });
     }
 })
+server.get("/worker", (req, res) => {
+    res.sendFile(pathJoiner('public/worker.js'));
+});
+
+server.get(["/", '/index', '/index.html'], (req, res) => {
+    res.sendFile(pathJoiner('public/index.html'));
+})
+server.get(["/schedule", "/schedule.html"], (req, res) => {
+    res.sendFile(pathJoiner('src/views/schedule.html'));
+})
 
 server.get(["/home", "/home.html"], (req, res) => {
     res.sendFile(pathJoiner('src/views/home.html'))
@@ -167,6 +168,15 @@ server.get(["/speakers", "/speakers.html"], (req, res) => {
 })
 server.get(["/resources", "/resources.html"], (req, res) => {
     res.sendFile(pathJoiner('src/views/resources.html'))
+})
+
+server.get(["/contact","/makemyday"], (req, res) => {
+    const page = req.route;
+    res.sendFile(pathJoiner(`src/views${page}.html`))
+})
+server.post("/sendMessage", (req,res)=> {
+    //always go back home
+    res.sendFile(pathJoiner('src/views/home.html'))
 })
 server.listen(8000, () => {
     console.log(`listening on 8000`)

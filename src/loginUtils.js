@@ -1,4 +1,4 @@
-const getCookieValue = (name) => {
+export const getCookieValue = (name) => {
     if (!document.cookie) {
         return;
     }

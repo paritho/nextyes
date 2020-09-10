@@ -14,18 +14,16 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-renderMenu().then(() => {
-    const backBtns = q('.back-btns');
-    const contact = q('.contact');
-    const installBtn = q('.install');
-    
+renderMenu().then(([backBtns, contact, installBtn]) => {
+        
     bringIn(backBtns);
     bringIn(contact);
     backBtns.addEventListener('click', e => {
         window.history.go(-1)
     })
     contact.addEventListener('click', e => {
-        window.location.href = "/contact";
+        const currentPage = window.location.pathname;
+        window.location.href = `/contact?returnto=${currentPage}&type=contact`;
     })
 
     let install = "";
@@ -45,3 +43,4 @@ renderMenu().then(() => {
         });
     }
 })
+
