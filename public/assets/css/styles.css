@@ -161,10 +161,10 @@
     z-index: 3;
     overflow-y: scroll;
 }
-button {
+.btn {
     background-color: #fa9300 !important;
-    font-size: 1.75em;
-    width:100%;
+    font-size: 1.75em !important;
+    width:100% !important;
 }
 .card-btn, .mmd {
     color: white;
