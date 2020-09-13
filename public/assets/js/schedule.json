@@ -1,46 +1,52 @@
 {
     "1":{
         "title":"6:00p registration",
-        "descr":""
+        "descr":"Registration will be open from 6:00p to 6:45p. Charcuterie will be available as well. We encourage you to arrive in enough time to mingle!"
     },
     "2":{
         "title":"6:45p kickoff session",
-        "descr":""
+        "descr":"Paster Jeff will deliever a message that will set the stage for the entire conference. We'll engage in a time of worship after Jeff speaks.",
+        "notes": true
     },
     "3":{
         "title":"9:00p after party",
-        "descr":""
+        "descr":"Details to be announced!"
     },
     "4":{
         "title":"8:00a breakfast",
-        "descr":""
+        "descr":"The most important meal of the day will be available from 8:00a to 8:45a. Be sure to arrive in enough time to grab your breakfast so your stomach isn't growling all day. Menu includes delicousness."
     },
     "5":{
         "title":"9:00a main session 1",
-        "descr":""
+        "descr":"James will be delivering this session.",
+        "notes": true
     },
     "6":{
         "title":"10:15a break",
-        "descr":""
+        "descr":"Have you submitted a 'Make My Day' yet? Head on over to do so if you haven't! Otherwise, find some snaks in the lobby and meet a new friend! We'll see you in 15."
     },
     "7":{
         "title":"10:30 workshops",
-        "descr":""
+        "descr":"Find your workshop room and be prepared for a smaller, more intimate setting with our speakers.",
+        "notes": true
     },
     "8":{
         "title":"11:30a main session 2",
-        "descr":""
+        "descr":"Hungry? Be sure to grab a snack before returning to the main auditorium for this session. Juli will be speaking.",
+        "notes": true
     },
     "9":{
         "title":"12:30p lunch",
-        "descr":""
+        "descr":"Lunch menu is ... "
     },
     "10":{
         "title":"1:15p workshops",
-        "descr":""
+        "descr":"The second round of workshops will be even better than the first.",
+        "notes": true
     },
     "11":{
         "title":"2:15p closing session",
-        "descr":""
+        "descr":"It's so sad, but even good things must come to an end. This is our last session for the conference. Pastor Joe will share from his heart and we'll close out this year's conference with some worship.",
+        "notes": true
     }
 }

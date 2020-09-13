@@ -32,7 +32,7 @@ const forms = {
             <label for="password">confirm password</label>
             <input type="password" class="form-control" id="confirm">
         </div>
-        <button type="submit" class="btn btn-primary loginBtn">sign up</button>
+        <button type="submit" class="btn btn-primary">sign up</button>
     </form>`,
     login: wire()`<form action="/signon"> 
         <div class="form-group">
@@ -40,12 +40,12 @@ const forms = {
             <input type="email" name="email" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="email">
             <small id="emailHelp" class="form-text">We'll never share your email with anyone
                 else.</small>
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="password">password</label>
             <input type="password" required name="password" class="form-control" id="password">
         </div>
-        <button type="submit" class="btn btn-primary loginBtn">sign in</button>
+        <button type="submit" class="btn btn-primary">sign in</button>
     </form>`,
     contact: wire()`<form action="/sendMessage"> 
         <div class="form-group">
@@ -55,18 +55,34 @@ const forms = {
             <label for="message">questions, feedback, or prayer requests?</label>
             <textarea required name="message" class="form-control msgbody" id="message"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary loginBtn">send message</button>
+        <button type="submit" class="btn btn-primary">send message</button>
     </form>`,
     makemyday: wire()`<form action="/sendMessage"> 
-    <div class="form-group">
-        <input type="text" tabindex="-1" name="subject" class="form-control" id="subject" readonly value="make my day">
-    </div>
-    <div class="form-group">
-        <label for="message">what would make your day?</label>
-        <textarea required name="message" class="form-control msgbody" id="message"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary loginBtn">make my day!</button>
-</form>`
+        <div class="form-group">
+            <input type="text" tabindex="-1" name="subject" class="form-control" id="subject" readonly value="make my day">
+        </div>
+        <div class="form-group">
+            <label for="message">what would make your day?</label>
+            <textarea required name="message" class="form-control msgbody" id="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">make my day!</button>
+    </form>`,
+    reset:"",
+    forgot:wire()`<form action="/signon"> 
+        <div class="form-group">
+            <input type="email" name="email" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="email">
+        </div>  
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>`,
+    notes: wire()`<form action=""> 
+        <div class="form-group">
+            <input type="text" name="title" class="form-control" id="title" placeholder="title">
+        </div>
+        <div class="form-group">
+            <textarea name="note" class="form-control msgbody" id="note"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">save</button>
+    </form>`
 };
 
 const loginListener = e => {
@@ -133,7 +149,10 @@ const listenTypes = {
     signup: loginListener,
     login: loginListener,
     contact: emailListener,
-    makemyday: emailListener
+    makemyday: emailListener,
+    reset:"",
+    forgot:"",
+    notes:""
 }
 
 export const renderForm = (type) => {

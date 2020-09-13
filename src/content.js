@@ -82,6 +82,7 @@ if (path === 'schedule') {
                 <div class="details-body">
                     ${{html: deets.descr}}
                 </div>
+                ${deets.notes ? wire()`<button class="btn btn-primary" onclick="window.location.href='/notes'">notes</button>` :"" }
         </div>`;
     }
 

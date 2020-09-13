@@ -168,7 +168,9 @@ server.get(["/speakers", "/speakers.html"], (req, res) => {
 server.get(["/resources", "/resources.html"], (req, res) => {
     res.sendFile(pathJoiner('src/views/resources.html'))
 })
-
+server.get(["/notes", "/notes.html"], (req, res) => {
+    res.sendFile(pathJoiner('src/views/notes.html'))
+})
 server.get(["/contact","/makemyday"], (req, res) => {
     const page = req.path;
     res.sendFile(pathJoiner(`src/views${page}.html`))

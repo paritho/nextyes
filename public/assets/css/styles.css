@@ -148,6 +148,9 @@
     padding: .5em .5em;
     margin: auto;
 }
+.below-menu {
+    margin-top:75px !important;
+}
 .btn-wrap {
     position: absolute;
     top: 80px;
@@ -157,6 +160,11 @@
     border-top: 1px solid white;
     z-index: 3;
     overflow-y: scroll;
+}
+button {
+    background-color: #fa9300 !important;
+    font-size: 1.75em;
+    width:100%;
 }
 .card-btn, .mmd {
     color: white;
@@ -184,6 +192,13 @@
     border: 1px solid #004b86;
     background-image: radial-gradient(circle at top right,  #29abe2 40%, #004b86);
 
+}
+.details button {
+    width: 90%;
+    position: absolute;
+    bottom: 15px;
+    left: 17px;
+    font-size: 1.5em;
 }
 .details-header {
     border-bottom: 1px solid white;
@@ -223,9 +238,6 @@
 .fade-in {
     animation: 1s fade linear reverse 1;
 }
-.forms, .table-wrap {
-    margin-top:75px;
-}
 .forms, .actions {
     padding: .75em;
 }
@@ -256,11 +268,6 @@
     outline: #fa9300;
     box-shadow: 0 0 0 0.1rem #fa9300;
     border:none;
-}
-.forms button, .actions button {
-    background-color: #fa9300 !important;
-    font-size: 1.75em;
-    width:100%;
 }
 .forms.installed {
     bottom: 5;
@@ -302,8 +309,6 @@
     right:5;
     position: absolute;
     height: 75px;
-}
-.menu {
     cursor: pointer;
     background-color: #29abe2;
     z-index: 1;
@@ -378,7 +383,6 @@
 }
 .schedule {
     background-color: #343a40;
-    margin-top:75px;
     color:white;
 }
 .schedule h3 {
