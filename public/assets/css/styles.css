@@ -164,7 +164,7 @@
 .btn {
     background-color: #fa9300 !important;
     font-size: 1.75em !important;
-    width:100% !important;
+    width:100%;
 }
 .card-btn, .mmd {
     color: white;
@@ -272,6 +272,34 @@
 .forms.installed {
     bottom: 5;
 }
+.gobtn {
+    opacity: .65;
+    z-index: 4;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.godown, .godown .pulse {
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    left: 41%;   
+}
+.godown.gobtn {
+    background-color: #004b86;
+}
+.goleft, .goright, .goleft .pulse, .goright .pulse {
+    position: fixed;
+    top: 44%;
+    width: 50px;
+    height: 50px;
+}
+.goleft, .goleft .pulse {
+    left: 15;
+}
+.goright, .goright .pulse {
+    right:15;
+}
 .home-logo {
     position: absolute;
     top: 25%;
@@ -357,6 +385,8 @@
 }
 .pulse {
     animation: pulse 1s linear infinite;  
+    border: 1px solid white;
+    border-radius: 50%;
 }
 .right-border {
     border-right:1px solid white !important;
@@ -389,22 +419,48 @@
     font-size: 2.75em;
     padding-left:10px;
     border-bottom:1px solid white;
+}    
+.speakers {
+    position: absolute;
+    top:80;
+    left: 5;
+    right:5;
+    bottom:5;
+    background-color:#343a40;
+    overflow-y: scroll;
+}
+.speaker {
+    text-align: center;
+    margin:auto;
+}
+.speaker-header {
+    background-color:#343a40;
+    position: fixed;
+    z-index: 2;
+    left: 5;
+    right:5;
+}
+.speaker-header img {
+    width: 50%;
+    border-radius: 200px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.speaker-name {
+    color:white;
+    font-size: 2.5em;
+    padding-top:8px;
+}
+.speaker-bio {
+    color:white;
+    text-align: left !important;
+    margin: 0px 25px;
+    font-size: 1.25em;
+    position: absolute;
+    top:48%;
 
 }
-.scroll-down, .pulse {
-    position: fixed;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
-    left: 41%;   
-}
-.scroll-down {
-    background-color: #fa9300;
-    opacity: .65;
-    z-index: 4;
-}
+
 .wiggle {
     animation: 1s wiggle linear 1;
 }

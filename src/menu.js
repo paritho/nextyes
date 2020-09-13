@@ -2,6 +2,8 @@ import { bind, wire } from "hyperhtml";
 
 const q = (selector) => document.querySelector(selector);
 
+const gohome = () => window.location.href = "/home";
+
 export const renderMenu = () => {
     return new Promise((res, rej) => {
         const menu = q('.menu');
@@ -33,7 +35,7 @@ export const renderMenu = () => {
                     <p>Install</p>
                 </div>
             </div>
-            <img src="img/logo-small.png" class="menu-logo" />
+            <img src="img/logo-small.png" class="menu-logo" onclick="${gohome}" />
         </div>`;
 
             bind(menu)`${menuContent}`;
