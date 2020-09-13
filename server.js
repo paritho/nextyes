@@ -153,7 +153,6 @@ server.get(["/", '/index', '/index.html'], (req, res) => {
 server.get(["/schedule", "/schedule.html"], (req, res) => {
     res.sendFile(pathJoiner('src/views/schedule.html'));
 })
-
 server.get(["/home", "/home.html"], (req, res) => {
     res.sendFile(pathJoiner('src/views/home.html'))
 })
