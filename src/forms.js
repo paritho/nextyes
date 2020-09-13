@@ -49,22 +49,20 @@ const forms = {
     </form>`,
     contact: wire()`<form action="/sendMessage"> 
         <div class="form-group">
-            <label for="subject">subject</label>
             <input type="text" name="subject" required class="form-control" id="subject" placeholder="subject">
         </div>
         <div class="form-group">
-            <label for="message">message</label>
+            <label for="message">questions, feedback, or prayer requests?</label>
             <textarea required name="message" class="form-control msgbody" id="message"></textarea>
         </div>
         <button type="submit" class="btn btn-primary loginBtn">send message</button>
     </form>`,
     makemyday: wire()`<form action="/sendMessage"> 
     <div class="form-group">
-        <label for="subject">subject</label>
         <input type="text" tabindex="-1" name="subject" class="form-control" id="subject" readonly value="make my day">
     </div>
     <div class="form-group">
-        <label for="message">message</label>
+        <label for="message">what would make your day?</label>
         <textarea required name="message" class="form-control msgbody" id="message"></textarea>
     </div>
     <button type="submit" class="btn btn-primary loginBtn">make my day!</button>

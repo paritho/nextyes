@@ -79,6 +79,11 @@
 }
 
 /* general all-app styles */
+/* COLORS:  light blue: #29abe2 
+            dark blue:  #004b86
+            yellow:     #fa9300
+            dark gray:  
+*/
 
 #app {
     background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
@@ -168,6 +173,44 @@
 .content {
     overflow-y: scroll;
     height:100%;
+}
+.details {
+    position: absolute;
+    top: 119px;
+    left: 15;
+    right: 15;
+    bottom: 57px;
+    border-radius: 15px;
+    border: 1px solid #004b86;
+    background-image: radial-gradient(circle at top right,  #29abe2 40%, #004b86);
+
+}
+.details-header {
+    border-bottom: 1px solid white;
+    height: 50px;
+    background-image: radial-gradient(circle at top left,  #29abe2 40%, #004b86);
+    border-radius: 15px 15px 0 0;
+
+}
+.details-title {
+    font-size: 1.5em;
+    color: white;
+    padding-left: 10px;
+    padding-top: 6px;
+    display: block;
+    font-weight: bold;
+}
+.details-icon {
+    position: absolute;
+    top:0;
+    right:0;
+    width:50px;
+
+}
+.details-body {
+    color: white;
+    font-size: 1.25em;
+    padding:10px;
 }
 .error {
     outline: red !important;

@@ -3,6 +3,10 @@ export const transition = (from, to) => {
     bringIn(to);
 }
 
+export const show = (el) => {
+    el.classList.remove('d-none');
+}
+
 export const bringIn = (el) => {
     el.classList.remove('d-none');
     el.classList.add('fade-in');

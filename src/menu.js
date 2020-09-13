@@ -1,5 +1,4 @@
 import { bind, wire } from "hyperhtml";
-import { transition, bringIn, seeOut, wiggle } from "./animations.js";
 
 const q = (selector) => document.querySelector(selector);
 

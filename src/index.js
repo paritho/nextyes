@@ -1,6 +1,6 @@
 
 import { bind, wire } from "hyperhtml";
-import { transition, bringIn, seeOut, wiggle } from "./animations.js";
+import { transition, show, bringIn, seeOut, wiggle } from "./animations.js";
 import { checkRegistration } from "./loginUtils.js";
 import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
@@ -63,7 +63,7 @@ renderMenu().then(([backBtns, contact, installBtn]) => {
             return;
         }
         renderForm(btn).then((formWrap) => {
-            bringIn(backBtns);
+            show(backBtns);
             seeOut(actions);
             bringIn(formWrap)
         });

@@ -1,0 +1,46 @@
+{
+    "1":{
+        "title":"6:00p registration",
+        "descr":""
+    },
+    "2":{
+        "title":"6:45p kickoff session",
+        "descr":""
+    },
+    "3":{
+        "title":"9:00p after party",
+        "descr":""
+    },
+    "4":{
+        "title":"8:00a breakfast",
+        "descr":""
+    },
+    "5":{
+        "title":"9:00a main session 1",
+        "descr":""
+    },
+    "6":{
+        "title":"10:15a break",
+        "descr":""
+    },
+    "7":{
+        "title":"10:30 workshops",
+        "descr":""
+    },
+    "8":{
+        "title":"11:30a main session 2",
+        "descr":""
+    },
+    "9":{
+        "title":"12:30p lunch",
+        "descr":""
+    },
+    "10":{
+        "title":"1:15p workshops",
+        "descr":""
+    },
+    "11":{
+        "title":"2:15p closing session",
+        "descr":""
+    }
+}
