@@ -1,5 +1,5 @@
 import { bind, wire } from "hyperhtml";
-import { transition, show, bringIn, seeOut, wiggle } from "./animations.js";
+import { transition, show, hide, slide, bringIn, seeOut, wiggle } from "./animations.js";
 import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
 import * as Alerts from "./alerts.js";
@@ -103,3 +103,34 @@ if (path === 'schedule') {
 
 }
 
+if(path === "speakers"){
+    const speakerCards = qa(".speaker");
+    const goleft = q('.goleft');
+    const goright = q('.goright');
+    let currSpeaker = 0;
+
+    bringIn(goleft);
+    bringIn(goright);
+    show(speakerCards[currSpeaker]);
+
+    goright.addEventListener('click', e => {
+        const showing = currSpeaker;
+        currSpeaker = currSpeaker === 5 ? 0 : currSpeaker + 1;
+
+        slide('left', speakerCards[showing]);
+        slide('to-left', speakerCards[currSpeaker]);
+        show(speakerCards[currSpeaker]);
+    })
+
+    goleft.addEventListener('click', e => {
+        const showing = currSpeaker;
+        currSpeaker = currSpeaker === 0 ? 5 : currSpeaker - 1;
+
+        slide('right', speakerCards[showing]);
+        slide('to-right', speakerCards[currSpeaker]);
+        show(speakerCards[currSpeaker]);
+    })
+
+
+
+}

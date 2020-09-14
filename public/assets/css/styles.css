@@ -27,33 +27,6 @@
 }
 
 /* animations */
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-   80% { transform: rotate(0deg); }
-   85% { transform: rotate(5deg); }
-   95% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform:scale(1.5);
-        opacity: 0;
-    }
-}
-  
-@keyframes fade {
-    0%  {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
 @keyframes alert {
     0% {
         height:0;
@@ -77,6 +50,77 @@
         opacity: 1;
     }
 }
+  
+@keyframes fade {
+    0%  {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform:scale(1.5);
+        opacity: 0;
+    }
+}
+@keyframes slide-left {
+    0% {
+        transform: translateX(0)
+    }
+    100% {
+        transform: translateX(-21em);
+    }
+}
+@keyframes slide-to-left {
+    0% {
+        transform: translateX(21em)
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes slide-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(21em)
+    }
+}
+@keyframes slide-to-right {
+    0% {
+        transform: translateX(-21em);
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+@keyframes wiggle {
+    0% { 
+        transform: rotate(0deg); 
+    }
+   80% { 
+       transform: rotate(0deg); 
+    }
+   85% { 
+       transform: rotate(5deg); 
+    }
+   95% { 
+       transform: rotate(-5deg);
+     }
+  100% { 
+      transform: rotate(0deg); 
+    }
+}
+
+
 
 /* general all-app styles */
 /* COLORS:  light blue: #29abe2 
@@ -171,9 +215,6 @@
     font-size: 2em;
     text-align: center;
     margin: auto;
-}
-.card-btn-img {
-
 }
 .card-btn-body{
     color:white;
@@ -420,6 +461,18 @@
     padding-left:10px;
     border-bottom:1px solid white;
 }    
+.slide-left {
+    animation: slide-left .4s linear 1;
+} 
+.slide-to-left {
+    animation: slide-to-left .4s linear 1;
+}
+.slide-to-right {
+    animation: slide-to-right .4s linear 1;
+}
+.slide-right {
+    animation: slide-right .4s linear 1;
+}
 .speakers {
     position: absolute;
     top:80;
@@ -449,7 +502,6 @@
 .speaker-name {
     color:white;
     font-size: 2.5em;
-    padding-top:8px;
 }
 .speaker-bio {
     color:white;
@@ -457,8 +509,8 @@
     margin: 0px 25px;
     font-size: 1.25em;
     position: absolute;
-    top:48%;
-
+    z-index: 1;
+    top:262;
 }
 
 .wiggle {

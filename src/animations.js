@@ -1,24 +1,36 @@
+export const bringIn = (el) => {
+    el.classList.add('fade-in');
+    show(el)
+}
+export const hide = (el) => {
+    el.classList.add('d-none');
+}
+export const seeOut = (el) => {
+    el.classList.add('fade-out');
+    setTimeout(() => {
+        hide(el);
+    });
+}
+export const show = (el) => {
+    el.classList.remove('d-none');
+}
+// direction = left,right, to-left, to-right
+export const slide = (direction, el) => {
+    //reset
+    el.className = "speaker";
+    el.classList.add(`slide-${direction}`);
+    show(el);
+    if(direction === 'left' || direction === "right"){
+        setTimeout(()=>{
+            hide(el);
+        },350)
+    }
+}
+
 export const transition = (from, to) => {
     seeOut(from);
     bringIn(to);
 }
-
-export const show = (el) => {
-    el.classList.remove('d-none');
-}
-
-export const bringIn = (el) => {
-    el.classList.remove('d-none');
-    el.classList.add('fade-in');
-}
-
-export const seeOut = (el) => {
-    el.classList.add('fade-out');
-    setTimeout(() => {
-        el.classList.add('d-none');
-    });
-}
-
 export const wiggle = (el) => {
     if (el.classList.contains('fade-in')) {
         el.classList.remove('fade-in');
