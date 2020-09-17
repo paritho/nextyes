@@ -1,5 +1,5 @@
 import { bind, wire } from "hyperhtml";
-import { transition, bringIn, seeOut, wiggle } from "./animations.js";
+import * as Anim from "./animations.js";
 import { getCookieValue } from "./loginUtils.js";
 import * as Alerts from "./alerts.js";
 
@@ -7,6 +7,7 @@ const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
 const app = q('#app');
 const cookie = getCookieValue('user');
+const formWrap = q('.forms');
 
 const forms = {
     signup: wire()` <form action="/signup">
@@ -68,20 +69,21 @@ const forms = {
         <button type="submit" class="btn btn-primary">make my day!</button>
     </form>`,
     reset:"",
-    forgot:wire()`<form action="/signon"> 
+    forgot:wire()`<form action="/forgot"> 
+        <label>Enter the email you used to signup. If it's in our system, we'll send you a link to reset your password.</label>
         <div class="form-group">
             <input type="email" name="email" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="email">
         </div>  
         <button type="submit" class="btn btn-primary">submit</button>
     </form>`,
-    notes: wire()`<form action=""> 
+    notes: wire()`<form action="" class="noteForm"> 
         <div class="form-group">
             <input type="text" name="title" class="form-control" id="title" placeholder="title">
         </div>
         <div class="form-group">
             <textarea name="note" class="form-control msgbody" id="note"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">save</button>
+        <button type="submit" class="btn btn-primary">done</button>
     </form>`
 };
 
@@ -94,7 +96,7 @@ const loginListener = e => {
         const password = [...inputs].find(input => input.id === "password");
         const confirm = [...inputs].find(input => input.id === "confirm");
         if (password.value !== confirm.value) {
-            wiggle(form);
+            Anim.wiggle(form);
             confirm.setCustomValidity("Passwords must match");
             confirm.classList.add('error');
             confirm.reportValidity();
@@ -133,7 +135,7 @@ const loginListener = e => {
             setTimeout(() => {
                 Alerts.hideAlert();
             }, 2500);
-            wiggle(form)
+            Anim.wiggle(form)
         }
 
     }).catch(e => {
@@ -150,17 +152,20 @@ const listenTypes = {
     login: loginListener,
     contact: emailListener,
     makemyday: emailListener,
-    reset:"",
-    forgot:"",
-    notes:""
+    reset:()=>{},
+    forgot:()=>{},
+    notes:()=>{}
 }
 
-export const renderForm = (type) => {
+export const renderForm = (type, listener) => {
     return new Promise((res, rej) => {
-        const formWrap = q('.forms');
         if (formWrap && forms[type]) {
             bind(formWrap)`${forms[type]}`;
-            formWrap.addEventListener('submit', listenTypes[type])
+            if(listener && typeof listener === 'function'){
+                formWrap.addEventListener('submit', listener);
+            } else if(listener !== false){
+                formWrap.addEventListener('submit', listenTypes[type])
+            }
             res(formWrap);
         } else {
             rej();

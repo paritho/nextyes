@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v3';
+const CACHE_NAME = 'static-cache-v5';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
@@ -30,6 +30,7 @@ const FILES_TO_CACHE = [
     "./img/ron.jpg",
     "./img/brooke.jpg",
     "./img/nathan.jpg",
+    "./img/franklin.jpg",
     "./fonts/font1.woff2",
     "./fonts/font2.woff2",
     "./fonts/font3.woff2"

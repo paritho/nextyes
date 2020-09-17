@@ -1,6 +1,6 @@
 
 import { bind, wire } from "hyperhtml";
-import { transition, show, bringIn, seeOut, wiggle } from "./animations.js";
+import * as Anim from "./animations.js";
 import { checkRegistration } from "./loginUtils.js";
 import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
@@ -8,7 +8,6 @@ import * as Alerts from "./alerts.js";
 
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
-const app = q('#app');
 const logo = q('.logo');
 const actions = q('.actions');
 const content = q('.content');
@@ -33,9 +32,9 @@ let backBtns;
 renderMenu().then(([backBtns, contact, installBtn]) => {
     backBtns.addEventListener('click', e => {
         const formWrap = q(".forms");
-        seeOut(formWrap);
-        bringIn(actions);
-        seeOut(backBtns);
+        Anim.hide(formWrap);
+        Anim.bringIn(actions);
+        Anim.hide(backBtns);
     })
 
     if (displayMode !== "standalone") {
@@ -47,14 +46,18 @@ renderMenu().then(([backBtns, contact, installBtn]) => {
 
         window.addEventListener('appinstalled', e => {
             // logging?
+            window.location.reload(false);
         })
 
         installBtn.addEventListener('click', e => {
             install.prompt();
-            window.location.reload(false);
         });
     }
-
+    const details = q('.details');
+    const close = q('.details-icon');
+    close.addEventListener('click', e => {
+        Anim.hide(details)
+    })
     actions.addEventListener('click', e => {
         e.preventDefault();
         const btn = e.target.dataset ? e.target.dataset.type : null;
@@ -62,13 +65,18 @@ renderMenu().then(([backBtns, contact, installBtn]) => {
         if (!btn) {
             return;
         }
+        if (btn === "help") {
+            Anim.show(details);
+            return;
+        }
         renderForm(btn).then((formWrap) => {
-            show(backBtns);
-            seeOut(actions);
-            bringIn(formWrap)
+            Anim.show(backBtns);
+            Anim.seeOut(actions);
+            Anim.bringIn(formWrap)
         });
 
     })
+
 }).catch(e => console.log(e));
 
 
@@ -77,11 +85,14 @@ checkRegistration()
     .then(result => {
         //user exists
         if (result.success) {
-            window.location.href = "/home";
+            Alerts.showAlert('success',"Welcome!")
+            setTimeout(() => {
+                window.location.href = "/home";
+            }, 1500);
         }
     }).catch(err => {
-        transition(logo, content);
-        bringIn(actions);
+        Anim.transition(logo, content);
+        Anim.bringIn(actions);
     });
 
 

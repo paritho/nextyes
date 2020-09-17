@@ -155,12 +155,13 @@
   
   .actions {
       position: absolute;
-      top:38%;
+      top:34%;
       left:5;
       right:5;
   }
   .actions button {
-      margin: .5em 0;
+      margin: .25em 0;
+      font-size: 2em !important;
   }
   .alerts {
       color: white;
@@ -210,14 +211,21 @@
       font-size: 1.75em !important;
       width:100%;
   }
-  .card-btn, .mmd {
+  .card-btn {
       color: white;
-      font-size: 2em;
+      font-size: 1.5em;
       text-align: center;
       margin: auto;
   }
   .card-btn-body{
       color:white;
+      margin-top:-32px;
+  }
+  .card-btn-body p {
+      padding: 0;
+  }
+  .card-btn-img {
+      margin-top:-4px
   }
   .content {
       overflow-y: scroll;
@@ -285,7 +293,7 @@
   .forms {
       background-color: #004b86;
       color: white;
-      height:100%;
+      height:90%;
       max-height: 725px;
       z-index: 0;
   }
@@ -324,10 +332,10 @@
       bottom: 20px;
       width: 50px;
       height: 50px;
-      left: 41%;   
+      left: 42.5%;   
   }
   .godown.gobtn {
-      background-color: #004b86;
+      background-color: #fa9300;
   }
   .goleft, .goright, .goleft .pulse, .goright .pulse {
       width: 50px;
@@ -352,7 +360,16 @@
   .goright .pulse {
       right: -1;
   }
-  
+  .helpbtns {
+
+  }
+  .helpbtns a {
+    color:white;
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size:1.25em;
+  }
   .home-logo {
       position: absolute;
       top: 25%;
@@ -383,6 +400,9 @@
       height: 65px !important;
       top: -3px !important;
       right: 5px;
+  }
+  .iphonex {
+      display: none;
   }
   .menu {
       top: 5;
@@ -436,6 +456,9 @@
   .msgbody {
       min-height:311px;
   }
+  .noteForm textarea {
+      min-height:375px !important; 
+  }
   .pulse {
       animation: pulse 1s linear infinite;  
       border: 1px solid white;
@@ -444,8 +467,17 @@
   .right-border {
       border-right:1px solid white !important;
   }
+  .row .col-6:nth-child(odd){
+      margin-left:10px;
+  }
+  .row .col-6:nth-child(even){
+      margin:0 -10px;
+  }
   .row-border {
       border-bottom: 1px solid #fa9300;
+  }
+  .row-border-white {
+      border-bottom:1px solid white;
   }
   .row-spacer {
       margin:.5em 0;
@@ -532,8 +564,11 @@
   /* Media queries */
   
   @media (min-height: 730px) {
-      .scroll-down {
+      .godown {
           display: none;
+      }
+      .iphonex {
+          display: block;
       }
       .msgbody {
           min-height: 411px;

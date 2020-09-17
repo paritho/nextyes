@@ -1,7 +1,7 @@
 import { bind, wire } from "hyperhtml";
-import { transition, show, hide, slide, bringIn, seeOut, wiggle } from "./animations.js";
 import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
+import * as Anim from "./animations.js";
 import * as Alerts from "./alerts.js";
 
 const q = (selector) => document.querySelector(selector);
@@ -19,13 +19,14 @@ window.addEventListener('DOMContentLoaded', () => {
 const path = window.location.pathname.slice(1);
 
 renderMenu().then(([backBtns, contact, installBtn]) => {
-    show(backBtns);
-    show(contact);
+    Anim.show(backBtns);
+    Anim.show(contact);
     backBtns.addEventListener('click', e => {
-        window.history.go(-1)
+        if(window.location.pathname !== "/home"){
+            window.history.go(-1);
+        }
     })
     contact.addEventListener('click', e => {
-        const currentPage = window.location.pathname;
         window.location.href = `/contact`;
     })
 
@@ -38,18 +39,18 @@ renderMenu().then(([backBtns, contact, installBtn]) => {
 
         window.addEventListener('appinstalled', e => {
             // logging?
+            window.location.reload(false);
         })
 
         installBtn.addEventListener('click', e => {
             install.prompt();
-            window.location.reload(false);
         });
     }
 })
 
 if (path === "contact" || path === "makemyday") {
     renderForm(path).then(formWrap => {
-        bringIn(formWrap);
+        Anim.bringIn(formWrap);
     })
 }
 
@@ -109,26 +110,26 @@ if(path === "speakers"){
     const goright = q('.goright');
     let currSpeaker = 0;
 
-    bringIn(goleft);
-    bringIn(goright);
-    show(speakerCards[currSpeaker]);
+    Anim.bringIn(goleft);
+    Anim.bringIn(goright);
+    Anim.show(speakerCards[currSpeaker]);
 
     goright.addEventListener('click', e => {
         const showing = currSpeaker;
         currSpeaker = currSpeaker === 5 ? 0 : currSpeaker + 1;
 
-        slide('left', speakerCards[showing]);
-        slide('to-left', speakerCards[currSpeaker]);
-        show(speakerCards[currSpeaker]);
+        Anim.slide('left', speakerCards[showing]);
+        Anim.slide('to-left', speakerCards[currSpeaker]);
+        Anim.show(speakerCards[currSpeaker]);
     })
 
     goleft.addEventListener('click', e => {
         const showing = currSpeaker;
         currSpeaker = currSpeaker === 0 ? 5 : currSpeaker - 1;
 
-        slide('right', speakerCards[showing]);
-        slide('to-right', speakerCards[currSpeaker]);
-        show(speakerCards[currSpeaker]);
+        Anim.slide('right', speakerCards[showing]);
+        Anim.slide('to-right', speakerCards[currSpeaker]);
+        Anim.show(speakerCards[currSpeaker]);
     })
 
 
