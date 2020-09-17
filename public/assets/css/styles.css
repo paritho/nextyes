@@ -193,12 +193,15 @@
       padding: .5em .5em;
       margin: auto;
   }
+  .banner {
+    width:100%;
+  }
   .below-menu {
-      margin-top:75px !important;
+      margin-top:65px !important;
   }
   .btn-wrap {
       position: absolute;
-      top: 80px;
+      top: 70px;
       bottom: 5;
       left: 5;
       right: 5;
@@ -386,20 +389,20 @@
       right: 75;
       background-color: #fa9300;
       width: 75px;
-      height: 75px;
+      height: 65px;
   }
   .install p {
       position: absolute;
-      top: 49px;
+      top: 38px;
       left: 15px;
       color: white;
       font-size: 1.25em;
   }
   .install svg {
-      width: 65px !important;
-      height: 65px !important;
-      top: -3px !important;
-      right: 5px;
+      width: 50px !important;
+      height: 50px !important;
+      top: 0px !important;
+      right: 12px;
   }
   .iphonex {
       display: none;
@@ -409,7 +412,7 @@
       left:5;
       right:5;
       position: absolute;
-      height: 75px;
+      height: 65px;
       cursor: pointer;
       background-color: #29abe2;
       z-index: 1;
@@ -421,7 +424,7 @@
       height: 75px;
   }
   .menu .menu-btns {
-      height: 75px;
+      height: 65px;
   }
   .menu .back-btns, .menu .contact {
       width:75px;
@@ -519,7 +522,7 @@
   }
   .speakers {
       position: absolute;
-      top:80;
+      top:70;
       left: 5;
       right:5;
       bottom:5;
