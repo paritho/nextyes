@@ -11,22 +11,47 @@ const newNote = q('.note');
 const newNoteBtn = q('.newNote');
 const noteList = q('.noteList');
 const noteWrap = q('.noteWrap');
-const saveNoteBtn = q('.save');
+const saveNoteBtn = q('.noteDone');
 
 const existingNotes = window.localStorage.getItem('noteids');
 if(!existingNotes || !existingNotes.length){
     window.localStorage.setItem('noteids', JSON.stringify([-1]))
 }
-
+const renderIcon = (type) => {
+    let icon = wire()`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white" class="close-icon" onclick="">
+                <path d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/>
+                <path d="M32.283 16.302l1.414 1.415-15.98 15.98-1.414-1.414z"/>
+                <path d="M17.717 16.302l15.98 15.98-1.414 1.415-15.98-15.98z"/>
+            </svg>`
+    if(type === 'close'){
+        icon = wire()`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white" class="close-icon" onclick="">
+                <path d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/>
+                <path d="M32.283 16.302l1.414 1.415-15.98 15.98-1.414-1.414z"/>
+                <path d="M17.717 16.302l15.98 15.98-1.414 1.415-15.98-15.98z"/>
+            </svg>`
+    }
+    if(type === 'edit'){
+        icon = wire()`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white" class="close-icon" onclick="">
+                <path d="M9.6 40.4l2.5-9.9L27 15.6l7.4 7.4-14.9 14.9-9.9 2.5zm4.3-8.9l-1.5 6.1 6.1-1.5L31.6 23 27 18.4 13.9 31.5z" />
+                <path d="M17.8 37.3c-.6-2.5-2.6-4.5-5.1-5.1l.5-1.9c3.2.8 5.7 3.3 6.5 6.5l-1.9.5z" />
+                <path d="M29.298 19.287l1.414 1.414-13.01 13.02-1.414-1.41z" />
+                <path d="M11 39l2.9-.7c-.3-1.1-1.1-1.9-2.2-2.2L11 39z" />
+                <path d="M35 22.4L27.6 15l3-3 .5.1c3.6.5 6.4 3.3 6.9 6.9l.1.5-3.1 2.9zM30.4 15l4.6 4.6.9-.9c-.5-2.3-2.3-4.1-4.6-4.6l-.9.9z" />
+            </svg>`
+    }
+    return icon;
+}
 const noteRow = (note) => wire()`<div>
         <div class="row note-row row-border" data-noteid=${note.id}>
-            <div class="col-11 row-title">${note.title}</div>
-            <div class="col-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white" class="close-icon" onclick="">
-                    <path d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/>
-                    <path d="M32.283 16.302l1.414 1.415-15.98 15.98-1.414-1.414z"/>
-                    <path d="M17.717 16.302l15.98 15.98-1.414 1.415-15.98-15.98z"/>
-                </svg>
+            <div class=${`note-title ${note.id == -1 ? 'col-11':'col-10'}`}>${note.title}</div>
+            <div class="${note.id == -1 ? 'col-1': 'col-2'}">
+                ${renderIcon('edit')}
+            </div>
+            <div class=${`col-1 ${note.id == -1 ? 'd-none':'' }`}>
+                ${renderIcon('close')}
             </div>
         </div>
     </div>`
@@ -43,7 +68,7 @@ const getNote = (id) => {
     }
     return {
         id: -1,
-        title: `No notes.`
+        title: `add new note`
     };
 }
 const getAllIds = () => JSON.parse(window.localStorage.getItem('noteids'));
@@ -121,6 +146,6 @@ saveNoteBtn.addEventListener('click', e => {
         bodyInput.textContent = "";
         renderNotes();
         Anim.bringIn(noteWrap);
-    }, 1500)
+    }, 1000)
 
 })

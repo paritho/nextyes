@@ -292,17 +292,17 @@
   .fade-in {
       animation: 1s fade linear reverse 1;
   }
-  .forms, .actions {
+  .forms, .actions, .note {
       padding: .75em;
   }
-  .forms {
+  .forms, .note {
       background-color: #004b86;
       color: white;
       height:90%;
       max-height: 725px;
       z-index: 0;
   }
-  .forms input {
+  .forms input, .note input {
       background-color: transparent !important;
       outline:none;
       border:none !important;
@@ -314,11 +314,11 @@
       padding-bottom: 0 !important;
       height:auto !important;
   }
-  .forms label {
+  .forms label, .note label {
       font-size: 1.5em;
       margin-bottom: 0 !important;
   }
-  .forms input:focus {
+  .forms input:focus, .note input:focus {
       outline: #fa9300;
       box-shadow: 0 0 0 0.1rem #fa9300;
       border:none;
@@ -461,11 +461,47 @@
   .msgbody {
       min-height:311px;
   }
-  .noteForm textarea {
-      min-height:375px !important; 
+  .newNote {
+    margin: 1em auto;
+    width: 81%;
+    text-align: center;
+    display: block;
+    margin-top:3em;
   }
-  .note-row{
+  .note {
 
+  }
+  #note {
+      min-height:350px; 
+      overflow-y:scroll;
+  }
+  .notelist {
+    background-color: #343a40;
+  }
+  .notelist .col-11+.col-1 {
+    padding:0;
+}
+  .notelist-title {
+    color:white;
+    font-size: 2.75em;
+    text-align: center;
+    background-color: #343a40;
+    padding-bottom: 5px;
+  }
+  .note-row {
+    padding:10px 0;
+    font-size: 1.75em;
+  }
+  .note-title {
+      padding-left: 30px;
+      color:white;
+  }
+  .noteWrap .row-spacer{
+      margin:0;
+      height:11px;
+  }
+  .noteDone {
+    
   }
   .pulse {
       animation: pulse 1s linear infinite;  
@@ -501,7 +537,7 @@
       font-size: 1.75em;
       padding-right:10px;
   }
-  .sched-row, .note-row {
+  .sched-row {
       padding-left: 15px;
   }
   .schedule {
@@ -581,12 +617,22 @@
       .msgbody {
           min-height: 411px;
       }
+      #note {
+          min-height: 454px;
+      }
   }
   
   @media (min-height: 800px){
-      .msgbody {
-          min-height: 484px;
+      .forms, .note {
+          height:95%;
+          max-height: 746px;
       }
+      .msgbody {
+          min-height: 498px;
+      }
+      #note {
+        min-height: 534px;
+    }
   }
   
   @media (display-mode: standalone) {
