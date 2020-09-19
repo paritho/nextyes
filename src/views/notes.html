@@ -23,11 +23,24 @@
         <div class="alerts d-none"></div>
         <div class="content">
             <div class="menu"></div>
-            <div class="notes below-menu">
+            <div class="noteWrap">
+                <div class="noteList below-menu">
 
+                </div>
                 <button class="btn btn-primary newNote">new note</button>
             </div>
-            <div class="forms below-menu d-none"></div>
+            <div class="note below-menu d-none">
+                <input type="hidden" id="noteid" />
+                <div class="form-group">
+                    <input type="text" name="title" class="form-control" id="title" placeholder="title"
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <div contenteditable="true" name="note" class="form-control msgbody" id="note"></div>
+                </div>
+                <button class="btn btn-primary save">done</button>
+
+            </div>
         </div>
     </div>
     <script src="./js/content-bundle.js"></script>

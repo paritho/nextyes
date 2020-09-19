@@ -76,15 +76,6 @@ const forms = {
         </div>  
         <button type="submit" class="btn btn-primary">submit</button>
     </form>`,
-    notes: wire()`<form action="" class="noteForm"> 
-        <div class="form-group">
-            <input type="text" name="title" class="form-control" id="title" placeholder="title">
-        </div>
-        <div class="form-group">
-            <textarea name="note" class="form-control msgbody" id="note"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">done</button>
-    </form>`
 };
 
 const loginListener = e => {
@@ -153,8 +144,7 @@ const listenTypes = {
     contact: emailListener,
     makemyday: emailListener,
     reset:()=>{},
-    forgot:()=>{},
-    notes:()=>{}
+    forgot:()=>{}
 }
 
 export const renderForm = (type, listener) => {

@@ -230,6 +230,12 @@
   .card-btn-img {
       margin-top:-4px
   }
+  .close-icon {
+    position: absolute;
+    top:0;
+    right:0;
+    width:50px;
+}   
   .content {
       overflow-y: scroll;
       height:100%;
@@ -243,7 +249,8 @@
       border-radius: 15px;
       border: 1px solid #004b86;
       background-image: radial-gradient(circle at top right,  #29abe2 40%, #004b86);
-  
+      overflow:hidden;
+      overflow-y:scroll;
   }
   .details button {
       width: 90%;
@@ -267,17 +274,12 @@
       display: block;
       font-weight: bold;
   }
-  .details-icon {
-      position: absolute;
-      top:0;
-      right:0;
-      width:50px;
-  
-  }
-  .details-body {
+   .details-body {
       color: white;
-      font-size: 1.25em;
+      font-size: 1.35em;
       padding:10px;
+      overflow-y:scroll;
+      height:77%;
   }
   .error {
       outline: red !important;
@@ -462,6 +464,9 @@
   .noteForm textarea {
       min-height:375px !important; 
   }
+  .note-row{
+
+  }
   .pulse {
       animation: pulse 1s linear infinite;  
       border: 1px solid white;
@@ -496,7 +501,7 @@
       font-size: 1.75em;
       padding-right:10px;
   }
-  .sched-row {
+  .sched-row, .note-row {
       padding-left: 15px;
   }
   .schedule {
