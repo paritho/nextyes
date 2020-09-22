@@ -54,6 +54,7 @@ if (path === "contact" || path === "makemyday") {
     })
 }
 
+// renam to modal?
 if (path === 'schedule') {
     const detailWrap = q('.details');
     const detailTitle = q('.details-title');
@@ -106,6 +107,7 @@ if (path === 'schedule') {
 
 if(path === "speakers"){
     const speakerCards = qa(".speaker");
+    const numSpeakers = speakerCards.length - 1;
     const goleft = q('.goleft');
     const goright = q('.goright');
     let currSpeaker = 0;
@@ -116,7 +118,7 @@ if(path === "speakers"){
 
     goright.addEventListener('click', e => {
         const showing = currSpeaker;
-        currSpeaker = currSpeaker === 5 ? 0 : currSpeaker + 1;
+        currSpeaker = currSpeaker === numSpeakers ? 0 : currSpeaker + 1;
 
         Anim.slide('left', speakerCards[showing]);
         Anim.slide('to-left', speakerCards[currSpeaker]);
@@ -125,7 +127,7 @@ if(path === "speakers"){
 
     goleft.addEventListener('click', e => {
         const showing = currSpeaker;
-        currSpeaker = currSpeaker === 0 ? 5 : currSpeaker - 1;
+        currSpeaker = currSpeaker === 0 ? numSpeakers : currSpeaker - 1;
 
         Anim.slide('right', speakerCards[showing]);
         Anim.slide('to-right', speakerCards[currSpeaker]);
