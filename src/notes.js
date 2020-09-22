@@ -7,17 +7,28 @@ import * as Alerts from "./alerts.js";
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
 
+const existingNotes = window.localStorage.getItem("noteids");
+if (!existingNotes || !existingNotes.length) {
+  window.localStorage.setItem("noteids", JSON.stringify([-1]));
+}
+
 const newNote = q(".note");
 const newNoteBtn = q(".newNote");
 const noteList = q(".noteList");
 const noteWrap = q(".noteWrap");
 const saveNoteBtn = q(".noteDone");
 const bg = q(".note-dialog-bg");
+const noteHelp = q('.note-help-icon');
+const details = q('.details');
+const closeDetails = details.querySelector('.close-icon');
 
-const existingNotes = window.localStorage.getItem("noteids");
-if (!existingNotes || !existingNotes.length) {
-  window.localStorage.setItem("noteids", JSON.stringify([-1]));
-}
+closeDetails.addEventListener('click', e => {
+    Anim.hide(details);
+})
+
+noteHelp.addEventListener('click', e => {
+    Anim.show(details);
+})
 
 bg.addEventListener("click", (e) => {
   e.stopImmediatePropagation();

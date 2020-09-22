@@ -489,6 +489,12 @@
   color: black;
   overflow-y: scroll;
 }
+.note-help-icon {
+  position: absolute;
+  top: 83;
+  right: 15;
+  width: 50px;
+}
 .note-confirm-delete {
   position: absolute;
   right: 78px;
@@ -522,10 +528,13 @@
   top: -4;
   right: 0;
   width: 50px;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 .note-delete {
   z-index: 3;
+}
+.note-details {
+  height: 90% !important;
 }
 .notelist {
   background-color: #343a40;
