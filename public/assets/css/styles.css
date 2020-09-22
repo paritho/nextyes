@@ -491,7 +491,8 @@
 }
 .note-help-icon {
   position: relative;
-  right: -72px;
+  margin: 10px;
+  float: right;
   width: 50px;
 }
 .note-confirm-delete {
