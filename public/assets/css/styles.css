@@ -490,9 +490,8 @@
   overflow-y: scroll;
 }
 .note-help-icon {
-  position: absolute;
-  top: 83;
-  right: 15;
+  position: relative;
+  right: -72px;
   width: 50px;
 }
 .note-confirm-delete {
