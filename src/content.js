@@ -70,7 +70,7 @@ if (path === 'schedule') {
         detailWrap.classList.add('d-none');
         renderDetails``;
     }
-
+    const gotonotes = (e) => window.location.href = "/notes";
     const makeDetail = (deets) => {
         return wire()`<div>
                 <div class="details-header">
@@ -84,7 +84,7 @@ if (path === 'schedule') {
                 <div class="details-body">
                     ${{html: deets.descr}}
                 </div>
-                ${deets.notes ? wire()`<button class="btn btn-primary" onclick="window.location.href='/notes'">notes</button>` :"" }
+                ${deets.notes ? wire()`<button class="btn btn-primary" onclick=${gotonotes}>notes</button>` :"" }
         </div>`;
     }
 

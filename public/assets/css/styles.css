@@ -178,10 +178,10 @@
   text-align: center;
 }
 .alerts.danger {
-  background-color: red;
+  background-color: #ff3a3a;
 }
 .alerts.success {
-  background-color: green;
+  background-color: rgb(57, 175, 57);
 }
 .alerts.show {
   animation: 0.5s alert 1;
@@ -233,6 +233,12 @@
 }
 .card-btn-img {
   margin-top: -4px;
+}
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
 }
 .content {
   overflow-y: scroll;
@@ -483,12 +489,43 @@
   color: black;
   overflow-y: scroll;
 }
+.note-confirm-delete {
+  position: absolute;
+  right: 78px;
+  top: -24px;
+  width: 50%;
+  border-radius: 10px;
+  background-color: #ff3a3a;
+  font-size: 0.75em;
+  padding: 9px;
+  color: white;
+  z-index: 2;
+}
+.note-confirm-delete .speech-arrow {
+  border-style: solid;
+  border-width: 21px 7px 21px 21px;
+  border-color: transparent transparent transparent #ff3a3a;
+  position: absolute;
+  right: -28;
+  top: 34;
+}
+.note-dialog-bg {
+  z-index: 2;
+  position: absolute;
+  top: 70;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .note-icon {
   position: absolute;
   top: -4;
   right: 0;
   width: 50px;
   margin-right: 8px;
+}
+.note-delete {
+  z-index: 3;
 }
 .notelist {
   background-color: #343a40;
@@ -509,6 +546,7 @@
 .note-row {
   padding: 10px 0;
   font-size: 1.75em;
+  position: relative;
 }
 .note-title {
   white-space: nowrap;
@@ -519,7 +557,7 @@
   position: absolute;
   top: 0;
   left: 30px;
-  right: 47px;
+  right: 30px;
   overflow: hidden;
 }
 .noteWrap .row-spacer {
