@@ -145,6 +145,9 @@
 #app * {
   font-family: "Poiret One", cursive;
 }
+a {
+  text-decoration:underline #fa9300;
+}
 
 .row {
   margin-right: 0 !important;
@@ -305,7 +308,6 @@
   background-color: #004b86;
   color: white;
   height: 90%;
-  max-height: 725px;
   z-index: 0;
 }
 .forms input,
@@ -573,7 +575,15 @@
   margin: 0;
   height: 11px;
 }
-.noteDone {
+.partners, .resources {
+  padding:10px;
+  padding-top:20px;
+  font-size: 1.5em;
+  background-color: #343a40;
+  min-height: 668px;
+}
+.partners, .partners a, .resources, .resources a {
+  color:white;
 }
 .pulse {
   animation: pulse 1s linear infinite;
@@ -701,13 +711,21 @@
   .forms,
   .note {
     height: 95%;
-    max-height: 746px;
   }
   .msgbody {
     min-height: 498px;
   }
   #note {
     min-height: 534px;
+  }
+}
+@media (min-height: 1024px) {
+  .forms,
+  .note {
+    max-height: 934px !important;
+  }
+  #note {
+    min-height: 720px;
   }
 }
 
@@ -719,7 +737,7 @@
 
 @media (min-width: 500px) {
   .speaker-bio {
-    top: 300;
+    top: 334;
   }
 }
 
