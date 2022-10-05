@@ -11,6 +11,9 @@ const { dbWriter, saveUser, getUser } = require('./db/dbService.js');
 const { logger } = require('./serverutils/logger.js');
 const nodemailer = require('nodemailer');
 
+const EMAIL_USER = "";
+const EMAIL_PASS = "";
+
 const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
 const WHITE_LIST = {
     src: [
@@ -228,8 +231,8 @@ server.post("/sendMessage", async (req,res)=> {
         host:"smtp.office365.com",
         port:587,
         auth:{
-            user:"no-reply@thenextyes.app",
-            pass:"Wub46215"
+            user: EMAIL_USER,
+            pass: EMAIL_PASS
         }
     });
     const result = await transport.sendMail({
