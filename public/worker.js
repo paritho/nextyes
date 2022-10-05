@@ -1,6 +1,5 @@
-const CACHE_NAME = 'static-cache-v10';
+const CACHE_NAME = 'static-cache-v2';
 
-// CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
     "/index.html",
     "/schedule.html",

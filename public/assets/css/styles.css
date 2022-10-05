@@ -151,6 +151,10 @@ a {
 
 .row {
   margin-right: 0 !important;
+  
+}
+.home-row {
+  height: 24% !important;
 }
 
 .col-6,
@@ -182,6 +186,9 @@ a {
 }
 .alerts.danger {
   background-color: #ff3a3a;
+}
+.alerts.info {
+  background-color: #fa9300;
 }
 .alerts.success {
   background-color: rgb(57, 175, 57);
@@ -237,6 +244,9 @@ a {
 .card-btn-img {
   margin-top: -4px;
 }
+.card-btn-img svg {
+  height:167px;
+}
 .close-icon {
   position: absolute;
   top: 0;
@@ -282,10 +292,17 @@ a {
 }
 .details-body {
   color: white;
-  font-size: 1.35em;
+  font-size: 1.75em;
+  line-height: 1.2em;
   padding: 10px;
   overflow-y: scroll;
   height: 77%;
+}
+.email-help-icon {
+  width: 50px;
+  position: absolute;
+  right: 12px;
+  top: 90px;
 }
 .error {
   outline: red !important;
@@ -297,6 +314,10 @@ a {
 }
 .fade-in {
   animation: 1s fade linear reverse 1;
+}
+
+.forgot, .help {
+  text-decoration: none;
 }
 .forms,
 .actions,
@@ -477,6 +498,7 @@ a {
 }
 .msgbody {
   min-height: 311px;
+  font-size:1.75em;
 }
 .newNote {
   margin: 1em auto;
@@ -614,16 +636,19 @@ a {
   background-image: radial-gradient(circle at top left, #29abe2 40%, #004b86);
 }
 .row-text {
-  font-size: 1.75em;
   padding-left: 60px;
   padding-right: 0;
 }
-.row-title {
+.row-text, .row-title {
+  margin-top: 16px;
   font-size: 1.75em;
+}
+.row-title {
   padding-right: 10px;
 }
 .sched-row {
   padding-left: 15px;
+  height: 8.95%;
 }
 .schedule {
   background-color: #343a40;
@@ -632,7 +657,13 @@ a {
 .schedule h3 {
   font-size: 2.75em;
   padding-left: 10px;
+  line-height: 1em;
+}
+.schedule .date {
   border-bottom: 1px solid white;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 1.3em;
 }
 .slide-left {
   animation: slide-left 0.4s linear 1;
@@ -691,8 +722,32 @@ a {
 }
 
 /* Media queries */
+@media (max-height:668px) {
+  .home-row{
+    height: 34% !important;
+  }
+  .sched-row {
+    height:8.5%;
+  }
+}
 
-@media (min-height: 730px) {
+@media (min-height: 720px){
+  .card-btn-img svg {
+    height: 109px;
+  }
+  .home-row{
+    height: 18% !important;
+  }
+}
+
+@media (min-height: 740px) {
+  .card-btn-img svg {
+    height: 147px;
+  }
+  .home-row{
+    height: 23.3333333% !important;
+  }
+
   .godown {
     display: none;
   }
@@ -726,6 +781,18 @@ a {
   }
   #note {
     min-height: 720px;
+  }
+  .home-row{
+    height: 19% !important;
+  }
+}
+
+@media (min-height: 1180px) {
+  .home-row{
+    height: 19.5% !important;
+  }
+  .card-btn-img svg {
+    height: 206px;
   }
 }
 

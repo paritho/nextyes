@@ -6,7 +6,6 @@ import * as Alerts from "./alerts.js";
 const q = (selector) => document.querySelector(selector);
 const qa = (selector) => document.querySelectorAll(selector);
 const app = q('#app');
-const cookie = getCookieValue('user');
 const formWrap = q('.forms');
 
 const forms = {
@@ -25,15 +24,7 @@ const forms = {
             <small id="emailHelp" class="form-text">We'll never share your email with anyone
                 else.</small>
         </div>
-        <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" name="password" required class="form-control" id="password">
-        </div>
-        <div class="form-group">
-            <label for="password">confirm password</label>
-            <input type="password" class="form-control" id="confirm">
-        </div>
-        <button type="submit" class="btn btn-primary">sign up</button>
+        <button type="submit" class="btn btn-primary">let's go!</button>
     </form>`,
     login: wire()`<form action="/signon"> 
         <div class="form-group">
@@ -48,9 +39,15 @@ const forms = {
         </div>
         <button type="submit" class="btn btn-primary">sign in</button>
     </form>`,
-    contact: wire()`<form action="/sendMessage"> 
+    contact: wire()`<form>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="email-help-icon">
+            <path
+                d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z" />
+            <path
+                d="M19.8 19.6c.3-.8.6-1.4 1.2-1.9.5-.5 1.1-.9 1.9-1.2s1.6-.4 2.5-.4c.7 0 1.4.1 2 .3.6.2 1.2.5 1.7.9s.9.9 1.1 1.5c.3.6.4 1.3.4 2 0 1-.2 1.8-.6 2.5s-1 1.3-1.6 2l-1.3 1.3c-.3.3-.6.6-.7.9-.2.3-.3.7-.3 1.1-.1.4-.1.7-.1 1.5h-1.6c0-.8 0-1.1.1-1.7.1-.5.3-1 .5-1.5.2-.4.5-.8.9-1.2.4-.4.9-.8 1.4-1.4.5-.5.9-1 1.2-1.5s.5-1.2.5-1.8c0-.5-.1-1-.3-1.4-.2-.4-.5-.8-.8-1.1-.3-.3-.7-.5-1.2-.7-.5-.2-.9-.3-1.4-.3-.7 0-1.3.1-1.8.4-.5.2-1 .6-1.3 1-.3.4-.6.9-.8 1.5s-.4.9-.4 1.6h-1.6c0-.9.1-1.6.4-2.4zM26 32v2h-2v-2h2z" />
+        </svg>
         <div class="form-group">
-            <input type="text" name="subject" required class="form-control" id="subject" placeholder="subject">
+            <input type="text" name="subject" readonly class="form-control" id="subject" value="contact us">
         </div>
         <div class="form-group">
             <label for="message">questions, feedback, or prayer requests?</label>
@@ -58,7 +55,13 @@ const forms = {
         </div>
         <button type="submit" class="btn btn-primary">send message</button>
     </form>`,
-    makemyday: wire()`<form action="/sendMessage"> 
+    makemyday: wire()`<form>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="email-help-icon">
+            <path
+                d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z" />
+            <path
+                d="M19.8 19.6c.3-.8.6-1.4 1.2-1.9.5-.5 1.1-.9 1.9-1.2s1.6-.4 2.5-.4c.7 0 1.4.1 2 .3.6.2 1.2.5 1.7.9s.9.9 1.1 1.5c.3.6.4 1.3.4 2 0 1-.2 1.8-.6 2.5s-1 1.3-1.6 2l-1.3 1.3c-.3.3-.6.6-.7.9-.2.3-.3.7-.3 1.1-.1.4-.1.7-.1 1.5h-1.6c0-.8 0-1.1.1-1.7.1-.5.3-1 .5-1.5.2-.4.5-.8.9-1.2.4-.4.9-.8 1.4-1.4.5-.5.9-1 1.2-1.5s.5-1.2.5-1.8c0-.5-.1-1-.3-1.4-.2-.4-.5-.8-.8-1.1-.3-.3-.7-.5-1.2-.7-.5-.2-.9-.3-1.4-.3-.7 0-1.3.1-1.8.4-.5.2-1 .6-1.3 1-.3.4-.6.9-.8 1.5s-.4.9-.4 1.6h-1.6c0-.9.1-1.6.4-2.4zM26 32v2h-2v-2h2z" />
+        </svg>
         <div class="form-group">
             <input type="text" tabindex="-1" name="subject" class="form-control" id="subject" readonly value="make my day">
         </div>
@@ -83,22 +86,23 @@ const loginListener = e => {
     const form = e.target;
     const goWhere = form.getAttribute('action');
     const inputs = form.querySelectorAll('input');
-    if (goWhere === '/signup') {
-        const password = [...inputs].find(input => input.id === "password");
-        const confirm = [...inputs].find(input => input.id === "confirm");
-        if (password.value !== confirm.value) {
-            Anim.wiggle(form);
-            confirm.setCustomValidity("Passwords must match");
-            confirm.classList.add('error');
-            confirm.reportValidity();
-            setTimeout(() => {
-                confirm.setCustomValidity("");
-            }, 2000)
-            return;
-        } else {
-            confirm.classList.remove('error');
-        }
-    }
+    // not using password atm
+    // if (goWhere === '/signup') {
+    //     const password = [...inputs].find(input => input.id === "password");
+    //     const confirm = [...inputs].find(input => input.id === "confirm");
+    //     if (password.value !== confirm.value) {
+    //         Anim.wiggle(form);
+    //         confirm.setCustomValidity("Passwords must match");
+    //         confirm.classList.add('error');
+    //         confirm.reportValidity();
+    //         setTimeout(() => {
+    //             confirm.setCustomValidity("");
+    //         }, 2000)
+    //         return;
+    //     } else {
+    //         confirm.classList.remove('error');
+    //     }
+    // }
 
     const formData = {};
     inputs.forEach(input => {
@@ -135,7 +139,43 @@ const loginListener = e => {
 }
 
 const emailListener = e => {
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('.form-control');
+    const formData = {
+        hash: getCookieValue('user')
+    };
+    inputs.forEach(input => {
+        formData[input.getAttribute('name').trim()] = input.value;
+    });
 
+    Alerts.showAlert("info", "Sending Message...");
+    fetch("/sendMessage", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    }).then(res => {
+        return res.json();
+    }).then(result => {
+        if (result.success) {
+            Alerts.showAlert('success', result.success);
+            setTimeout(()=>{
+                window.location.href = "/home";
+            },1000)
+        }
+        const failure = result.failed;
+        if (failure) {
+            Alerts.showAlert("danger", failure);
+            setTimeout(() => {
+                Alerts.hideAlert();
+            }, 2500);
+        }
+    }).catch(e => {
+        console.error('There was an internal error')
+    });
 }
 
 const listenTypes = {
