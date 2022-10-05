@@ -11,8 +11,9 @@ const { dbWriter, saveUser, getUser } = require('./db/dbService.js');
 const { logger } = require('./serverutils/logger.js');
 const nodemailer = require('nodemailer');
 
-const EMAIL_USER = "";
-const EMAIL_PASS = "";
+const dotenv = require('dotenv');
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
 
 const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
 const WHITE_LIST = {
