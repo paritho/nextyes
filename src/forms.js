@@ -33,11 +33,7 @@ const forms = {
             <small id="emailHelp" class="form-text">We'll never share your email with anyone
                 else.</small>
         </div>
-        <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" required name="password" class="form-control" id="password">
-        </div>
-        <button type="submit" class="btn btn-primary">sign in</button>
+        <button type="submit" class="btn btn-primary">let's go!</button>
     </form>`,
     contact: wire()`<form>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="email-help-icon">

@@ -136,10 +136,10 @@
 #app {
   background-image: radial-gradient(circle at top left, #29abe2 40%, #004b86);
   height: 100%;
-  border: 5px solid;
+  /* border: 5px solid; */
   border-image-slice: 1;
   border-width: 5px;
-  border-image-source: linear-gradient(to bottom right, #fa9300, #f7c37b);
+  /* border-image-source: linear-gradient(to bottom right, #fa9300, #f7c37b); */
 }
 
 #app * {
@@ -215,10 +215,10 @@ a {
 }
 .btn-wrap {
   position: absolute;
-  top: 70px;
-  bottom: 5;
-  left: 5;
-  right: 5;
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   border-top: 1px solid white;
   z-index: 3;
   overflow-y: scroll;
@@ -447,9 +447,9 @@ a {
   display: none;
 }
 .menu {
-  top: 5;
-  left: 5;
-  right: 5;
+  top: 0;
+  left: 0;
+  right: 0;
   position: absolute;
   height: 65px;
   cursor: pointer;
@@ -679,10 +679,10 @@ a {
 }
 .speakers {
   position: absolute;
-  top: 70;
-  left: 5;
-  right: 5;
-  bottom: 5;
+  top: 65;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #343a40;
   overflow-y: scroll;
 }
@@ -694,8 +694,8 @@ a {
   background-color: #343a40;
   position: absolute;
   z-index: 2;
-  left: 5;
-  right: 5;
+  left: 0;
+  right: 0; 
 }
 .speaker-header img {
   width: 50%;
@@ -745,7 +745,7 @@ a {
     height: 147px;
   }
   .home-row{
-    height: 23.3333333% !important;
+    height: 23.3% !important;
   }
 
   .godown {
@@ -759,6 +759,12 @@ a {
   }
   #note {
     min-height: 454px;
+  }
+}
+
+@media (min-height: 741px) {
+  .home-row{
+    height: 23.888% !important;
   }
 }
 
