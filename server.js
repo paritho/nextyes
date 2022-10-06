@@ -11,9 +11,10 @@ const { dbWriter, saveUser, getUser } = require('./db/dbService.js');
 const { logger } = require('./serverutils/logger.js');
 const nodemailer = require('nodemailer');
 
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
+
 
 const HOST = process.env.NODE_ENV === 'production' ? "https://www.thenextyes.app" : "http://localhost:8000";
 const WHITE_LIST = {
@@ -132,20 +133,21 @@ server.post("/signon", (req, res) => {
     }
 
     // const givenHash = shaHash(`${privateHash.salt}${req.body.password}`);
-    const givenHash = shaHash(privateHash.salt);
+    // const givenHash = shaHash(privateHash.salt);
 
     // if we get here, problems with the salt
-    if (givenHash !== privateHash.hash) {
-        logger.info(`password hashes don't match for user ${req.body.email}`)
-        res.status(403).send({ failed: 'Email/Password Incorrect' });
-        return;
-    }
+    // if (givenHash !== privateHash.hash) {
+    //     logger.info(`password hashes don't match for user ${req.body.email}`)
+    //     res.status(403).send({ failed: 'Email/Password Incorrect' });
+    //     return;
+    // }
 
     const result = login(privateHash.hash);
     if (result.success) {
         logger.info(`user ${req.body.email} successful logon`)
         res.cookie('user', publicHash, { maxAge: 3 * 24 * 60 * 60 * 1000 })
         res.send({ success: 'login' });
+        return;
     }
     if (result.failed) {
         logger.info(`Login failed for ${req.body.email}: ${result.failed}`)
@@ -240,9 +242,9 @@ server.post("/sendMessage", async (req,res)=> {
     });
     const result = await transport.sendMail({
         from: "no-reply@thenextyes.app",
-        to:"makemyday@thenextyes.app",
+        to:"no-reply@thenextyes.app",
         subject,
-        text:`${user.firstName} ${user.lastName} says: ${text}`
+        text:`${user.firstName} ${user.lastName} says:\n ${text}`
     }).catch(e => {
         logger.error(`Problem sending email, ${e}, for ${user.email}`)
         res.status(403).send({ failed: 'Problem sending message.' });

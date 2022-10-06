@@ -42,7 +42,8 @@ const forms = {
                 d="M19.8 19.6c.3-.8.6-1.4 1.2-1.9.5-.5 1.1-.9 1.9-1.2s1.6-.4 2.5-.4c.7 0 1.4.1 2 .3.6.2 1.2.5 1.7.9s.9.9 1.1 1.5c.3.6.4 1.3.4 2 0 1-.2 1.8-.6 2.5s-1 1.3-1.6 2l-1.3 1.3c-.3.3-.6.6-.7.9-.2.3-.3.7-.3 1.1-.1.4-.1.7-.1 1.5h-1.6c0-.8 0-1.1.1-1.7.1-.5.3-1 .5-1.5.2-.4.5-.8.9-1.2.4-.4.9-.8 1.4-1.4.5-.5.9-1 1.2-1.5s.5-1.2.5-1.8c0-.5-.1-1-.3-1.4-.2-.4-.5-.8-.8-1.1-.3-.3-.7-.5-1.2-.7-.5-.2-.9-.3-1.4-.3-.7 0-1.3.1-1.8.4-.5.2-1 .6-1.3 1-.3.4-.6.9-.8 1.5s-.4.9-.4 1.6h-1.6c0-.9.1-1.6.4-2.4zM26 32v2h-2v-2h2z" />
         </svg>
         <div class="form-group">
-            <input type="text" name="subject" readonly class="form-control" id="subject" value="contact us">
+            <input type="text" readonly class="form-control" value="contact us">
+            <input type="hidden" name="subject" readonly id="subject" value="New Contact Us">
         </div>
         <div class="form-group">
             <label for="message">questions, feedback, or prayer requests?</label>
@@ -58,7 +59,8 @@ const forms = {
                 d="M19.8 19.6c.3-.8.6-1.4 1.2-1.9.5-.5 1.1-.9 1.9-1.2s1.6-.4 2.5-.4c.7 0 1.4.1 2 .3.6.2 1.2.5 1.7.9s.9.9 1.1 1.5c.3.6.4 1.3.4 2 0 1-.2 1.8-.6 2.5s-1 1.3-1.6 2l-1.3 1.3c-.3.3-.6.6-.7.9-.2.3-.3.7-.3 1.1-.1.4-.1.7-.1 1.5h-1.6c0-.8 0-1.1.1-1.7.1-.5.3-1 .5-1.5.2-.4.5-.8.9-1.2.4-.4.9-.8 1.4-1.4.5-.5.9-1 1.2-1.5s.5-1.2.5-1.8c0-.5-.1-1-.3-1.4-.2-.4-.5-.8-.8-1.1-.3-.3-.7-.5-1.2-.7-.5-.2-.9-.3-1.4-.3-.7 0-1.3.1-1.8.4-.5.2-1 .6-1.3 1-.3.4-.6.9-.8 1.5s-.4.9-.4 1.6h-1.6c0-.9.1-1.6.4-2.4zM26 32v2h-2v-2h2z" />
         </svg>
         <div class="form-group">
-            <input type="text" tabindex="-1" name="subject" class="form-control" id="subject" readonly value="make my day">
+            <input type="text" tabindex="-1" class="form-control" readonly value="make my day!">
+            <input type="hidden" name="subject" id="subject" readonly value="MAKE MY DAY">
         </div>
         <div class="form-group">
             <label for="message">what would make your day?</label>
@@ -136,7 +138,7 @@ const loginListener = e => {
 const emailListener = e => {
     e.preventDefault();
     const form = e.target;
-    const inputs = form.querySelectorAll('.form-control');
+    const inputs = [form.querySelector('input[name]'), form.querySelector('textarea[name]')];
     const formData = {
         hash: getCookieValue('user')
     };
