@@ -62,8 +62,8 @@ const registerNewUser = (publicHash, user) => {
     const auths = require("./db/authHash.json");
 
     if (auths[publicHash]) {
-        logger.info(`${user.email} already exits, signing them on`)
-        return auths[publicHash]
+        logger.info(`${user.email} already exits`)
+        return {failed: "email already registered"}
     }
 
     const salts = salt();
@@ -126,11 +126,8 @@ server.post("/signon", (req, res) => {
     const auths = require("./db/authHash.json");
     let privateHash = auths[publicHash];
     if (!privateHash) {
-        // logger.info(`No private hash for email ${req.body.email}`)
-        // res.status(403).send({ failed: 'Email/Password Incorrect' });
-
-        // assume is new visitor
-        privateHash = registerNewUser(publicHash, {email: req.body.email})
+        logger.info(`No private hash for email ${req.body.email}`)
+        res.status(403).send({ failed: 'Email not registered' });
         return
     }
 
@@ -166,6 +163,11 @@ server.post('/signup', (req, res) => {
 
     const publicHash = hash(`${userdata.email}`);
     const privateHash = registerNewUser(publicHash, userdata)
+
+    if(privateHash.failed) {
+        res.status(403).send({failed: "Email is already registered."})
+        return
+    }
 
     const result = login(privateHash.hash, userdata);
     if (result.success) {

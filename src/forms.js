@@ -30,8 +30,7 @@ const forms = {
         <div class="form-group">
             <label for="email">email</label>
             <input type="email" name="email" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="email">
-            <small id="emailHelp" class="form-text">We'll never share your email with anyone
-                else.</small>
+            <small id="emailHelp" class="form-text">ex: name@gmail.com</small>
         </div>
         <button type="submit" class="btn btn-primary">let's go!</button>
     </form>`,
