@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v4';
+const CACHE_NAME = 'static-cache-v6';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -30,6 +30,8 @@ const FILES_TO_CACHE = [
     "./img/ron.jpg",
     "./img/brooke.jpg",
     "./img/nathan.jpg",
+    // "./img/john.jpg",
+    // "./img/bena.jpg",
     "./img/franklin.jpg",
     "./fonts/font1.woff2",
     "./fonts/font2.woff2",

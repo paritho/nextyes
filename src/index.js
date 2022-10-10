@@ -56,7 +56,7 @@ renderMenu()
       });
     }
     const details = q(".details");
-    const close = q(".details-icon");
+    const close = q(".close-icon");
     close.addEventListener("click", (e) => {
       Anim.hide(details);
     });
@@ -67,6 +67,7 @@ renderMenu()
       if (!btn) {
         return;
       }
+      
       if (btn === "help") {
         Anim.show(details);
         return;

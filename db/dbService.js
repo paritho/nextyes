@@ -3,18 +3,21 @@ const path = require("path");
 const { logger } = require("../serverutils/logger.js");
 
 module.exports.dbWriter = (filepath, data, type) => {
-  fs.writeFile(
-    path.join(__dirname, filepath),
-    JSON.stringify(data),
-    (error) => {
-      if (error) {
-        logger.error(`Problem writing ${type} to db ${error}`);
-        logger.error(error);
-      } else {
-        logger.info(`${type} db write to ${filepath} complete`);
+  // introduce slight delay so this runs in the background
+  setTimeout(() => {
+    fs.writeFile(
+      path.join(__dirname, filepath),
+      JSON.stringify(data),
+      (error) => {
+        if (error) {
+          logger.error(`Problem writing ${type} to db ${error}`);
+          logger.error(error);
+        } else {
+          logger.info(`${type} db write to ${filepath} complete`);
+        }
       }
-    }
-  );
+    );
+  }, 10);
 };
 
 module.exports.getUser = (hash) => {

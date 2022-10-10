@@ -186,6 +186,8 @@ server.get("/worker", (req, res) => {
     res.sendFile(pathJoiner('public/worker.js'));
 });
 
+server.get("/admin",(req,res)=>{})
+
 server.get(["/", '/index', '/index.html'], (req, res) => {
     res.sendFile(pathJoiner('public/index.html'));
 })
