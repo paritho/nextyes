@@ -768,6 +768,13 @@ a {
   }
 }
 
+@media (min-height: 780px ) {
+  .home-row{
+    height: 23% !important;
+  }
+  
+}
+
 @media (min-height: 800px) {
   .forms,
   .note {
