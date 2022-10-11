@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v6f';
+const CACHE_NAME = 'static-cache-v7a';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -36,11 +36,18 @@ const FILES_TO_CACHE = [
 
 self.addEventListener('install', (evt) => {
   console.log('[Service Worker] Install', evt);
-    evt.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-          console.log('[ServiceWorker] Pre-caching offline page');
-          return cache.addAll(FILES_TO_CACHE);
-        })
+    evt.waitUntil(Promise.all([
+      caches.keys().then((names)=> {
+        console.log("starting fresh with new cache")
+        for (let name of names) {
+            caches.delete(name);
+        }
+      }),
+      caches.open(CACHE_NAME).then((cache) => {
+        console.log('[ServiceWorker] Pre-caching offline page');
+        return cache.addAll(FILES_TO_CACHE);
+      })
+    ])
     );
 });
 
