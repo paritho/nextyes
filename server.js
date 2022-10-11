@@ -203,6 +203,12 @@ server.get(["/makemyday", "/makemyday.html"], hasRegistered, (req, res) => {
 server.get(["/partners", "/partners.html"], hasRegistered, (req, res) => {
     res.sendFile(pathJoiner('src/views/partners.html'))
 })
+server.get(["/info", "/info.html"], hasRegistered, (req, res) => {
+    res.sendFile(pathJoiner('src/views/info.html'))
+})
+server.get(["/trivia", "/trivia.html"], hasRegistered, (req, res) => {
+    res.sendFile(pathJoiner('src/views/trivia.html'))
+})
 server.get(["/speakers", "/speakers.html"], hasRegistered, (req, res) => {
     res.sendFile(pathJoiner('src/views/speakers.html'))
 })

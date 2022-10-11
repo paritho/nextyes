@@ -154,7 +154,7 @@ a {
   
 }
 .home-row {
-  height: 24% !important;
+  height: 25% !important;
 }
 
 .col-6,
@@ -233,13 +233,14 @@ a {
   font-size: 1.5em;
   text-align: center;
   margin: auto;
+  padding-top:8px;
 }
 .card-btn-body {
   color: white;
   margin-top: -32px;
 }
 .card-btn-body p {
-  padding: 0;
+  padding: 10px 0 0 0;
 }
 .card-btn-img {
   margin-top: -4px;
@@ -370,8 +371,11 @@ a {
   bottom: 20px;
   width: 50px;
   height: 50px;
-  left: 42.5%;
+  left: 50%;
+  margin: 0 0 0 -24px;
 }
+
+
 .godown.gobtn {
   background-color: #fa9300;
 }
@@ -403,8 +407,14 @@ a {
 .goright .pulse {
   right: -1;
 }
-.helpbtns {
+.flip-to-goup, .flip-to-goup .pulse {
+  top: 80px !important;
+  bottom: unset !important;
 }
+.flip-to-goup svg {
+  transform: rotate(180deg);
+}
+
 .helpbtns a {
   color: white;
   display: block;
@@ -597,14 +607,14 @@ a {
   margin: 0;
   height: 11px;
 }
-.partners, .resources {
+.partners, .resources, .info, .trivia {
   padding:10px;
   padding-top:20px;
   font-size: 1.5em;
   background-color: #343a40;
-  min-height: 668px;
+  min-height: 92%;
 }
-.partners, .partners a, .resources, .resources a {
+.partners, .partners a, .resources, .resources a, .info, .info a {
   color:white;
 }
 .pulse {
@@ -722,34 +732,25 @@ a {
 }
 
 /* Media queries */
-@media (max-height:668px) {
+@media (max-height:719px) {
   .home-row{
     height: 34% !important;
   }
+  
   .sched-row {
     height:8.5%;
   }
 }
 
 @media (min-height: 720px){
-  .card-btn-img svg {
-    height: 109px;
-  }
-  .home-row{
-    height: 18% !important;
+  .godown {
+    display: none;
   }
 }
 
-@media (min-height: 740px) {
+@media (min-height: 720px) {
   .card-btn-img svg {
     height: 147px;
-  }
-  .home-row{
-    height: 23.3% !important;
-  }
-
-  .godown {
-    display: none;
   }
   .iphonex {
     display: block;
@@ -762,18 +763,6 @@ a {
   }
 }
 
-@media (min-height: 741px) {
-  .home-row{
-    height: 23.888% !important;
-  }
-}
-
-@media (min-height: 780px ) {
-  .home-row{
-    height: 23% !important;
-  }
-  
-}
 
 @media (min-height: 800px) {
   .forms,
@@ -795,15 +784,9 @@ a {
   #note {
     min-height: 720px;
   }
-  .home-row{
-    height: 19% !important;
-  }
 }
 
 @media (min-height: 1180px) {
-  .home-row{
-    height: 19.5% !important;
-  }
   .card-btn-img svg {
     height: 206px;
   }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v6';
+const CACHE_NAME = 'static-cache-v6f';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -9,6 +9,8 @@ const FILES_TO_CACHE = [
     "/makemyday.html",
     "/home.html",
     "/notes.html",
+    "/info.html",
+    "/trivia.html",
     "./css/styles.css",
     "./css/bootstrap.min.css",
     "./js/schedule.json",
@@ -24,15 +26,9 @@ const FILES_TO_CACHE = [
     "./img/favicon-16x16.png",
     "./img/favicon-32x32.png",
     "./img/apple-touch-icon.png",
-    "./img/jeff.jpg",
     "./img/joe.jpg",
-    "./img/juli.jpg",
-    "./img/ron.jpg",
-    "./img/brooke.jpg",
-    "./img/nathan.jpg",
     // "./img/john.jpg",
     // "./img/bena.jpg",
-    "./img/franklin.jpg",
     "./fonts/font1.woff2",
     "./fonts/font2.woff2",
     "./fonts/font3.woff2"
