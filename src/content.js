@@ -1,6 +1,7 @@
 import { bind, wire } from "hyperhtml";
 import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
+import { createModal } from "./modal.js";
 import * as Anim from "./animations.js";
 import * as Alerts from "./alerts.js";
 
@@ -54,41 +55,16 @@ if (path === "contact" || path === "makemyday") {
     })
 }
 
-// renam to modal?
 if (path === 'schedule') {
-    const detailWrap = q('.details');
-    const detailTitle = q('.details-title');
-    const detailsBody = q('.details-body');
     const schedule = q('.schedule');
-    const renderDetails = bind(detailWrap);
     let scheduleData = {};
     (async () => {
         const res = await fetch('./js/schedule.json').catch(e => console.error(e));
         scheduleData = await res.json();
     })();
-    const close = (e) => {
-        detailWrap.classList.add('d-none');
-        renderDetails``;
-    }
-    const gotonotes = (e) => window.location.href = "/notes";
-    const makeDetail = (deets) => {
-        return wire()`<div>
-                <div class="details-header">
-                    <span class="details-title">${deets.title}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="white" class="close-icon" onclick="${close}">
-                        <path d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/>
-                        <path d="M32.283 16.302l1.414 1.415-15.98 15.98-1.414-1.414z"/>
-                        <path d="M17.717 16.302l15.98 15.98-1.414 1.415-15.98-15.98z"/>
-                    </svg>
-                </div>
-                <div class="details-body">
-                    ${{html: deets.descr}}
-                </div>
-                ${deets.notes ? wire()`<button class="btn btn-primary" onclick=${gotonotes}>notes</button>` :"" }
-        </div>`;
-    }
 
     schedule.addEventListener('click', e => {
+        
         let target = e.target;
         if (!target.dataset.sessid) {
             target = target.parentNode;
@@ -98,8 +74,9 @@ if (path === 'schedule') {
         }
         const session = target.dataset.sessid;
         const sessionDetails = scheduleData[session];
-        renderDetails`${makeDetail(sessionDetails)}`;
-        detailWrap.classList.remove('d-none');
+        const footer = sessionDetails.notes ? `<button class="btn btn-primary" onclick="window.location.href = '/notes'">notes</button>` : "";
+        const modal = createModal(sessionDetails.title, sessionDetails.descr, footer)
+        modal.open();
     })
 
 

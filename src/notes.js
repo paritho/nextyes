@@ -1,6 +1,7 @@
 import { bind, wire } from "hyperhtml";
 import { renderForm } from "./forms.js";
 import { renderMenu } from "./menu.js";
+import { createModal } from "./modal.js";
 import * as Anim from "./animations.js";
 import * as Alerts from "./alerts.js";
 
@@ -18,17 +19,20 @@ const noteList = q(".noteList");
 const noteWrap = q(".noteWrap");
 const saveNoteBtn = q(".noteDone");
 const bg = q(".note-dialog-bg");
-const noteHelp = q('.note-help-icon');
-const details = q('.details');
-const closeDetails = details.querySelector('.close-icon');
+const noteHelp = q('.help-icon');
 
-closeDetails.addEventListener('click', e => {
-    Anim.hide(details);
-})
+const modalContent = ` <ul>
+<li>To add a new note, press the 'add a new note' item.</li>
+<li>To edit an existing note, press anywhere on the title in the list view.</li>
+<li>To remove a note, press the red X icon twice.</li>
+</ul>
+<p>Please be aware that your notes are stored locally, on your device. This means your notes are private, 
+but it also means there is no backup. If you lose this device, or clear your browser history, you will lose your notes.</p>
+`;
+const modal = createModal("help with notes", modalContent);
 
-noteHelp.addEventListener('click', e => {
-    Anim.show(details);
-})
+noteHelp.addEventListener('click', modal.open)
+
 
 bg.addEventListener("click", (e) => {
   e.stopImmediatePropagation();

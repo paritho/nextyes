@@ -258,7 +258,7 @@ a {
   overflow-y: scroll;
   height: 100%;
 }
-.details {
+.tny-modal {
   position: absolute;
   top: 119px;
   left: 15;
@@ -270,20 +270,20 @@ a {
   overflow: hidden;
   overflow-y: scroll;
 }
-.details button {
+.tny-modal button {
   width: 90%;
   position: absolute;
   bottom: 15px;
   left: 17px;
   font-size: 1.5em;
 }
-.details-header {
+.thy-modal-header {
   border-bottom: 1px solid white;
   height: 50px;
   background-image: radial-gradient(circle at top left, #29abe2 40%, #004b86);
   border-radius: 15px 15px 0 0;
 }
-.details-title {
+.tny-modal-title {
   font-size: 1.5em;
   color: white;
   padding-left: 10px;
@@ -291,20 +291,20 @@ a {
   display: block;
   font-weight: bold;
 }
-.details-body {
+.tny-modal-body {
   color: white;
   font-size: 1.75em;
   line-height: 1.2em;
   padding: 10px;
   overflow-y: scroll;
-  height: 77%;
+  height: 90%;
 }
-.email-help-icon {
+/* .help-icon {
   width: 50px;
   position: absolute;
   right: 12px;
   top: 80px;
-}
+} */
 .error {
   outline: red !important;
   box-shadow: 0 0 0 0.1rem red !important;
@@ -523,11 +523,11 @@ a {
   color: black;
   overflow-y: scroll;
 }
-.note-help-icon {
-  position: relative;
-  margin: 10px;
-  float: right;
+.help-icon {
   width: 50px;
+  position: absolute;
+  right: 12px;
+  top: 80px;
 }
 .note-confirm-delete {
   position: absolute;
@@ -566,9 +566,6 @@ a {
 }
 .note-delete {
   z-index: 3;
-}
-.note-details {
-  height: 90% !important;
 }
 .notelist {
   background-color: #343a40;

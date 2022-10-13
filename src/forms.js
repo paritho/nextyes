@@ -35,7 +35,7 @@ const forms = {
         <button type="submit" class="btn btn-primary">let's go!</button>
     </form>`,
     contact: wire()`<form>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="email-help-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="help-icon">
             <path
                 d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z" />
             <path
@@ -52,7 +52,7 @@ const forms = {
         <button type="submit" class="btn btn-primary">send message</button>
     </form>`,
     makemyday: wire()`<form>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="email-help-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="#fa9300" class="help-icon">
             <path
                 d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z" />
             <path
