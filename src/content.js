@@ -74,7 +74,7 @@ if (path === 'schedule') {
         }
         const session = target.dataset.sessid;
         const sessionDetails = scheduleData[session];
-        const footer = sessionDetails.notes ? `<button class="btn btn-primary" onclick="window.location.href = '/notes'">notes</button>` : "";
+        const footer = sessionDetails.notes ? `<a class="btn btn-primary" href='/notes'">take notes</a>` : "";
         const modal = createModal(sessionDetails.title, sessionDetails.descr, footer)
         modal.open();
     })

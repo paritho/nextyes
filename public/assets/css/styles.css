@@ -270,7 +270,7 @@ a {
   overflow: hidden;
   overflow-y: scroll;
 }
-.tny-modal button {
+.tny-modal a {
   width: 90%;
   position: absolute;
   bottom: 15px;
@@ -297,7 +297,7 @@ a {
   line-height: 1.2em;
   padding: 10px;
   overflow-y: scroll;
-  height: 90%;
+  height: 80%;
 }
 /* .help-icon {
   width: 50px;
