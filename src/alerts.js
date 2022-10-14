@@ -1,5 +1,5 @@
 import { bind, wire } from "hyperhtml";
-const q = (selector) => document.querySelector(selector);
+import { q } from "./utils";
 
 export const showAlert = (type, msg) => {
     const alerts = q('.alerts');

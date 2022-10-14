@@ -5,7 +5,7 @@ import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
 import * as Alerts from "./alerts.js";
 import { createModal } from "./modal.js";
-import {on, q,qa} from "./utils.js"
+import {on, q, qa} from "./utils.js"
 
 const logo = q(".logo");
 const actions = q(".actions");

@@ -2,7 +2,7 @@ import { bind, wire } from "hyperhtml";
 import * as Anim from "./animations.js";
 import { getCookieValue } from "./loginUtils.js";
 import * as Alerts from "./alerts.js";
-import { q, qa } from "./utils.js";
+import { on, q, qa } from "./utils.js";
 
 const formWrap = q('.forms');
 
