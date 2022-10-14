@@ -218,9 +218,8 @@ server.get(["/resources", "/resources.html"], hasRegistered, (req, res) => {
 server.get(["/notes", "/notes.html"], hasRegistered, (req, res) => {
     res.sendFile(pathJoiner('src/views/notes.html'))
 })
-server.get(["/contact","/makemyday"], hasRegistered, (req, res) => {
-    const page = req.path;
-    res.sendFile(pathJoiner(`src/views${page}.html`))
+server.get("/contact", hasRegistered, (req, res) => {
+    res.sendFile(pathJoiner(`src/views/contact.html`))
 })
 server.post("/sendMessage", async (req,res)=> {
     const publicHash = req.body.hash;

@@ -4,9 +4,7 @@ import { renderMenu } from "./menu.js";
 import { createModal } from "./modal.js";
 import * as Anim from "./animations.js";
 import * as Alerts from "./alerts.js";
-
-const q = (selector) => document.querySelector(selector);
-const qa = (selector) => document.querySelectorAll(selector);
+import { q, qa } from "./utils.js";
 
 const existingNotes = window.localStorage.getItem("noteids");
 if (!existingNotes || !existingNotes.length) {
@@ -31,10 +29,10 @@ but it also means there is no backup. If you lose this device, or clear your bro
 `;
 const modal = createModal("help with notes", modalContent);
 
-noteHelp.addEventListener('click', modal.open)
+on(noteHelp, 'click', modal.open)
 
 
-bg.addEventListener("click", (e) => {
+on(bg, "click", (e) => {
   e.stopImmediatePropagation();
   e.stopPropagation();
   const dialog = q(".note-confirm-delete.open");
@@ -189,7 +187,7 @@ const renderNotes = () => {
 };
 renderNotes();
 
-saveNoteBtn.addEventListener("click", (e) => {
+on(saveNoteBtn, "click", (e) => {
   const idInput = newNote.querySelector("#noteid");
   const titleInput = newNote.querySelector("#title");
   const bodyInput = newNote.querySelector("#note");

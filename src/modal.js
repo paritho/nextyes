@@ -1,9 +1,9 @@
 import { bind, wire } from "hyperhtml";
 import * as Anim from "./animations.js";
-
+import { q } from "./utils.js";
 
 export const createModal = (title, content, footer) => {
-    const target = document.querySelector('.modal-wrap');
+    const target = q('.modal-wrap');
     const render = bind(target);
     const close = ()=> Anim.hide(target) && render``;
     const modal = wire()`

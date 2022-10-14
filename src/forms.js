@@ -2,10 +2,8 @@ import { bind, wire } from "hyperhtml";
 import * as Anim from "./animations.js";
 import { getCookieValue } from "./loginUtils.js";
 import * as Alerts from "./alerts.js";
+import { q, qa } from "./utils.js";
 
-const q = (selector) => document.querySelector(selector);
-const qa = (selector) => document.querySelectorAll(selector);
-const app = q('#app');
 const formWrap = q('.forms');
 
 const forms = {
@@ -68,7 +66,6 @@ const forms = {
         </div>
         <button type="submit" class="btn btn-primary">make my day!</button>
     </form>`,
-    reset:"",
     forgot:wire()`<form action="/forgot"> 
         <label>Enter the email you used to signup. If it's in our system, we'll send you a link to reset your password.</label>
         <div class="form-group">
@@ -146,7 +143,7 @@ const emailListener = e => {
         formData[input.getAttribute('name').trim()] = input.value;
     });
 
-    Alerts.showAlert("info", "Sending Message...");
+    Alerts.showAlert("warn", "Sending Message...");
     fetch("/sendMessage", {
         method: 'POST',
         headers: {
@@ -189,9 +186,9 @@ export const renderForm = (type, listener) => {
         if (formWrap && forms[type]) {
             bind(formWrap)`${forms[type]}`;
             if(listener && typeof listener === 'function'){
-                formWrap.addEventListener('submit', listener);
+                on(formWrap, 'submit', listener);
             } else if(listener !== false){
-                formWrap.addEventListener('submit', listenTypes[type])
+                on(formWrap, 'submit', listenTypes[type])
             }
             res(formWrap);
         } else {
