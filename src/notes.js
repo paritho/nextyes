@@ -4,7 +4,7 @@ import { renderMenu } from "./menu.js";
 import { createModal } from "./modal.js";
 import * as Anim from "./animations.js";
 import * as Alerts from "./alerts.js";
-import { q, qa } from "./utils.js";
+import { on, q, qa } from "./utils.js";
 
 const existingNotes = window.localStorage.getItem("noteids");
 if (!existingNotes || !existingNotes.length) {
