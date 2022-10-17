@@ -43,7 +43,7 @@ if (path === 'schedule') {
     const schedule = q('.schedule');
     let scheduleData = {};
     (async () => {
-        const res = await fetch('./js/schedule.json').catch(e => console.error(e));
+        const res = await fetch('./data/schedule.json').catch(e => console.error(e));
         scheduleData = await res.json();
     })();
 

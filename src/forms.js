@@ -124,9 +124,13 @@ const loginListener = e => {
             setTimeout(() => {
                 Alerts.hideAlert();
             }, 2500);
+            //makes the input clear at the same time it wiggles
+            setTimeout(() => {
+                inputs.forEach(input => input.type === "email" ? input.value = "": "")
+            }, 1000);
+
             Anim.wiggle(form)
         }
-
     }).catch(e => {
         console.error('There was an internal error')
     });
