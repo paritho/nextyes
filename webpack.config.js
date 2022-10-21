@@ -4,7 +4,8 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     content: "./src/content.js",
-    note:"./src/notes.js"
+    note:"./src/notes.js",
+    trivia:"./src/trivia.js"
   },
   output: {
     path: path.resolve(__dirname, 'public/assets/js'),

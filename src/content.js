@@ -40,11 +40,18 @@ if (path === "contact") {
 }
 
 if (path === 'schedule') {
-    const schedule = q('.schedule');
+    const schedule = q('.schedule-content');
     let scheduleData = {};
     (async () => {
         const res = await fetch('./data/schedule.json').catch(e => console.error(e));
         scheduleData = await res.json();
+        bind(schedule)`${scheduleData.map(item => {
+            return wire()`<div class="row sched-row row-border" data-sessid="${item.id}">
+                    <div class="col-3 row-title">${item.time}</div>
+                    <div class="col-9 row-text">${item.title}</div>
+                </div>`
+        })}`
+
     })();
 
     on(schedule, 'click', e => {     

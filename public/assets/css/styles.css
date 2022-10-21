@@ -453,6 +453,19 @@ a {
   top: 0px !important;
   right: 12px;
 }
+.intro {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 200px;
+}
+.intro p {
+  margin: auto;
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  margin-top: -1.5em;
+}
 .iphonex {
   display: none;
 }
@@ -576,7 +589,7 @@ a {
 .note-margin svg {
   margin-right: 20px;
 }
-.notelist-title {
+.notelist-title, .trivia-title {
   color: white;
   font-size: 2.75em;
   text-align: center;
@@ -604,7 +617,7 @@ a {
   margin: 0;
   height: 11px;
 }
-.partners, .resources, .info, .trivia {
+.partners, .resources, .info {
   padding:10px;
   padding-top:20px;
   font-size: 1.5em;
@@ -661,7 +674,7 @@ a {
   background-color: #343a40;
   color: white;
 }
-.schedule h3 {
+.schedule h3, .trivia .intro h3 {
   font-size: 2.75em;
   padding-left: 10px;
   line-height: 1em;
@@ -722,6 +735,59 @@ a {
   position: absolute;
   z-index: 1;
   top: 262;
+}
+.trivia {}
+.trivia-wrap {
+  position: absolute;
+  left:5;
+  right:5;
+  top:155;
+  bottom:150;
+}
+.trivia-wrap .question {
+  flex:1;
+  background-color: #343a40;
+}
+.trivia-wrap .question p {
+    color: white;
+    font-size: 1.5em;
+    padding: 35px 25px 35px 25px;
+    margin: 0;
+}
+.trivia-wrap .answers-wrap {
+  flex:3;
+}
+.trivia-wrap .answers-wrap .answers {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-inline-start: 0px;
+  height: 100%;
+}
+.trivia-wrap .answers-wrap li {
+  list-style: none;
+  flex: 1;
+  background-color: darkgray;
+  padding: 10px 0 10px 0;
+  border: 5px solid gray;
+  border-collapse: collapse;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  line-height: 2em;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+.trivia-wrap .selected {
+  border-color: #fa9300 !important;
+}
+.trivia-wrap .select {
+  margin-top:20px;
+}
+.trivia-wrap .qaView {
+  display: flex;
+  flex-direction: column;
+  height:100%;
 }
 
 .wiggle {
