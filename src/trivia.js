@@ -13,17 +13,34 @@ const next = q(".select button");
 
 on(leaderboard, "click", (event) => (window.location.href = "/leaderboard"));
 on(next, 'click', (event)=>{
+  // gather correct answer
+  const answered = q('.selected');
+  if(!answered){
+    Alerts.showAlert("warn", "Please select an answer")
+    setTimeout(() => {
+      Alerts.hideAlert();
+    }, 2000);
+    return;
+  }
+  const answer = +answered.dataset.idx;
+
   clearQuestion();
   const question = tData.shift();
   if(!question){
     return gameOver()
   }
   nextQuestion(question)
+
+  //get and write new cookie
+  const tCookie = JSON.parse(getCookieValue('trivia'));
+  tCookie.answers.push(answer)
+  tCookie.questions = tData.map((item) => item.id);
+  document.cookie = `trivia=${JSON.stringify(tCookie)}`
 })
 
 const renderQA = bind(qaView);
 let tData = {};
-let score = 0;
+let answers = [];
 let started = false;
 
 const shuffle = (array) => {
@@ -42,14 +59,15 @@ const select = (event) => {
 };
 
 const showQuestions = (event) => {
-  started = true;
   setTimeout(() => {
     Anim.hide(intro);
-    off(intro, "click", showQuestions);
   }, 250);
   setTimeout(() => {
     Anim.bringIn(triviaWrap);
   }, 250);
+  const tCookie = JSON.parse(getCookieValue('trivia'));
+  tCookie.started = true;
+  document.cookie = `trivia=${JSON.stringify(tCookie)}`
 };
 
 const clearQuestion = () => {
@@ -65,7 +83,7 @@ const nextQuestion = (data) => {
                     <div class="answers-wrap">
                         <ul class="answers">
                         ${data.answers.map(
-                          (ans) => wire()`<li onclick="${select}">${ans}</li>`
+                          (ans, idx) => wire()`<li onclick="${select}" data-idx="${idx}">${ans}</li>`
                         )}
                         </ul>
                     </div>`;
@@ -82,7 +100,7 @@ const nextQuestion = (data) => {
   if (gameState) {
     gameState = JSON.parse(gameState);
     if (gameState.started) {
-      score = gameState.score;
+      answers = gameState.answers;
       tData = gameState.questions.map((id) =>
         tData.find((data) => data.id == id)
       );
@@ -94,7 +112,7 @@ const nextQuestion = (data) => {
 
     document.cookie = `trivia=${JSON.stringify({
       started,
-      score,
+      answers,
       questions: toStringify,
     })}`;
   }
