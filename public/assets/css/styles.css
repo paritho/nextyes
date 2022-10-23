@@ -679,7 +679,7 @@ a {
   padding-left: 10px;
   line-height: 1em;
 }
-.schedule .date {
+.schedule .subtitle {
   border-bottom: 1px solid white;
   padding-left: 10px;
   padding-bottom: 10px;
@@ -782,12 +782,16 @@ a {
   border-color: #fa9300 !important;
 }
 .trivia-wrap .select {
-  margin-top:20px;
+  margin-top:65px;
+  padding: 15px 0 15px 0;
 }
 .trivia-wrap .qaView {
   display: flex;
   flex-direction: column;
   height:100%;
+}
+.view-leaders {
+  margin-top:75px;
 }
 
 .wiggle {
@@ -803,15 +807,13 @@ a {
   .sched-row {
     height:8.5%;
   }
-}
-
-@media (min-height: 720px){
-  .godown {
-    display: none;
-  }
+  
 }
 
 @media (min-height: 720px) {
+  .godown {
+    display: none;
+  }
   .card-btn-img svg {
     height: 147px;
   }
@@ -824,6 +826,16 @@ a {
   #note {
     min-height: 454px;
   }
+}
+
+@media (max-height: 740px) {
+  .trivia-wrap .question p {
+    padding: 14px;
+  }
+  .trivia-wrap .answers-wrap li {
+    padding:unset;
+    font-size: 1.5em;
+  }  
 }
 
 
@@ -852,6 +864,12 @@ a {
 @media (min-height: 1180px) {
   .card-btn-img svg {
     height: 206px;
+  }
+  p, li, .btn {
+    font-size: 3em !important;
+  }
+  .select {
+    margin-top:30px !important;
   }
 }
 

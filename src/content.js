@@ -16,7 +16,10 @@ renderMenu()
     Anim.show(backBtns);
     Anim.show(contact);
     on(backBtns,'click', e => {
-        if(window.location.pathname !== "/home"){
+        if(path === "leaderboard"){
+            window.location.href = "/trivia";
+        }
+        if(path !== "home"){
             window.history.go(-1);
         }
     })
@@ -68,6 +71,10 @@ if (path === 'schedule') {
         const modal = createModal(sessionDetails.title, sessionDetails.descr, footer)
         modal.open();
     })
+}
+
+if(path === "leaderboard"){
+    console.log('leaderboard')
 }
 
 if(path === "speakers"){

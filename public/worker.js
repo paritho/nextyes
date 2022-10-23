@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v9a';
+const CACHE_NAME = 'static-cache-v9b';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -10,6 +10,7 @@ const FILES_TO_CACHE = [
     "/notes.html",
     "/info.html",
     "/trivia.html",
+    // "/leaderboard.html",
     "./css/styles.css",
     "./css/bootstrap.min.css",
     "./data/schedule.json",
