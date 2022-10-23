@@ -9,10 +9,22 @@ const intro = q(".intro");
 const triviaWrap = q(".trivia-wrap");
 const qaView = q(".qaView");
 const leaderboard = q(".help-icon");
+const next = q(".select button");
 
 on(leaderboard, "click", (event) => (window.location.href = "/leaderboard"));
+on(next, 'click', (event)=>{
+  clearQuestion();
+  const question = tData.shift();
+  if(!question){
+    return gameOver()
+  }
+  nextQuestion(question)
+})
 
 const renderQA = bind(qaView);
+let tData = {};
+let score = 0;
+let started = false;
 
 const shuffle = (array) => {
   const toShuffle = [...array];
@@ -30,6 +42,7 @@ const select = (event) => {
 };
 
 const showQuestions = (event) => {
+  started = true;
   setTimeout(() => {
     Anim.hide(intro);
     off(intro, "click", showQuestions);
@@ -39,20 +52,27 @@ const showQuestions = (event) => {
   }, 250);
 };
 
+const clearQuestion = () => {
+  Anim.hide(triviaWrap)
+  setTimeout(()=>{
+    Anim.bringIn(triviaWrap)
+  },150)
+  renderQA``;
+}
+
 const nextQuestion = (data) => {
-  const qToRender = data.shift();
-  renderQA`<div class="question"><p>${qToRender.question}</p></div>
+  renderQA`<div class="question"><p>${data.question}</p></div>
                     <div class="answers-wrap">
                         <ul class="answers">
-                        ${qToRender.answers.map(
+                        ${data.answers.map(
                           (ans) => wire()`<li onclick="${select}">${ans}</li>`
                         )}
                         </ul>
                     </div>`;
+  return data;
 };
 
-let tData = {};
-let score = 0;
+
 (async () => {
   const res = await fetch("./data/trivia.json").catch(console.error);
   tData = await res.json();
@@ -73,12 +93,14 @@ let score = 0;
     const toStringify = tData.map((item) => item.id);
 
     document.cookie = `trivia=${JSON.stringify({
-      started: true,
+      started,
       score,
       questions: toStringify,
     })}`;
   }
-  nextQuestion(tData);
+
+  // this is always the first one, so no need to check if tData has entries
+  nextQuestion(tData.shift());
 })();
 
 on(intro, "click", showQuestions);
