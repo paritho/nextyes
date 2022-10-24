@@ -131,6 +131,8 @@
               dark blue:  #004b86
               yellow:     #fa9300
               dark gray:  
+              red:      #ff3a3a
+              green:    rgb(57, 175, 57);
   */
 
 #app {
@@ -741,7 +743,7 @@ a {
   position: absolute;
   left:5;
   right:5;
-  top:155;
+  top:135;
   bottom:150;
 }
 .trivia-wrap .question {
@@ -751,7 +753,7 @@ a {
 .trivia-wrap .question p {
     color: white;
     font-size: 1.5em;
-    padding: 35px 25px 35px 25px;
+    padding: 20px 25px;
     margin: 0;
 }
 .trivia-wrap .answers-wrap {
@@ -768,7 +770,7 @@ a {
   list-style: none;
   flex: 1;
   background-color: darkgray;
-  padding: 10px 0 10px 0;
+  padding: 15px 0 10px 0;
   border: 5px solid gray;
   border-collapse: collapse;
   color: white;
@@ -778,11 +780,27 @@ a {
   margin-bottom: 2px;
   margin-top: 2px;
 }
+.trivia-wrap .score-wrap {
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
 .trivia-wrap .selected {
   border-color: #fa9300 !important;
 }
+.trivia-wrap .correct {
+  border-color: #39af39 !important;
+  background-color: #aaf3aa !important;
+  color:#343a40 !important;
+}
+.trivia-wrap .incorrect {
+  border-color: #ff3a3a !important;
+  background-color: #f4a5a5 !important;
+  color:#343a40 !important;
+}
 .trivia-wrap .select {
-  margin-top:65px;
+  margin-top:-10px;
   padding: 15px 0 15px 0;
 }
 .trivia-wrap .qaView {
@@ -836,6 +854,12 @@ a {
     padding:unset;
     font-size: 1.5em;
   }  
+}
+
+@media (max-height: 790px) {
+  .trivia-wrap .answers-wrap li {
+    padding-top: 10px;
+  }
 }
 
 

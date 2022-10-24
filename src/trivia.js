@@ -6,10 +6,14 @@ import { off, on, q, qa } from "./utils.js";
 import { getCookieValue } from "./loginUtils.js";
 
 const intro = q(".intro");
-const triviaWrap = q(".trivia-wrap");
+const triviaWrap = q('.trivia-wrap');
+const triviaViewer = q(".trivia-viewer");
 const qaView = q(".qaView");
 const leaderboard = q(".help-icon");
 const next = q(".select button");
+const score = q(".score");
+const scoreWrap = q(".score-wrap");
+let currentQuestion = {}
 
 on(leaderboard, "click", (event) => (window.location.href = "/leaderboard"));
 on(next, 'click', (event)=>{
@@ -22,14 +26,26 @@ on(next, 'click', (event)=>{
     }, 2000);
     return;
   }
+  
   const answer = +answered.dataset.idx;
+  let correct = +currentQuestion.correct === answer;
+  answered.classList.remove('selected')
+  if(correct){
+    answered.classList.add('correct')
+  } else {
+    answered.classList.add('incorrect');
+  }
 
-  clearQuestion();
-  const question = tData.shift();
-  if(!question){
+  updateScore(correct);
+  showJustification();
+
+
+  // clearQuestion();
+  currentQuestion = tData.shift();
+  if(!currentQuestion){
     return gameOver()
   }
-  nextQuestion(question)
+  // nextQuestion(currentQuestion)
 
   //get and write new cookie
   const tCookie = JSON.parse(getCookieValue('trivia'));
@@ -37,6 +53,12 @@ on(next, 'click', (event)=>{
   tCookie.questions = tData.map((item) => item.id);
   document.cookie = `trivia=${JSON.stringify(tCookie)}`
 })
+
+const updateScore = (scored) => {
+  bind(score)`${scored ? +score.textContent + 1 : score.textContent}`
+}
+
+const showJustification = () => {}
 
 const renderQA = bind(qaView);
 let tData = {};
@@ -64,6 +86,8 @@ const showQuestions = (event) => {
   }, 250);
   setTimeout(() => {
     Anim.bringIn(triviaWrap);
+    Anim.bringIn(triviaViewer);
+    Anim.bringIn(scoreWrap)
   }, 250);
   const tCookie = JSON.parse(getCookieValue('trivia'));
   tCookie.started = true;
@@ -71,9 +95,9 @@ const showQuestions = (event) => {
 };
 
 const clearQuestion = () => {
-  Anim.hide(triviaWrap)
+  Anim.hide(triviaViewer)
   setTimeout(()=>{
-    Anim.bringIn(triviaWrap)
+    Anim.bringIn(triviaViewer)
   },150)
   renderQA``;
 }
@@ -118,7 +142,8 @@ const nextQuestion = (data) => {
   }
 
   // this is always the first one, so no need to check if tData has entries
-  nextQuestion(tData.shift());
+  currentQuestion = tData.shift()
+  nextQuestion(currentQuestion);
 })();
 
 on(intro, "click", showQuestions);

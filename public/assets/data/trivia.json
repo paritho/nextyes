@@ -29,7 +29,7 @@
     },
     {
         "id":4,
-        "question":"If you were listening to someone play the bala -- a kind of xylophone -- where might you be?",
+        "question":"If someone was playing the bala -- a kind of xylophone -- where might you be?",
         "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
         "correct":0,
         "answer":"Chad, Africa has a myriad of traditional African instruments, the bala being one."
