@@ -2,31 +2,13 @@ import { bind, wire } from "hyperhtml";
 import { renderMenu } from "./menu.js";
 import { renderForm } from "./forms.js";
 import { createModal } from "./modal.js";
+import { on, q, qa, scroller } from "./utils.js"
 import * as Anim from "./animations.js";
-import * as Alerts from "./alerts.js";
-import { on, q, qa } from "./utils.js"
-
-const app = q('#app');
 
 // get the page we're on, minus the /
 const path = window.location.pathname.slice(1);
 
-renderMenu()
-  .then(([backBtns, contact]) => {
-    Anim.show(backBtns);
-    Anim.show(contact);
-    on(backBtns,'click', e => {
-        if(path === "leaderboard"){
-            window.location.href = "/trivia";
-        }
-        if(path !== "home"){
-            window.history.go(-1);
-        }
-    })
-    on(contact, 'click', e => {
-        window.location.href = `/contact`;
-    })
-})
+renderMenu();
 
 if (path === "contact") {
     const whichForm = window.location.search === "?mmd" ? "makemyday" : path
@@ -37,7 +19,7 @@ if (path === "contact") {
             "contact":``,
             "makemyday":``
         }
-        const modal = createModal('help with messages', content[path])
+        const modal = createModal('help with messages', wire()`${content[path]}`)
         on(helpBtn, 'click', (e) => modal.open())
     })
 }
@@ -65,10 +47,11 @@ if (path === 'schedule') {
         if(!target.dataset.sessid){
             return;
         }
+        
         const session = target.dataset.sessid;
         const sessionDetails = scheduleData[session];
-        const footer = sessionDetails.notes ? `<a class="btn btn-primary" href='/notes'">take notes</a>` : "";
-        const modal = createModal(sessionDetails.title, sessionDetails.descr, footer)
+        const footer = sessionDetails.notes ? wire()`<button class="btn btn-primary" href='/notes'">take notes</button>` : "";
+        const modal = createModal(sessionDetails.title, wire()`${{html:sessionDetails.descr}}`, footer)
         modal.open();
     })
 }
@@ -87,6 +70,8 @@ if(path === "speakers"){
     Anim.bringIn(goleft);
     Anim.bringIn(goright);
     Anim.show(speakerCards[currSpeaker]);
+
+    scroller(q('.speakers'))
 
     on(goright, 'click', e => {
         const showing = currSpeaker;

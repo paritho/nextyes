@@ -272,7 +272,7 @@ a {
   overflow: hidden;
   overflow-y: scroll;
 }
-.tny-modal a {
+.tny-modal button {
   width: 90%;
   position: absolute;
   bottom: 15px;
@@ -391,7 +391,7 @@ a {
 }
 .goleft,
 .goright {
-  top: 195;
+  top: 100;
 }
 .goleft {
   left: 15;
@@ -736,7 +736,7 @@ a {
   font-size: 1.25em;
   position: absolute;
   z-index: 1;
-  top: 262;
+  top: 275;
 }
 .trivia {}
 .trivia-wrap {
@@ -800,8 +800,7 @@ a {
   color:#343a40 !important;
 }
 .trivia-wrap .select {
-  margin-top:-10px;
-  padding: 15px 0 15px 0;
+  margin-top:5px;
 }
 .trivia-wrap .qaView {
   display: flex;
@@ -829,7 +828,7 @@ a {
 }
 
 @media (min-height: 720px) {
-  .godown {
+  .home.godown {
     display: none;
   }
   .card-btn-img svg {

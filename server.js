@@ -218,7 +218,7 @@ server.get(["/resources", "/resources.html"], hasRegistered, (req, res) => {
 server.get(["/notes", "/notes.html"], hasRegistered, (req, res) => {
     res.sendFile(pathJoiner('src/views/notes.html'))
 })
-server.get("/contact", hasRegistered, (req, res) => {
+server.get("/contact", (req, res) => {
     res.sendFile(pathJoiner(`src/views/contact.html`))
 })
 server.get(["/leaderboard", "/leaderboard.html"], hasRegistered, (req, res)=>{

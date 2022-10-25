@@ -3,59 +3,59 @@
         "id":0,
         "time":"8:00a",
         "title":"breakfast",
-        "descr":"The most important meal of the day will be available from 8:00a to 8:45a. Be sure to arrive in enough time to grab your breakfast so your stomach isn't growling all day. Menu includes delicousness."
+        "descr":"<p>The most important meal of the day will be available from 8:00a to 8:45a. Be sure to arrive in enough time to grab your breakfast so your stomach isn't growling all day. Menu includes delicousness</p>."
     },
     {
         "id":1,
         "time":"9:00a",
         "title":"main session 1",
-        "descr":" ",
+        "descr":"<p> </p>",
         "notes": true
     },
     {
         "id":2,
         "time":"10:15a",
         "title":"break",
-        "descr":"Have you submitted a 'Make My Day' yet? Head on over to do so if you haven't! Otherwise, find some snaks in the lobby and meet a new friend! We'll see you in 15."
+        "descr":"<p>Have you submitted a 'Make My Day' yet? Head on over to do so if you haven't! Otherwise, find some snaks in the lobby and meet a new friend! We'll see you in 15</p>."
     },
     {
         "id":3,
         "time":"10:30a",
         "title":"workshops",
-        "descr":"Find your workshop room and be prepared for a smaller, more intimate setting with our speakers. Workshops during this time are <ul><li><strong>Ron Kent:</strong> Tangible Relation Mission<br/>How to create functional spaces, to build relationships, that lead to disciple making opportunities.</li><li><strong>Franklin Choate:</strong> Bridges out of Poverty<br/>The Bridges framework offers participants the opportunity to investigate the impact that poverty has had on them, their institutions, and their communities. The model can enhance how we view our work and improve our effectiveness as we support under-resourced families.</li></ul>",
+        "descr":"<p>Find your workshop room and be prepared for a smaller, more intimate setting with our speakers. Workshops during this time are <ul><li><strong>Ron Kent:</strong> Tangible Relation Mission<br/>How to create functional spaces, to build relationships, that lead to disciple making opportunities.</li><li><strong>Franklin Choate:</strong> Bridges out of Poverty<br/>The Bridges framework offers participants the opportunity to investigate the impact that poverty has had on them, their institutions, and their communities. The model can enhance how we view our work and improve our effectiveness as we support under-resourced families.</li></ul></p>",
         "notes": true
     },
     {
         "id":4,
         "time":"11:30a",
         "title":"main session 2",
-        "descr":"Hungry? Be sure to grab a snack before returning to the main auditorium for this session. <br/> James Talbert will be giving his talk one <i>The theft of our yes</i>.",
+        "descr":"<p>Hungry? Be sure to grab a snack before returning to the main auditorium for this session. <br/> James Talbert will be giving his talk one <i>The theft of our yes</i>.</p>",
         "notes": true
     },
     {
         "id":5,
         "time":"12:30p",
         "title":"lunch",
-        "descr":"Lunch menu is ... "
+        "descr":"<p>Lunch menu is ...</p> "
     },
     {
         "id":6,
         "time":"1:15p",
         "title":"workshops",
-        "descr":" Workshops during this time are <ul><li><strong>Brooke Angle:</strong> Jumping Ship: A Biblical Perspective to Saying Yes.<br/>During her 5 years in Haiti, Brooke witnessed death, was held at gunpoint, and prayed for voodoo priests, but never regretted saying yes to God's direction for her life. In this workshop, Brooke will talk through a biblical perspective of what it means to say yes to God, no matter what He is calling you to.</li><li><strong>Nathan Wells:</strong> Gospeling<br/>Nathan will walk us through sharing the Gospel on a personal level.</li></ul>",
+        "descr":"<p> Workshops during this time are <ul><li><strong>Brooke Angle:</strong> Jumping Ship: A Biblical Perspective to Saying Yes.<br/>During her 5 years in Haiti, Brooke witnessed death, was held at gunpoint, and prayed for voodoo priests, but never regretted saying yes to God's direction for her life. In this workshop, Brooke will talk through a biblical perspective of what it means to say yes to God, no matter what He is calling you to.</li><li><strong>Nathan Wells:</strong> Gospeling<br/>Nathan will walk us through sharing the Gospel on a personal level.</li></ul></p>",
         "notes": true
     },
     {
         "id":7,
         "time":"2:00p",
         "title":"break",
-        "descr":""
+        "descr":"<p></p>>"
     },
     {
         "id":8,
         "time":"2:15p",
         "title":"closing session",
-        "descr":"It's so sad, but even good things must come to an end. This is our last session for the conference. Pastor Joe will share from his heart and we'll close out this year's conference with some worship.",
+        "descr":"<p>It's so sad, but even good things must come to an end. This is our last session for the conference. Pastor Joe will share from his heart and we'll close out this year's conference with some worship.</p>",
         "notes": true
     }
 

@@ -4,69 +4,69 @@
         "question":"How many languages are spoken on Earth?",
         "answers":["7151","5609","2300","9142"],
         "correct":0,
-        "answer":"The exact number fluxuates as languages grow and evolve, but experts currently settle on the number 7151."
+        "answer":"<p>The exact number fluxuates as languages grow and evolve, but experts currently settle on the number 7151.</p>"
     },
     {
         "id":1,
         "question":"Approximately how many people do not have a Bible in their language?",
         "answers":["900 Million", "1.5 Billion", "2 Billion", "750 Million"],
         "correct":1,
-        "answer":"Wycliff Bible Translators are actively working to reduce this 1.5 billion number to zero."
+        "answer":"<p>Wycliff Bible Translators are actively working to reduce this 1.5 billion number to zero.<p>"
     },
     {
         "id":2,
         "question":"How many countries are there?",
         "answers":["204", "197", "187", "195"],
         "correct":3,
-        "answer":"193 countries are member states of the UN, and 2 are non-member observers, for 195 total. This does not include dependent territories, or non self-governing countries."
+        "answer":"<p>193 countries are member states of the UN, and 2 are non-member observers, for 195 total. This does not include dependent territories, or non self-governing countries.<p>"
     },
     {
         "id":3,
         "question":"Where would you be likely to eat Kak'ik, a kind of turkey chili?",
         "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
         "correct":2,
-        "answer":"Kak'ik is a dish found in Guatemala. Want to try some? <a href='#'> Consider a Go team trip next year!</a>."
+        "answer":"<p>Kak'ik is a dish found in Guatemala. Want to try some? <a href='#'> Consider a Go team trip next year!</a>.<p>"
     },
     {
         "id":4,
         "question":"If someone was playing the bala -- a kind of xylophone -- where might you be?",
         "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
         "correct":0,
-        "answer":"Chad, Africa has a myriad of traditional African instruments, the bala being one."
+        "answer":"<p>Chad, Africa has a myriad of traditional African instruments, the bala being one.<p>"
     },
     {
         "id":5,
         "question":"Where are you most likely to find streets named after trees?",
         "answers":["Mazatlan, Mexico", "Philidelphia, Pennsylvania","Port au Prince, Haiti", "Bangkok, Thailand"],
         "correct":1,
-        "answer":"Philidelphia is famous for naming entire neighborhood streets after trees, apparently in an effort to educate people on the different types."
+        "answer":"<p>Philidelphia is famous for naming entire neighborhood streets after trees, apparently in an effort to educate people on the different types.<p>"
     },
     {
         "id":6,
         "question":"How many GO teams will Grace send next year?",
         "answers":["9","10","12","7"],
         "correct":2,
-        "answer":"Want to be apart of one of these teams in 2023? <a href='#'>Check out GO Teams!</a>"
+        "answer":"<p>Want to be apart of one of these teams in 2023? <a href='#'>Check out GO Teams!</a><p>"
     },
     {
         "id":7,
         "question":"How many missionaries does Grace partner with?",
         "answers":["12", "7", "15", "10"],
         "correct":0,
-        "answer": "Grace partners with 12 missionaries and 3 church planting missionaries."
+        "answer": "<p>Grace partners with 12 missionaries and 3 church planting missionaries.<p>"
     },
     {
         "id":8,
         "question":"If someone says 'bonjou' to you, where are you likely to be?",
         "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
         "correct":3,
-        "answer": "'Bonjou means 'hello' in Haitian Creole."
+        "answer": "<p>'Bonjou means 'hello' in Haitian Creole.<p>"
     },
     {
         "id":9,
         "question":"If you were wearing a rebozo, where might you be?",
         "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
         "correct":1,
-        "answer": "A rebozo is an article of traditional Mexican clothing that is a woolen, shawl-like garment with verticl stripes."
+        "answer": "<p>A rebozo is an article of traditional Mexican clothing that is a woolen, shawl-like garment with verticl stripes.<p>"
     }
 ]

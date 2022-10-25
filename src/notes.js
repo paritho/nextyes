@@ -1,5 +1,4 @@
 import { bind, wire } from "hyperhtml";
-import { renderForm } from "./forms.js";
 import { renderMenu } from "./menu.js";
 import { createModal } from "./modal.js";
 import * as Anim from "./animations.js";
@@ -11,6 +10,8 @@ if (!existingNotes || !existingNotes.length) {
   window.localStorage.setItem("noteids", JSON.stringify([-1]));
 }
 
+renderMenu();
+
 const newNote = q(".note");
 const newNoteBtn = q(".newNote");
 const noteList = q(".noteList");
@@ -19,7 +20,7 @@ const saveNoteBtn = q(".noteDone");
 const bg = q(".note-dialog-bg");
 const noteHelp = q('.help-icon');
 
-const modalContent = ` <ul>
+const modalContent = wire()`<ul>
 <li>To add a new note, press the 'add a new note' item.</li>
 <li>To edit an existing note, press anywhere on the title in the list view.</li>
 <li>To remove a note, press the red X icon twice.</li>

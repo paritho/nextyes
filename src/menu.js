@@ -1,5 +1,6 @@
 import { bind, wire } from "hyperhtml";
 import { on, q } from "./utils";
+import * as Anim from "./animations.js"
 
 export const renderMenu = () => {
   let displayMode = "browser tab";
@@ -65,7 +66,25 @@ export const renderMenu = () => {
     } else {
       rej();
     }
-  });
+  }).then(([backBtns, contact]) => {
+    // get the page we're on, minus the /
+    const path = window.location.pathname.slice(1);
+
+    Anim.show(backBtns);
+    Anim.show(contact);
+    on(backBtns,'click', e => {
+        if(path === "leaderboard"){
+            window.location.href = "/trivia";
+        }
+        if(path !== "home"){
+            window.history.go(-1);
+        }
+    })
+    on(contact, 'click', e => {
+        window.location.href = `/contact`;
+    });
+    return [backBtns, contact]
+  })
 };
 
 // in case I want to put it back later

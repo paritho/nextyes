@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v10a';
+const CACHE_NAME = 'static-cache-v10b';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -19,7 +19,7 @@ const FILES_TO_CACHE = [
     "./js/content-bundle.js",
     "./js/note-bundle.js",
     "./js/trivia-bundle.js",
-    "./js/home.js",
+    "./js/home-bundle.js",
     "./img/logo-small.png",
     "./img/logo.png",
     "./img/icon-512.png",
