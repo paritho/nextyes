@@ -40,12 +40,12 @@ on(next, 'click', (event)=>{
   showJustification();
 
 
-  // clearQuestion();
+  clearQuestion();
   currentQuestion = tData.shift();
   if(!currentQuestion){
     return gameOver()
   }
-  // nextQuestion(currentQuestion)
+  nextQuestion(currentQuestion)
 
   //get and write new cookie
   const tCookie = JSON.parse(getCookieValue('trivia'));

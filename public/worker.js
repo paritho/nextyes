@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v9b';
+const CACHE_NAME = 'static-cache-v10a';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -10,7 +10,7 @@ const FILES_TO_CACHE = [
     "/notes.html",
     "/info.html",
     "/trivia.html",
-    // "/leaderboard.html",
+    "/leaderboard.html",
     "./css/styles.css",
     "./css/bootstrap.min.css",
     "./data/schedule.json",
@@ -29,8 +29,10 @@ const FILES_TO_CACHE = [
     "./img/favicon-32x32.png",
     "./img/apple-touch-icon.png",
     "./img/joe.jpg",
-    // "./img/john.jpg",
-    // "./img/bena.jpg",
+    "./img/john.jpg",
+    "./img/bena.jpg",
+    "./img/sintics.jpg",
+    "./img/rodeman.jpg",
     "./fonts/font1.woff2",
     "./fonts/font2.woff2",
     "./fonts/font3.woff2"
