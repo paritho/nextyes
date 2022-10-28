@@ -250,6 +250,9 @@ a {
 .card-btn-img svg {
   height:167px;
 }
+.card-logo {
+  width: 70%;
+}
 .close-icon {
   position: absolute;
   top: 0;
@@ -271,6 +274,7 @@ a {
   background-image: radial-gradient(circle at top right, #29abe2 40%, #004b86);
   overflow: hidden;
   overflow-y: scroll;
+  z-index: 5;
 }
 .tny-modal button {
   width: 90%;
@@ -300,6 +304,9 @@ a {
   padding: 10px;
   overflow-y: scroll;
   height: 80%;
+}
+.tny-modal-body a {
+  color: white !important;
 }
 /* .help-icon {
   width: 50px;
@@ -670,7 +677,7 @@ a {
 }
 .sched-row {
   padding-left: 15px;
-  height: 8.95%;
+  height: 9.9%;
 }
 .schedule {
   background-color: #343a40;
@@ -731,7 +738,7 @@ a {
 }
 .speaker-bio {
   color: white;
-  text-align: left !important;
+  text-align: justify !important;
   margin: 0px 30px;
   font-size: 1.25em;
   position: absolute;
@@ -822,7 +829,7 @@ a {
   }
   
   .sched-row {
-    height:8.5%;
+    height:9.45%;
   }
   
 }

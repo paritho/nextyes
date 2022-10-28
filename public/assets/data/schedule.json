@@ -3,59 +3,53 @@
         "id":0,
         "time":"8:00a",
         "title":"breakfast",
-        "descr":"<p>The most important meal of the day will be available from 8:00a to 8:45a. Be sure to arrive in enough time to grab your breakfast so your stomach isn't growling all day. Menu includes delicousness</p>."
+        "descr":"<p>The most important meal of the day will be available from 8:00a to 8:45a. Be sure to arrive in enough time to grab your breakfast so your stomach isn't growling all day. <br/><br/> Menu includes delicous bagels and Ethiopian coffee!</p>"
     },
     {
         "id":1,
         "time":"9:00a",
         "title":"main session 1",
-        "descr":"<p> </p>",
+        "descr":"<p>Say Yes to God</p><p>Head on into the main auditorium for the first session</p><br/><p>Pastor Ryan Rodeman will deliver this important first session. As God reaches us, He has us. He is Lord. We say yes. The adventure of the pathway with Him awaits!</p>",
         "notes": true
     },
     {
         "id":2,
-        "time":"10:15a",
+        "time":"10:20a",
         "title":"break",
-        "descr":"<p>Have you submitted a 'Make My Day' yet? Head on over to do so if you haven't! Otherwise, find some snaks in the lobby and meet a new friend! We'll see you in 15</p>."
+        "descr":"<p>Have you submitted a <a href='/contact?mmd'>Make My Day' yet?</a>.</p><p> <br/>Find some snaks in the lobby and meet a new friend! We'll see you in 15</p>"
     },
     {
         "id":3,
-        "time":"10:30a",
+        "time":"10:40a",
         "title":"workshops",
-        "descr":"<p>Find your workshop room and be prepared for a smaller, more intimate setting with our speakers. Workshops during this time are <ul><li><strong>Ron Kent:</strong> Tangible Relation Mission<br/>How to create functional spaces, to build relationships, that lead to disciple making opportunities.</li><li><strong>Franklin Choate:</strong> Bridges out of Poverty<br/>The Bridges framework offers participants the opportunity to investigate the impact that poverty has had on them, their institutions, and their communities. The model can enhance how we view our work and improve our effectiveness as we support under-resourced families.</li></ul></p>",
+        "descr":"<p>Find your workshop room and be prepared for a smaller, more intimate setting with our speakers.<br/><br/> Workshops during this time are <ul><li><strong>Mitch & Susan Sintic</strong></li><li><strong>John Reaser</strong></li><li><strong>Bena</strong></li></ul></p>",
         "notes": true
     },
     {
         "id":4,
         "time":"11:30a",
         "title":"main session 2",
-        "descr":"<p>Hungry? Be sure to grab a snack before returning to the main auditorium for this session. <br/> James Talbert will be giving his talk one <i>The theft of our yes</i>.</p>",
+        "descr":"<p>Hungry? Be sure to grab a snack before returning to the main auditorium for this session. <br/><br/> Pastor Joe will speak on Innovation. Collaboration. Integration.</p><p> We are the ministry of today. There is no waiting. We are better together - partnership and cooperation.</p>",
         "notes": true
     },
     {
         "id":5,
-        "time":"12:30p",
+        "time":"12:45p",
         "title":"lunch",
-        "descr":"<p>Lunch menu is ...</p> "
+        "descr":"<p>Grab some lunch from the hot dog bar! <br/><br/> Build your own dog and get ready for the afternoon sessions.</p> "
     },
     {
         "id":6,
-        "time":"1:15p",
+        "time":"1:35p",
         "title":"workshops",
-        "descr":"<p> Workshops during this time are <ul><li><strong>Brooke Angle:</strong> Jumping Ship: A Biblical Perspective to Saying Yes.<br/>During her 5 years in Haiti, Brooke witnessed death, was held at gunpoint, and prayed for voodoo priests, but never regretted saying yes to God's direction for her life. In this workshop, Brooke will talk through a biblical perspective of what it means to say yes to God, no matter what He is calling you to.</li><li><strong>Nathan Wells:</strong> Gospeling<br/>Nathan will walk us through sharing the Gospel on a personal level.</li></ul></p>",
+        "descr":"<p>Workshops during this time are <ul><li><strong>Mitch & Susan Sintic</strong></li><li><strong>John Reaser</strong></li><li><strong>Bena</strong></li></ul></p><p>Last chance to submit a <a href='/contact?mmd'>Make My Day!</a></p>",
         "notes": true
     },
     {
         "id":7,
-        "time":"2:00p",
-        "title":"break",
-        "descr":"<p></p>>"
-    },
-    {
-        "id":8,
-        "time":"2:15p",
+        "time":"2:25p",
         "title":"closing session",
-        "descr":"<p>It's so sad, but even good things must come to an end. This is our last session for the conference. Pastor Joe will share from his heart and we'll close out this year's conference with some worship.</p>",
+        "descr":"<p>It's so sad, but even good things must come to an end. <br/><br/>This is our last session for the conference. Pastor Joe will share about The Cost of Saying Yes. Sacrifice and suffering: living in the power of His resurrection.</p>",
         "notes": true
     }
 

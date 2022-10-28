@@ -16,10 +16,11 @@ if (path === "contact") {
         Anim.bringIn(formWrap);
         const helpBtn = q('.help-icon');
         const content = {
-            "contact":``,
-            "makemyday":``
+            "contact":wire()`<p>Something went wrong? Please find a conference volunteer</p><p>Otherwise, please try again later!</p>`,
+            "makemyday":wire()`<p>Make my Day is a fun way for us to bless you today. Dream big!</p><br/><p>Something didn't work right? Please find a 
+            conference volunteer, or try again later.</p>`
         }
-        const modal = createModal('help with messages', wire()`${content[path]}`)
+        const modal = createModal('help with messages', content[whichForm])
         on(helpBtn, 'click', (e) => modal.open())
     })
 }

@@ -63,7 +63,7 @@ const checkAnswer = (event) => {
         <p>${correct ? "CORRECT!" : "Not quite right"}</p>
         ${{ html: currentQuestion.answer }}
       </div>`;
-  modal = createModal("and the answer is", justification, buttonMaker(true), false);
+  modal = createModal("and the answer is", justification, buttonMaker(true), true);
   setTimeout(() => {
     modal.open();
     clearQuestion();
