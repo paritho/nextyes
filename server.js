@@ -224,6 +224,14 @@ server.get("/contact", (req, res) => {
 server.get(["/leaderboard", "/leaderboard.html"], hasRegistered, (req, res)=>{
     res.sendFile(pathJoiner(`src/views/leaderboard.html`))
 })
+server.get("/leaders", hasRegistered, (req, res) => {
+    //get leaderboard info from server
+    res.json([{
+        "id":0,
+        "name":"John Doe",
+        "score":10
+    }])
+})
 server.post("/sendMessage", async (req,res)=> {
     const publicHash = req.body.hash;
     const subject = req.body.subject;
