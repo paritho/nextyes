@@ -485,6 +485,12 @@ a {
 .lb-content {
   margin-top: 10px;
 }
+.lb-content .medal {
+  top:0;
+  left:25px;
+  width: 50px;
+  position: absolute;
+}
 .leaderboard h3 {
   font-size: 2.5em;
   text-align: center;
@@ -492,9 +498,13 @@ a {
 .leaderboard .lb-row {
   font-size: 2em;
   text-align: center;
+  margin-left: -10px !important;
 }
 .leaderboard .help-icon {
   top:70;
+}
+.leaderboard .name {
+  text-align: left !important;
 }
 .menu {
   top: 0;

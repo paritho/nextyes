@@ -234,28 +234,18 @@ server.get(["/leaderboard", "/leaderboard.html"], hasRegistered, (req, res) => {
 });
 server.get("/leaders", (req, res) => {
   //get leaderboard info from server
-  res.json([
-    {
-      id: 0,
-      name: "John Doe",
-      score: 10,
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      score: 9,
-    },
-    {
-      id: 2,
-      name: "John Doe",
-      score: 8,
-    },
-    {
-      id: 3,
-      name: "John Doe",
-      score: 7,
-    },
-  ]);
+  try {
+      const scores = require("./db/scores.json");
+      const topTen = Object.values(scores);
+      // scores.json has an empty array at pos 0
+      topTen.shift();
+      const len = topTen.length;
+      topTen.length = len > 10 ? 10 : len
+      res.json(topTen);
+    } catch(error) {
+        logger.error(`An error occured getting top ten scores: ${error}`)
+        res.status(500).send({failed: 'There was a problem'})
+    }
 });
 
 server.post("/score", (req, res) => {
