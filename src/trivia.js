@@ -16,6 +16,8 @@ const leaderboard = q(".help-icon");
 const buttonWrap = q(".select");
 const score = q(".score");
 const scoreWrap = q(".score-wrap");
+
+const renderScore = bind(score);
 let currentQuestion = {};
 
 const buttonMaker = (isNext) => {
@@ -34,6 +36,23 @@ const goToNext = (event) => {
     return gameOver();
   }
   nextQuestion(currentQuestion);
+};
+
+const postScore = (score) => {
+  const userData = {
+    hash: getCookieValue("user"),
+    score,
+  };
+  fetch("/sendMessage", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  }).catch(error => {
+    console.error(`There was a problem posting the score: ${error}`)
+  });
 };
 
 const checkAnswer = (event) => {
@@ -57,13 +76,18 @@ const checkAnswer = (event) => {
   }
   Anim.wiggle(answered);
 
-  bind(score)`${correct ? +score.textContent + 1 : score.textContent}`;
+  renderScore`${correct ? +score.textContent + 1 : score.textContent}`;
   const justification = wire()`<div>
         <p>Your answer was ...</p>
         <p>${correct ? "CORRECT!" : "Not quite right"}</p>
         ${{ html: currentQuestion.answer }}
       </div>`;
-  modal = createModal("and the answer is", justification, buttonMaker(true), true);
+  modal = createModal(
+    "and the answer is",
+    justification,
+    buttonMaker(true),
+    true
+  );
   setTimeout(() => {
     modal.open();
     clearQuestion();
@@ -72,8 +96,12 @@ const checkAnswer = (event) => {
   //get and write new cookie
   const tCookie = JSON.parse(getCookieValue("trivia"));
   tCookie.answers.push(answer);
+  tCookie.score = score.textContent;
   tCookie.questions = tData.map((item) => item.id);
   document.cookie = `trivia=${JSON.stringify(tCookie)}`;
+
+  // post score to server
+  postScore(tCookie.score);
   return;
 };
 
@@ -148,6 +176,7 @@ const nextQuestion = (data) => {
     gameState = JSON.parse(gameState);
     if (gameState.started) {
       answers = gameState.answers;
+      renderScore`${gameState.score}`;
       tData = gameState.questions.map((id) =>
         tData.find((data) => data.id == id)
       );

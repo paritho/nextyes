@@ -637,12 +637,12 @@ a {
   margin: 0;
   height: 11px;
 }
-.partners, .resources {
+.partners, .resources, .info {
   padding:10px;
   top:0 !important;
   font-size: 1.5em;
 }
-.partners, .partners a, .resources, .resources a {
+.partners, .partners a, .resources, .resources a, .info, .info a {
   color:white;
 }
 .pulse {
@@ -715,7 +715,7 @@ a {
 .slide-right {
   animation: slide-right 0.4s linear 1;
 }
-.speakers, .partners, .resources {
+.speakers, .partners, .resources, .info {
   position: absolute;
   top: 65;
   left: 0;

@@ -12,7 +12,7 @@ module.exports.salt = () => {
     return generated;
 }
 
-module.exports.hash = (str) => {
+module.exports.hasher = (str) => {
     const digest = forge.md.sha1.create();
     digest.update(str);
     return digest.digest().toHex();

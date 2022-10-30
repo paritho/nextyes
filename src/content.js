@@ -94,9 +94,11 @@ if(path === "leaderboard"){
     })();
 }
 
-if(path === "resources" || path === "partners" || path === "speakers"){
-    scroller(q(`.${path}`), 50);
+const scrollBtn = q(`.${path}`);
+if(scrollBtn){
+    scroller(scrollBtn, 20);
 }
+
 
 if(path === "speakers"){
     const speakerCards = qa(".speaker");
