@@ -16,6 +16,7 @@ const leaderboard = q(".help-icon");
 const buttonWrap = q(".select");
 const score = q(".score");
 const scoreWrap = q(".score-wrap");
+const gameoverWrap = q(".gameover");
 
 const renderScore = bind(score);
 let currentQuestion = {};
@@ -27,12 +28,25 @@ const buttonMaker = (isNext) => {
 };
 
 on(leaderboard, "click", (event) => (window.location.href = "/leaderboard"));
+
+const gameOver = () => {
+  Anim.hide(triviaWrap);
+
+  Anim.bringIn(gameoverWrap);
+
+  const tCookie = JSON.parse(getCookieValue("trivia"));
+  tCookie.gameOver = true;
+  document.cookie = `trivia=${JSON.stringify(tCookie)}`;
+  postScore(tCookie.score);
+};
+
 let modal = {};
+
 const goToNext = (event) => {
   modal.close();
   // clearQuestion();
   currentQuestion = tData.shift();
-  if (!currentQuestion) {
+  if (!tData.length) {
     return gameOver();
   }
   nextQuestion(currentQuestion);
@@ -43,15 +57,15 @@ const postScore = (score) => {
     hash: getCookieValue("user"),
     score,
   };
-  fetch("/sendMessage", {
+  fetch("/score", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userData),
-  }).catch(error => {
-    console.error(`There was a problem posting the score: ${error}`)
+  }).catch((error) => {
+    console.error(`There was a problem posting the score: ${error}`);
   });
 };
 
@@ -72,9 +86,11 @@ const checkAnswer = (event) => {
   if (correct) {
     answered.classList.add("correct");
   } else {
+    const correctAnswer = q(`[data-idx="${currentQuestion.correct}"]`)
+    correctAnswer.classList.add("correct");
     answered.classList.add("incorrect");
+    Anim.wiggle(answered);
   }
-  Anim.wiggle(answered);
 
   renderScore`${correct ? +score.textContent + 1 : score.textContent}`;
   const justification = wire()`<div>
@@ -91,7 +107,7 @@ const checkAnswer = (event) => {
   setTimeout(() => {
     modal.open();
     clearQuestion();
-  }, 2000);
+  }, 1500);
 
   //get and write new cookie
   const tCookie = JSON.parse(getCookieValue("trivia"));
@@ -99,11 +115,8 @@ const checkAnswer = (event) => {
   tCookie.score = score.textContent;
   tCookie.questions = tData.map((item) => item.id);
   document.cookie = `trivia=${JSON.stringify(tCookie)}`;
-
-  // post score to server
-  postScore(tCookie.score);
-  return;
 };
+
 
 const renderQA = bind(qaView);
 let tData = {};
@@ -135,12 +148,19 @@ const showQuestions = (initDelay) => {
   } else {
     Anim.hide(intro);
   }
+  const tCookie = JSON.parse(getCookieValue("trivia"));
+
+  if(tCookie.gameOver){
+    Anim.bringIn(gameoverWrap)
+    return
+  }
+
   setTimeout(() => {
     Anim.bringIn(triviaWrap);
     Anim.bringIn(triviaViewer);
     Anim.bringIn(scoreWrap);
   }, 250);
-  const tCookie = JSON.parse(getCookieValue("trivia"));
+
   tCookie.started = true;
   document.cookie = `trivia=${JSON.stringify(tCookie)}`;
 };

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v10b';
+const CACHE_NAME = 'static-cache-v11a';
 
 const FILES_TO_CACHE = [
     "/index.html",
@@ -10,7 +10,7 @@ const FILES_TO_CACHE = [
     "/notes.html",
     "/info.html",
     "/trivia.html",
-    "/leaderboard.html",
+    // "/leaderboard.html",
     "./css/styles.css",
     "./css/bootstrap.min.css",
     "./data/schedule.json",
@@ -66,6 +66,10 @@ self.addEventListener('activate', (evt) => {
 
 self.addEventListener('fetch', (evt) => {
   console.log('[Service Worker] Fetch', evt.request.url);
+  if(evt.request.method === "POST"){
+    console.log('[Service Worker] Fetching via POST ignored');
+    return;
+  }
   evt.respondWith(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[Service Worker]', cache);

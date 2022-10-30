@@ -362,6 +362,16 @@ a {
 .forms.installed {
   bottom: 5;
 }
+.gameover {
+  background-color: #343a40;
+  color: white;
+  font-size: 2em;
+  padding: 20px;
+  margin: 20px;
+}
+.gameover a {
+  color: white;
+}
 .gobtn {
   opacity: 0.65;
   z-index: 4;

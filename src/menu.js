@@ -73,12 +73,13 @@ export const renderMenu = () => {
     Anim.show(backBtns);
     Anim.show(contact);
     on(backBtns,'click', e => {
-        if(path === "leaderboard"){
-            window.location.href = "/trivia";
+      if(path === "leaderboard"){
+          window.location.href = "/home";
+          return;
         }
-        if(path !== "home"){
-            window.history.go(-1);
-        }
+      if(path !== "home"){
+          window.history.go(-1);
+      }
     })
     on(contact, 'click', e => {
         window.location.href = `/contact`;

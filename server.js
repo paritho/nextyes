@@ -268,10 +268,19 @@ server.post("/score", (req, res) => {
     return;
   }
 
-  const scores = require("./db/leaders.json");
-  
+  const scores = require("./db/scores.json");
+  if(scores[hash] && scores[hash].score == score){
+    logger.info("score hasn't changed for user, don't write");
+    return;
+  }
 
-  dbWriter("leaders.json", scores, "leaderboard");
+  scores[hash] = {
+    name: `${user.firstName} ${user.lastName[0].toUpperCase()}`,
+    score
+  }
+
+  dbWriter("scores.json", scores, "leaderboard");
+  logger.info(`wrote score: ${score} for user hash: ${hash}`)
 
 });
 
