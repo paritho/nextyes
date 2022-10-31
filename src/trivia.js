@@ -44,11 +44,10 @@ let modal = {};
 
 const goToNext = (event) => {
   modal.close();
-  // clearQuestion();
-  currentQuestion = tData.shift();
   if (!tData.length) {
     return gameOver();
   }
+  currentQuestion = tData.shift();
   nextQuestion(currentQuestion);
 };
 
