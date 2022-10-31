@@ -107,7 +107,7 @@ const checkAnswer = (event) => {
   setTimeout(() => {
     modal.open();
     clearQuestion();
-  }, 1500);
+  }, 1000);
 
   //get and write new cookie
   const tCookie = JSON.parse(getCookieValue("trivia"));
