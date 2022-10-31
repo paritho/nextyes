@@ -52,7 +52,7 @@ if (path === 'schedule') {
         
         const session = target.dataset.sessid;
         const sessionDetails = scheduleData[session];
-        const footer = sessionDetails.notes ? wire()`<button class="btn btn-primary" href='/notes'">take notes</button>` : "";
+        const footer = sessionDetails.notes ? wire()`<button class="btn btn-primary" onclick="${()=> window.location.href='/notes'}">take notes</button>` : "";
         const modal = createModal(sessionDetails.title, wire()`${{html:sessionDetails.descr}}`, footer)
         modal.open();
     })
