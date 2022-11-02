@@ -36,7 +36,7 @@ const gameOver = () => {
 
   const tCookie = JSON.parse(getCookieValue("trivia"));
   tCookie.gameOver = true;
-  document.cookie = `trivia=${JSON.stringify(tCookie)}`;
+  document.cookie = `trivia=${JSON.stringify(tCookie)};max-age=${3 * 24 * 60 * 60 * 1000}`;
   postScore(tCookie.score);
 };
 
@@ -113,7 +113,7 @@ const checkAnswer = (event) => {
   tCookie.answers.push(answer);
   tCookie.score = score.textContent;
   tCookie.questions = tData.map((item) => item.id);
-  document.cookie = `trivia=${JSON.stringify(tCookie)}`;
+  document.cookie = `trivia=${JSON.stringify(tCookie)};max-age=${3 * 24 * 60 * 60 * 1000}`;
 };
 
 
@@ -161,7 +161,7 @@ const showQuestions = (initDelay) => {
   }, 250);
 
   tCookie.started = true;
-  document.cookie = `trivia=${JSON.stringify(tCookie)}`;
+  document.cookie = `trivia=${JSON.stringify(tCookie)};max-age=${3 * 24 * 60 * 60 * 1000}`;
 };
 
 const clearQuestion = () => {
@@ -209,7 +209,7 @@ const nextQuestion = (data) => {
       started,
       answers,
       questions: toStringify,
-    })}`;
+    })};max-age=${3 * 24 * 60 * 60 * 1000}`;
   }
 
   // this is always the first one, so no need to check if tData has entries

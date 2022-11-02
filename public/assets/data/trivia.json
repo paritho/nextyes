@@ -23,14 +23,14 @@
     {
         "id":3,
         "question":"Where would you be likely to eat Kak'ik, a kind of turkey chili?",
-        "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
+        "answers":["Chad, Africa", "Mazatlan, Mexico", "Chel, Guatemala", "Port au Prince, Haiti"],
         "correct":2,
         "answer":"<p>Kak'ik is a dish found in Guatemala. Want to try some? <a href='#'> Consider a Go team trip next year!</a>.<p>"
     },
     {
         "id":4,
         "question":"If someone was playing the bala -- a kind of xylophone -- where might you be?",
-        "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
+        "answers":["Chad, Africa", "Mazatlan, Mexico", "Chel, Guatemala", "Port au Prince, Haiti"],
         "correct":0,
         "answer":"<p>Chad, Africa has a myriad of traditional African instruments, the bala being one.<p>"
     },
@@ -58,14 +58,14 @@
     {
         "id":8,
         "question":"If someone says 'bonjou' to you, where are you likely to be?",
-        "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
+        "answers":["Chad, Africa", "Mazatlan, Mexico", "Chel, Guatemala", "Port au Prince, Haiti"],
         "correct":3,
         "answer": "<p>'Bonjou means 'hello' in Haitian Creole.<p>"
     },
     {
         "id":9,
         "question":"If you were wearing a rebozo, where might you be?",
-        "answers":["Chad, Africa", "Mazatlan, Mexico", "Shel, Guatemala", "Port au Prince, Haiti"],
+        "answers":["Chad, Africa", "Mazatlan, Mexico", "Chel, Guatemala", "Port au Prince, Haiti"],
         "correct":1,
         "answer": "<p>A rebozo is an article of traditional Mexican clothing that is a woolen, shawl-like garment with verticl stripes.<p>"
     }
