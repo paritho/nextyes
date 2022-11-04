@@ -45,20 +45,22 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
- const authenticate = (hash) => {
-    const auths = require("./db/authHash.json");
-    const privateHash = auths[hash];
-    if (!privateHash) {
-      logger.error("Non-registered user tried to authenticate");
-      return false;
-    }
-    const user = getUser(privateHash.hash);
-    if (!user) {
-      logger.error(`User not found when authenticating.`);
-      return false;
-    }
-    return {user, hash: privateHash.hash};
-  };
+let pageViewCount = 0;
+
+const authenticate = (hash) => {
+  const auths = require("./db/authHash.json");
+  const privateHash = auths[hash];
+  if (!privateHash) {
+    logger.error("Non-registered user tried to authenticate");
+    return false;
+  }
+  const user = getUser(privateHash.hash);
+  if (!user) {
+    logger.error(`User not found when authenticating.`);
+    return false;
+  }
+  return { user, hash: privateHash.hash };
+};
 
 const login = (hash, user) => {
   const successful = saveUser(hash, user);
@@ -71,7 +73,7 @@ const login = (hash, user) => {
 };
 
 const registerNewUser = (publicHash) => {
-  const {user, hash} = authenticate(publicHash)
+  const { user, hash } = authenticate(publicHash);
   if (user) {
     logger.info(`${user.email} already exits`);
     return { failed: "email already registered" };
@@ -114,9 +116,9 @@ server.get("/cookieSignon/:hash", (req, res) => {
     return res.status(403).send({ noop: "signon not permitted" });
   }
   const publicHash = req.params.hash;
-  const {user, hash} = authenticate(publicHash);
-  if(!user){
-    res.status(401).send({failed: "failed to authenticate user"})
+  const { user, hash } = authenticate(publicHash);
+  if (!user) {
+    res.status(401).send({ failed: "failed to authenticate user" });
   }
 
   const result = login(hash);
@@ -134,7 +136,7 @@ server.get("/cookieSignon/:hash", (req, res) => {
 // only used if a user comes back to the app after 3 days
 server.post("/signon", (req, res) => {
   const publicHash = hasher(`${req.body.email}`);
-  const {user, hash} = authenticate(publicHash)
+  const { user, hash } = authenticate(publicHash);
 
   if (!user) {
     logger.info(`No user for email ${req.body.email}`);
@@ -194,91 +196,241 @@ server.get("/worker", (req, res) => {
   res.sendFile(pathJoiner("public/worker.js"));
 });
 
-server.get("/admin", (req, res) => {});
+server.get("/admin", (req, res) => {
+  res.sendFile(pathJoiner("src/views/admin.html"));
+});
+let token = "";
+server.post("/admin", (req, res) => {
+  const users = require("./db/users.json");
+  const email = req.body.email;
+  const pass = req.body.password;
+  const hashPass = hasher(pass);
+
+  token = "";
+  token = hasher(salt());
+
+  if (users.admin.email === email && users.admin.password === hashPass) {
+    logger.info("admin signon successful");
+    return res.send({ success: "admin authenticated", authToken: token });
+  }
+  return res.status(403).send({ failed: "not authorized" });
+});
+server.post("/adminContent", (req, res) => {
+  logger.info("admin content request");
+  const usertoken = req.body.authToken;
+  if (!usertoken || usertoken !== token) {
+    logger.info("bad or no admin token");
+    return res.status(403).send({ failed: "bad or no token" });
+  }
+  if (usertoken === token) {
+    logger.info("admin token accepted");
+    res.sendFile(pathJoiner("src/views/adminContent.html"));
+  }
+});
+server.post("/winners", (req, res) => {
+  logger.info("winners request");
+  const usertoken = req.body.authToken;
+  if (!usertoken || usertoken !== token) {
+    logger.info("bad or no admin token");
+    return res.status(403).send({ failed: "bad or no token" });
+  }
+  if (usertoken === token) {
+    logger.info("admin token accepted for winners request");
+    const triviaData = require("./db/scores.json");
+    const users = require("./db/users.json");
+    const scores = [];
+    for (const [key, value] of Object.entries(triviaData)) {
+      const fullUserData = users[key];
+      if (fullUserData) {
+        scores.push({
+          name: `${fullUserData.firstName} ${fullUserData.lastName}`,
+          score: value.score,
+        });
+      }
+    }
+    scores.sort((a, b) => b.score - a.score);
+    scores.length = 3;
+    res.send(scores);
+  }
+});
+server.post("/findUser", (req, res) => {
+  logger.info("find user request");
+  const usertoken = req.body.authToken;
+  if (!usertoken || usertoken !== token) {
+    logger.info("bad or no admin token");
+    return res.status(403).send({ failed: "bad or no token" });
+  }
+  if (usertoken === token) {
+    const users = require("./db/users.json");
+    const { firstName, lastName, email } = req.body;
+
+    if (email) {
+      const emailHash = hasher(email);
+      const auths = require("./db/authHash.json");
+      const privateHash = auths[emailHash].hash;
+      if (users[privateHash]) {
+        return res.send([users[privateHash]]);
+      }
+      return res.send({ failed: "user not found" });
+    }
+
+    let found = [];
+    if (firstName) {
+      for (const [hash, data] of Object.entries(users)) {
+        if (!data || !data.firstName) {
+          continue;
+        }
+
+        if (lastName) {
+          if (
+            data.firstName.toLowerCase() === firstName.toLowerCase() &&
+            data.lastName.toLowerCase() === lastName.toLowerCase()
+          ) {
+            found.push(data);
+          }
+        } else {
+          if (data.firstName.toLowerCase() === firstName.toLowerCase()) {
+            found.push(data);
+          }
+        }
+      }
+      if (found.length) {
+        return res.send(found);
+      }
+      return res.send({ failed: "user not found" });
+    }
+
+    if (lastName) {
+      for (const [hash, data] of Object.entries(users)) {
+        if (!data || !data.lastName) {
+          continue;
+        }
+        if (data.lastName.toLowerCase() === lastName.toLowerCase()) {
+          found.push(data);
+        }
+      }
+      if (found.length) {
+        return res.send(found);
+      }
+      return res.send({ failed: "user not found" });
+    }
+  }
+});
+server.post("/stats", (req, res) => {
+  logger.info("stats request");
+  const usertoken = req.body.authToken;
+  if (!usertoken || usertoken !== token) {
+    logger.info("bad or no admin token");
+    return res.status(403).send({ failed: "bad or no token" });
+  }
+  if (usertoken === token) {
+    const userList = require("./db/users.json");
+    const triviaList = require("./db/scores.json");
+    const { users, admin, ...rest } = userList;
+    const { scores, ...others } = triviaList;
+    return res.send({
+      totalUsers: Object.keys(rest).length,
+      triviaUsers: Object.keys(others).length,
+      views: pageViewCount
+    });
+  }
+});
 
 server.get(["/", "/index", "/index.html"], (req, res) => {
   res.sendFile(pathJoiner("public/index.html"));
+  pageViewCount++;
 });
 server.get(["/schedule", "/schedule.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/schedule.html"));
+  pageViewCount++;
 });
 server.get(["/home", "/home.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/home.html"));
+  pageViewCount++;
 });
-server.get(["/makemyday", "/makemyday.html"], hasRegistered, (req, res) => {
-  res.sendFile(pathJoiner("src/views/makemyday.html"));
-});
+// server.get(["/makemyday", "/makemyday.html"], hasRegistered, (req, res) => {
+//   res.sendFile(pathJoiner("src/views/makemyday.html"));
+// });
 server.get(["/partners", "/partners.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/partners.html"));
+  pageViewCount++;
 });
 server.get(["/info", "/info.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/info.html"));
+  pageViewCount++;
 });
 server.get(["/trivia", "/trivia.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/trivia.html"));
+  pageViewCount++;
 });
 server.get(["/speakers", "/speakers.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/speakers.html"));
+  pageViewCount++;
 });
 server.get(["/resources", "/resources.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/resources.html"));
+  pageViewCount++;
 });
 server.get(["/notes", "/notes.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner("src/views/notes.html"));
+  pageViewCount++;
 });
 server.get("/contact", (req, res) => {
   res.sendFile(pathJoiner(`src/views/contact.html`));
+  pageViewCount++;
 });
 server.get(["/leaderboard", "/leaderboard.html"], hasRegistered, (req, res) => {
   res.sendFile(pathJoiner(`src/views/leaderboard.html`));
+  pageViewCount++;
 });
 server.get("/leaders", (req, res) => {
   //get leaderboard info from server
   try {
-      const scores = require("./db/scores.json");
-      const topTen = Object.values(scores);
-      // scores.json has an empty array at pos 0
-      topTen.shift();
-      const len = topTen.length;
-      topTen.length = len > 10 ? 10 : len
-      res.json(topTen);
-    } catch(error) {
-        logger.error(`An error occured getting top ten scores: ${error}`)
-        res.status(500).send({failed: 'There was a problem'})
-    }
+    const scores = require("./db/scores.json");
+    const topTen = Object.values(scores);
+    // scores.json has an empty array at pos 0
+    topTen.shift();
+    const len = topTen.length;
+    topTen.length = len > 10 ? 10 : len;
+    res.json(topTen);
+  } catch (error) {
+    logger.error(`An error occured getting top ten scores: ${error}`);
+    res.status(500).send({ failed: "There was a problem" });
+  }
 });
 
 server.post("/score", (req, res) => {
   const publicHash = req.body.hash;
   const score = req.body.score;
-  const {user, hash} = authenticate(publicHash)
+  const { user, hash } = authenticate(publicHash);
   if (!user) {
     logger.error("Non-registered user tried to post score");
-    res.status(403).send({ failed: "Problem posting score, user not authenticated" });
+    res
+      .status(403)
+      .send({ failed: "Problem posting score, user not authenticated" });
     return;
   }
 
   const scores = require("./db/scores.json");
-  if(scores[hash] && scores[hash].score == score){
+  if (scores[hash] && scores[hash].score == score) {
     logger.info("score hasn't changed for user, don't write");
     return;
   }
 
   scores[hash] = {
     name: `${user.firstName} ${user.lastName[0].toUpperCase()}`,
-    score
-  }
+    score,
+  };
 
   dbWriter("scores.json", scores, "leaderboard");
-  logger.info(`wrote score: ${score} for user hash: ${hash}`)
-
+  logger.info(`wrote score: ${score} for user hash: ${hash}`);
 });
 
 server.post("/sendMessage", async (req, res) => {
   const publicHash = req.body.hash;
   const subject = req.body.subject;
   const text = req.body.message;
-  const {user, hash } = authenticate(publicHash)
+  const { user, hash } = authenticate(publicHash);
   if (!user) {
     logger.error("Non-registered user tried to send email");
     res.status(403).send({ failed: "Problem sending message." });

@@ -80,29 +80,9 @@ const loginListener = e => {
     const form = e.target;
     const goWhere = form.getAttribute('action');
     const inputs = form.querySelectorAll('input');
-    // not using password atm
-    // if (goWhere === '/signup') {
-    //     const password = [...inputs].find(input => input.id === "password");
-    //     const confirm = [...inputs].find(input => input.id === "confirm");
-    //     if (password.value !== confirm.value) {
-    //         Anim.wiggle(form);
-    //         confirm.setCustomValidity("Passwords must match");
-    //         confirm.classList.add('error');
-    //         confirm.reportValidity();
-    //         setTimeout(() => {
-    //             confirm.setCustomValidity("");
-    //         }, 2000)
-    //         return;
-    //     } else {
-    //         confirm.classList.remove('error');
-    //     }
-    // }
 
     const formData = {};
     inputs.forEach(input => {
-        if (input.id == "confirm") {
-            return;
-        }
         formData[input.getAttribute('name').trim()] = input.value;
     });
     fetch(goWhere, {

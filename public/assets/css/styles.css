@@ -165,7 +165,12 @@ a {
 }
 
 /* specifics */
-
+.admin .btn {
+  margin-bottom: 15px;
+}
+.admin .stats {
+  font-size: 2em;
+}
 .actions {
   position: absolute;
   top: 34%;
@@ -307,6 +312,15 @@ a {
 }
 .tny-modal-body a {
   color: white !important;
+}
+.tny-modal-body ul {
+  margin-block-start: 0;
+  padding-inline-start: 20px;
+}
+.tny-modal-body li {
+  list-style: none;
+  margin-bottom: 38px;
+  word-break: break-word;
 }
 .error {
   outline: red !important;
