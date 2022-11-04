@@ -78,7 +78,8 @@ export const renderMenu = () => {
           return;
         }
       if(path === "index" || path === ""){
-        window.location.href = "/";
+        window.location.href = "/index";
+        return;
       }
       if(path !== "home"){
           window.history.go(-1);
