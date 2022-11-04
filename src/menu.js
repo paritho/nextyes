@@ -77,7 +77,7 @@ export const renderMenu = () => {
           window.location.href = "/home";
           return;
         }
-      if(path === "index" || path === ""){
+      if(path === "index.html" || path === ""){
         window.location.href = "/index";
         return;
       }
