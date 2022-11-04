@@ -77,6 +77,9 @@ export const renderMenu = () => {
           window.location.href = "/home";
           return;
         }
+      if(path === "index" || path === ""){
+        window.location.href = "/";
+      }
       if(path !== "home"){
           window.history.go(-1);
       }
