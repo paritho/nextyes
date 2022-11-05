@@ -394,6 +394,7 @@ server.get("/leaders", (req, res) => {
     const topTen = Object.values(scores);
     // scores.json has an empty array at pos 0
     topTen.shift();
+    topTen.sort((a, b) => b.scores - a.scores);
     const len = topTen.length;
     topTen.length = len > 10 ? 10 : len;
     res.json(topTen);
