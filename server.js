@@ -314,7 +314,10 @@ server.post("/findUser", (req, res) => {
       }
       return res.send({ failed: "user not found" });
     }
-    return res.send([users])
+    const rest = Object.values(users);
+    rest.shift();
+    rest.shift();
+    return res.send(Object.values(rest))
   }
 });
 server.post("/stats", (req, res) => {
