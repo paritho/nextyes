@@ -147,8 +147,12 @@
 #app * {
   font-family: "Poiret One", cursive;
 }
+
 a {
   text-decoration:underline #fa9300;
+  color: #fa9300 !important;
+  -webkit-text-decoration-line:  underline !important;
+  -webkit-text-decoration-color: #fa9300 !important;
 }
 
 .row {
@@ -676,7 +680,7 @@ a {
   top:0 !important;
   font-size: 1.5em;
 }
-.partners, .partners a, .resources, .resources a, .info, .info a {
+.partners, .resources, .info {
   color:white;
 }
 .pulse {

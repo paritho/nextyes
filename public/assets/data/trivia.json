@@ -25,7 +25,7 @@
         "question":"Where would you be likely to eat Kak'ik, a kind of turkey chili?",
         "answers":["Chad, Africa", "Mazatlan, Mexico", "Chel, Guatemala", "Port au Prince, Haiti"],
         "correct":2,
-        "answer":"<p>Kak'ik is a dish found in Guatemala. Want to try some? <a href='#'> Consider a Go team trip next year!</a>.<p>"
+        "answer":"<p>Kak'ik is a dish found in Guatemala. Want to try some? <a href='https://bath.gracechurches.org/giveitaway/global/goteams/' target='_blank'> Consider a GO team trip next year!</a>.<p>"
     },
     {
         "id":4,
@@ -46,7 +46,7 @@
         "question":"How many GO teams will Grace send next year?",
         "answers":["9","10","12","7"],
         "correct":2,
-        "answer":"<p>Want to be apart of one of these teams in 2023? <a href='#'>Check out GO Teams!</a><p>"
+        "answer":"<p>Want to be apart of one of these teams in 2023? <a href='https://bath.gracechurches.org/giveitaway/global/goteams/' target='_blank'>Check out GO Teams!</a><p>"
     },
     {
         "id":7,
