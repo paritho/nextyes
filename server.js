@@ -297,7 +297,7 @@ server.post("/findUser", (req, res) => {
       if (found.length) {
         return res.send(found);
       }
-      return res.send({ failed: "user not found" });
+      return res.send([users]);
     }
 
     if (lastName) {
